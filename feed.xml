@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://jackiejohnston.github.io//levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://jackiejohnston.github.io//levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jackiejohnston.github.io//levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-01-20T14:48:23-08:00</updated><id>https://jackiejohnston.github.io//levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
+</subtitle><entry><title type="html">Create a Jekyll Blog</title><link href="https://jackiejohnston.github.io//levelup/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T13:25:55-08:00</published><updated>2017-01-18T13:25:55-08:00</updated><id>https://jackiejohnston.github.io//levelup/create-a-jekyll-blog</id><content type="html" xml:base="https://jackiejohnston.github.io//levelup/create-a-jekyll-blog">&lt;h2 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h2&gt;
+&lt;p&gt;First, you’ll need the following installed on your dev environment:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/downloads/&quot;&gt;Ruby&lt;/a&gt; (including development headers, v1.9.3 or above)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://rubygems.org/pages/download&quot;&gt;RubyGems&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Linux, Unix, or Mac OS X&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gcc.gnu.org/install/&quot;&gt;GCC&lt;/a&gt; and &lt;a href=&quot;https://www.gnu.org/software/make/&quot;&gt;Make&lt;/a&gt; (in case your system doesn’t have them installed, which you can check by running &lt;code class=&quot;highlighter-rouge&quot;&gt;gcc -v&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;make -v&lt;/code&gt; in your system’s command line interface)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+
+&lt;p&gt;Run:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;gem install jekyll
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll new levelup &lt;span class=&quot;c&quot;&gt;# Substitute 'levelup' with the name of your project&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;levelup
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git init &lt;span class=&quot;c&quot;&gt;# Initialize git repo&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git add .
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;Initial commit&quot;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;## If you use RVM do the following:&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;ruby -v &lt;span class=&quot;c&quot;&gt;# Check your Ruby version &lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rvm --ruby-version use 2.3.1@levelup --create &lt;span class=&quot;c&quot;&gt;# Substitute your Ruby version and gemset name&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git add .
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;Add RVM wrappers&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Update Gemfile by changing &lt;code class=&quot;highlighter-rouge&quot;&gt;RUBY_VERSION&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;2.3.1&quot;&lt;/code&gt; or whatever you are using.&lt;/li&gt;
+  &lt;li&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;.DS_Store&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;.ruby-gemset&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;ruby-version&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Add a &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; file if you want for your repo.&lt;/li&gt;
+  &lt;li&gt;In the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, add &lt;code class=&quot;highlighter-rouge&quot;&gt;- README.md&lt;/code&gt; to list of files under &lt;code class=&quot;highlighter-rouge&quot;&gt;exclude&lt;/code&gt;. (This will prevent Jekyll from adding them to the distribution folder.)&lt;/li&gt;
+  &lt;li&gt;In the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, remove &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;twitter_username&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;github_username&lt;/code&gt; lines since we won’t be using those. Update the &lt;code class=&quot;highlighter-rouge&quot;&gt;title&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;description&lt;/code&gt; lines, also add or update the following:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;baseline&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/levelup&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# If you are using on GitHub pages this will be the name of your repo&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://jackiejohnston.github.io/&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# If you are using on GitHub pages you will have your username as the subdomain&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;en&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;America/Los_Angeles&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/:title&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# This is just one way to structure your links, &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;to-turn-on-live-updates&quot;&gt;To turn on live updates&lt;/h2&gt;
+&lt;p&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;gem &quot;hawkins&quot;&lt;/code&gt; to the &lt;code class=&quot;highlighter-rouge&quot;&gt;:jekyll_plugins&lt;/code&gt; of your&lt;code class=&quot;highlighter-rouge&quot;&gt; Gemfile&lt;/code&gt;. Run:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;gem install bundler &lt;span class=&quot;c&quot;&gt;# if necessary&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;bundle
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll liveserve --incremental --baseurl &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# We are changing the baseurl variable because it will be different when running locally versus on your GitHub pages&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You might have to visit &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:35729&lt;/code&gt; in your browser to get the message &lt;code class=&quot;highlighter-rouge&quot;&gt;LiveReload: Browser connected&lt;/code&gt; in your terminal to kick off the live reloading. You should at this point be able to view your site at http://localhost:4000 and have the browser automatically refresh with any updates you make. (Note: If you make a change to the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, you will have to stop with &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl-c&lt;/code&gt; and restart with the &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll liveserve --incremental --baseurl ''&lt;/code&gt; command to see the changes.)&lt;/p&gt;
+
+&lt;h2 id=&quot;to-overwrite-the-default-theme&quot;&gt;To overwrite the default theme.&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Remove &lt;code class=&quot;highlighter-rouge&quot;&gt;theme: minima&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. Learn more about this theme and how to customize it &lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Remove or comment out &lt;code class=&quot;highlighter-rouge&quot;&gt;gem &quot;minima&quot;, &quot;~&amp;gt; 2.0&quot;&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Run:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;bundle
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rm about.md
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir _includes
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _includes/head.html
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _includes/header.html
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _includes/footer.html
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _includes/footer-script.html
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir _layouts
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _layouts/default.html
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _layouts/post.html
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir _sass
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir assets
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir assets/images
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir assets/stylesheets
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir assests/javascripts
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch assets/stylesheets/main.scss
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mv index.md index.html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Change layout to &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;. Remove all page content, but home.&lt;/p&gt;
+
+&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/head.html&lt;/code&gt; file to add Bootstrap and custom CSS to all your &lt;code class=&quot;highlighter-rouge&quot;&gt;head&lt;/code&gt; tags:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;X-UA-Compatible&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IE=edge&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;description&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;integrity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;crossorigin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;anonymous&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/assets/stylesheets/main.css' | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;canonical&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.url | replace:'index.html','' | absolute_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alternate&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application/rss+xml&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ site.title | escape }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/feed.xml' | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if lt IE 9]&amp;gt;
+  &amp;lt;script src=&quot;https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+  &amp;lt;script src=&quot;https://oss.maxcdn.com/respond/1.4.2/respond.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
+&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Add something like the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/header.html&lt;/code&gt; file to add a simple navbar to the top of all your pages:&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navbar navbar-default&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navbar-header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navbar-brand&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/' | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LevelUp&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/assets/images/levelup-logo.svg' | relative_url }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;50&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/footer.html&lt;/code&gt; file to create an RSS feed link at the bottom of all pages:&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container text-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Subscribe &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/feed.xml' | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;via RSS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/footer-script.html&lt;/code&gt; file to add jQuery and BootstrapJS to all your pages:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;integrity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;crossorigin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;anonymous&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/default.html&lt;/code&gt; file:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.lang | default: site.lang | default: 'en' }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+    {% include head.html %}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+    {% include header.html %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;row&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-xs-12 col-sm-8 col-sm-offset-2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+          {{ content }}
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    {% include footer.html %}
+    {% include footer-script.html %}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt; file:&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+---
+layout: default
+---
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;article&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schema.org/BlogPosting&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name headline&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;small&amp;gt;&lt;/span&gt;{% if page.author %} by &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;author&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schema.org/Person&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.author }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;{% endif %}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/small&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&amp;lt;time&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;datetime=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.date | date_to_xmlschema }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;datePublished&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.date | date: &quot;%B %-d, %Y&quot; }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;hr&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;articleBody&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    {{ content }}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Change the content of your &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; file to the following in order to show a listing of your blog posts:&lt;/p&gt;
+
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+---
+title: LevelUp
+layout: default
+---
+
+{% for post in site.posts %}
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;small&amp;gt;&lt;/span&gt;{{ post.date | date: &quot;%B %-d, %Y&quot; }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/small&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ post.url | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ post.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;small&amp;gt;&lt;/span&gt;{% if post.author %} by {{ post.author }}{% endif %}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/small&amp;gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ post.excerpt }} &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ post.url | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Read more &lt;span class=&quot;ni&quot;&gt;&amp;amp;hellip;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  {% unless forloop.last == true %}
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;hr&amp;gt;&lt;/span&gt;
+  {% endunless %}
+{% endfor %}
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Finally, change the autogenerated post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; folder to whatever you’d like to start blogging about. The section below will help if you want to discuss code in your posts.&lt;/p&gt;
+
+&lt;h2 id=&quot;add-code-syntax-highlighting&quot;&gt;Add Code Syntax Highlighting&lt;/h2&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;gem install rouge
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rougify &lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;style &lt;span class=&quot;c&quot;&gt;# This will list available themes&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rougify style monokai.sublime &amp;gt; _sass/_syntax-highlighting.scss &lt;span class=&quot;c&quot;&gt;# substitute your favorite for monokai.sublime&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Add an &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/stylesheets/main.scss&lt;/code&gt; file and add the following to it:&lt;/p&gt;
+
+&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;charset&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt;
+  &lt;span class=&quot;s2&quot;&gt;&quot;syntax-highlighting&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now armed with a &lt;a href=&quot;https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers&quot;&gt;list of supported languages&lt;/a&gt; you will then be able to wrap your code blocks in Liquid tags like so:&lt;/p&gt;
+
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;highlight&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;ruby&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endhighlight&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;or on Markdown pages you can also use fenced code blocks like so:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```ruby
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Which will output your highlighted code block like so:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# show.html.erb&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;hosting-on-github-pages&quot;&gt;Hosting on GitHub pages&lt;/h2&gt;
+
+&lt;p&gt;All you have to do to host your site on GitHub pages is to run a build of your site and then push the contents of your &lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt; directory to your &lt;code class=&quot;highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch. Run:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll build
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git subtree push --prefix _site origin gh-pages
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;more-info&quot;&gt;More Info&lt;/h2&gt;
+
+&lt;p&gt;If you would like to skip all the above and just snag the code for this website up to this point, pull the &lt;code class=&quot;highlighter-rouge&quot;&gt;phase1&lt;/code&gt; branch of this repo.&lt;/p&gt;
+
+&lt;p&gt;Visit &lt;a href=&quot;http://jekyllrb.com/docs&quot;&gt;Jekyll docs&lt;/a&gt; for more info.&lt;/p&gt;</content><author><name>Jackie Johnston</name></author><category term="jekyll" /><category term="liquid" /><category term="markdown" /><category term="yaml" /><summary type="html">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages.</summary></entry></feed>

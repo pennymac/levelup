@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Create a Jekyll Blog</title>
+<meta name="description" content="This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages.">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="/levelup/assets/stylesheets/main.css">
+<link rel="canonical" href="https://jackiejohnston.github.io//levelup/create-a-jekyll-blog">
+<link rel="alternate" type="application/rss+xml" title="LevelUp" href="/levelup/feed.xml">
+
+<!-- START Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="https://pennypixels.pennymacusa.com/img/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://pennypixels.pennymacusa.com/img/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://pennypixels.pennymacusa.com/img/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://pennypixels.pennymacusa.com/img/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="https://pennypixels.pennymacusa.com/img/manifest.json">
+  <link rel="mask-icon" href="https://pennypixels.pennymacusa.com/img/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://pennypixels.pennymacusa.com/img/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="https://pennypixels.pennymacusa.com/img/mstile-144x144.png">
+  <meta name="msapplication-config" content="https://pennypixels.pennymacusa.com/img/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+<!-- END Favicons -->
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body>
+    <header class="navbar navbar-default">
+  <div class="container">
+    <nav class="navbar-header">
+      <a class="navbar-brand" href="/levelup/">
+        <img alt="LevelUp" src="/levelup/assets/images/levelup-logo.svg" height="50">
+      </a>
+    </nav>
+  </div>
+</header>
+    <div class="hero"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+          <article itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="text-center">
+    <h1 itemprop="name headline">Create a Jekyll Blog<small> by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">Jackie Johnston</span></span></small></h1>
+    <p><time datetime="2017-01-18T13:25:55-08:00" itemprop="datePublished">January 18, 2017</time></p>
+    <hr>
+  </header>
+
+  <div itemprop="articleBody">
+    <h2 id="check-the-requirements">Check the Requirements</h2>
+<p>First, you’ll need the following installed on your dev environment:</p>
+<ul>
+  <li><a href="https://www.ruby-lang.org/en/downloads/">Ruby</a> (including development headers, v1.9.3 or above)</li>
+  <li><a href="https://rubygems.org/pages/download">RubyGems</a></li>
+  <li>Linux, Unix, or Mac OS X</li>
+  <li><a href="https://gcc.gnu.org/install/">GCC</a> and <a href="https://www.gnu.org/software/make/">Make</a> (in case your system doesn’t have them installed, which you can check by running <code class="highlighter-rouge">gcc -v</code> and <code class="highlighter-rouge">make -v</code> in your system’s command line interface)</li>
+</ul>
+
+<h2 id="getting-started">Getting Started</h2>
+
+<p>Run:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>gem install jekyll
+<span class="gp">$  </span>jekyll new levelup <span class="c"># Substitute 'levelup' with the name of your project</span>
+<span class="gp">$  </span><span class="nb">cd </span>levelup
+<span class="gp">$  </span>git init <span class="c"># Initialize git repo</span>
+<span class="gp">$  </span>git add .
+<span class="gp">$  </span>git commit -m <span class="s2">"Initial commit"</span>
+<span class="c">## If you use RVM do the following:</span>
+<span class="gp">$  </span>ruby -v <span class="c"># Check your Ruby version </span>
+<span class="gp">$  </span>rvm --ruby-version use 2.3.1@levelup --create <span class="c"># Substitute your Ruby version and gemset name</span>
+<span class="gp">$  </span>git add .
+<span class="gp">$  </span>git commit -m <span class="s2">"Add RVM wrappers"</span>
+</code></pre>
+</div>
+
+<ul>
+  <li>Update Gemfile by changing <code class="highlighter-rouge">RUBY_VERSION</code> to <code class="highlighter-rouge">"2.3.1"</code> or whatever you are using.</li>
+  <li>Add <code class="highlighter-rouge">.DS_Store</code>, <code class="highlighter-rouge">.ruby-gemset</code>, <code class="highlighter-rouge">ruby-version</code> to <code class="highlighter-rouge">.gitignore</code>.</li>
+  <li>Add a <code class="highlighter-rouge">README.md</code> file if you want for your repo.</li>
+  <li>In the <code class="highlighter-rouge">_config.yml</code> file, add <code class="highlighter-rouge">- README.md</code> to list of files under <code class="highlighter-rouge">exclude</code>. (This will prevent Jekyll from adding them to the distribution folder.)</li>
+  <li>In the <code class="highlighter-rouge">_config.yml</code> file, remove <code class="highlighter-rouge">email</code>, <code class="highlighter-rouge">twitter_username</code>, and <code class="highlighter-rouge">github_username</code> lines since we won’t be using those. Update the <code class="highlighter-rouge">title</code> and <code class="highlighter-rouge">description</code> lines, also add or update the following:</li>
+</ul>
+
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">baseline</span><span class="pi">:</span> <span class="s">/levelup</span> <span class="c1"># If you are using on GitHub pages this will be the name of your repo</span>
+<span class="s">url</span><span class="pi">:</span> <span class="s">https://jackiejohnston.github.io/</span> <span class="c1"># If you are using on GitHub pages you will have your username as the subdomain</span>
+<span class="s">lang</span><span class="pi">:</span> <span class="s">en</span>
+<span class="s">timezone</span><span class="pi">:</span> <span class="s">America/Los_Angeles</span>
+<span class="s">permalink</span><span class="pi">:</span> <span class="s">/:title</span> <span class="c1"># This is just one way to structure your links, </span>
+</code></pre>
+</div>
+
+<h2 id="to-turn-on-live-updates">To turn on live updates</h2>
+<p>Add <code class="highlighter-rouge">gem "hawkins"</code> to the <code class="highlighter-rouge">:jekyll_plugins</code> of your<code class="highlighter-rouge"> Gemfile</code>. Run:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>gem install bundler <span class="c"># if necessary</span>
+<span class="gp">$  </span>bundle
+<span class="gp">$  </span>jekyll liveserve --incremental --baseurl <span class="s1">''</span> <span class="c"># We are changing the baseurl variable because it will be different when running locally versus on your GitHub pages</span>
+</code></pre>
+</div>
+
+<p>You might have to visit <code class="highlighter-rouge">127.0.0.1:35729</code> in your browser to get the message <code class="highlighter-rouge">LiveReload: Browser connected</code> in your terminal to kick off the live reloading. You should at this point be able to view your site at http://localhost:4000 and have the browser automatically refresh with any updates you make. (Note: If you make a change to the <code class="highlighter-rouge">_config.yml</code> file, you will have to stop with <code class="highlighter-rouge">ctrl-c</code> and restart with the <code class="highlighter-rouge">jekyll liveserve --incremental --baseurl ''</code> command to see the changes.)</p>
+
+<h2 id="to-overwrite-the-default-theme">To overwrite the default theme.</h2>
+
+<ul>
+  <li>Remove <code class="highlighter-rouge">theme: minima</code> from <code class="highlighter-rouge">_config.yml</code>. Learn more about this theme and how to customize it <a href="https://github.com/jekyll/minima">here</a>.</li>
+  <li>Remove or comment out <code class="highlighter-rouge">gem "minima", "~&gt; 2.0"</code> from <code class="highlighter-rouge">Gemfile</code>.</li>
+  <li>Run:</li>
+</ul>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>bundle
+<span class="gp">$  </span>rm about.md
+<span class="gp">$  </span>mkdir _includes
+<span class="gp">$  </span>touch _includes/head.html
+<span class="gp">$  </span>touch _includes/header.html
+<span class="gp">$  </span>touch _includes/footer.html
+<span class="gp">$  </span>touch _includes/footer-script.html
+<span class="gp">$  </span>mkdir _layouts
+<span class="gp">$  </span>touch _layouts/default.html
+<span class="gp">$  </span>touch _layouts/post.html
+<span class="gp">$  </span>mkdir _sass
+<span class="gp">$  </span>mkdir assets
+<span class="gp">$  </span>mkdir assets/images
+<span class="gp">$  </span>mkdir assets/stylesheets
+<span class="gp">$  </span>mkdir assests/javascripts
+<span class="gp">$  </span>touch assets/stylesheets/main.scss
+<span class="gp">$  </span>mv index.md index.html
+</code></pre>
+</div>
+
+<p>Change layout to <code class="highlighter-rouge">default</code> in <code class="highlighter-rouge">index.html</code>. Remove all page content, but home.</p>
+
+<p>Add the following to your <code class="highlighter-rouge">_includes/head.html</code> file to add Bootstrap and custom CSS to all your <code class="highlighter-rouge">head</code> tags:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">"X-UA-Compatible"</span> <span class="na">content=</span><span class="s">"IE=edge"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"viewport"</span> <span class="na">content=</span><span class="s">"width=device-width, initial-scale=1"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;title&gt;</span>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">content=</span><span class="s">"{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"</span> <span class="na">integrity=</span><span class="s">"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"{{ '/assets/stylesheets/main.css' | relative_url }}"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"canonical"</span> <span class="na">href=</span><span class="s">"{{ page.url | replace:'index.html','' | absolute_url }}"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"alternate"</span> <span class="na">type=</span><span class="s">"application/rss+xml"</span> <span class="na">title=</span><span class="s">"{{ site.title | escape }}"</span> <span class="na">href=</span><span class="s">"{{ '/feed.xml' | relative_url }}"</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;</span>
+<span class="c">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;</span>
+<span class="c">&lt;!--[if lt IE 9]&gt;
+  &lt;script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"&gt;&lt;/script&gt;
+  &lt;script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"&gt;&lt;/script&gt;
+&lt;![endif]--&gt;</span>
+
+</code></pre>
+</div>
+
+<p>Add something like the following to your <code class="highlighter-rouge">_includes/header.html</code> file to add a simple navbar to the top of all your pages:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"navbar navbar-default"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;nav</span> <span class="na">class=</span><span class="s">"navbar-header"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"navbar-brand"</span> <span class="na">href=</span><span class="s">"{{ '/' | relative_url }}"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"LevelUp"</span> <span class="na">src=</span><span class="s">"{{ '/assets/images/levelup-logo.svg' | relative_url }}"</span> <span class="na">height=</span><span class="s">"50"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/nav&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+</code></pre>
+</div>
+
+<p>Add the following to your <code class="highlighter-rouge">_includes/footer.html</code> file to create an RSS feed link at the bottom of all pages:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<span class="nt">&lt;footer</span> <span class="na">class=</span><span class="s">"container text-center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Subscribe <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ '/feed.xml' | relative_url }}"</span><span class="nt">&gt;</span>via RSS<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;/footer&gt;</span>
+
+</code></pre>
+</div>
+
+<p>Add the following to your <code class="highlighter-rouge">_includes/footer-script.html</code> file to add jQuery and BootstrapJS to all your pages:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"</span> <span class="na">integrity=</span><span class="s">"sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"</span> <span class="na">crossorigin=</span><span class="s">"anonymous"</span><span class="nt">&gt;&lt;/script&gt;</span>
+</code></pre>
+</div>
+
+<p>Add the following to your <code class="highlighter-rouge">_layouts/default.html</code> file:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">"{{ page.lang | default: site.lang | default: 'en' }}"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    {% include head.html %}
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    {% include header.html %}
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-8 col-sm-offset-2"</span><span class="nt">&gt;</span>
+          {{ content }}
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    {% include footer.html %}
+    {% include footer-script.html %}
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+
+</code></pre>
+</div>
+
+<p>Add the following to your <code class="highlighter-rouge">_layouts/post.html</code> file:</p>
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+---
+layout: default
+---
+<span class="nt">&lt;article</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/BlogPosting"</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;header</span> <span class="na">class=</span><span class="s">"text-center"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">itemprop=</span><span class="s">"name headline"</span><span class="nt">&gt;</span>{{ page.title }}<span class="nt">&lt;small&gt;</span>{% if page.author %} by <span class="nt">&lt;span</span> <span class="na">itemprop=</span><span class="s">"author"</span> <span class="na">itemscope</span> <span class="na">itemtype=</span><span class="s">"http://schema.org/Person"</span><span class="nt">&gt;&lt;span</span> <span class="na">itemprop=</span><span class="s">"name"</span><span class="nt">&gt;</span>{{ page.author }}<span class="nt">&lt;/span&gt;&lt;/span&gt;</span>{% endif %}<span class="nt">&lt;/small&gt;&lt;/h1&gt;</span>
+    <span class="nt">&lt;p&gt;&lt;time</span> <span class="na">datetime=</span><span class="s">"{{ page.date | date_to_xmlschema }}"</span> <span class="na">itemprop=</span><span class="s">"datePublished"</span><span class="nt">&gt;</span>{{ page.date | date: "%B %-d, %Y" }}<span class="nt">&lt;/time&gt;&lt;/p&gt;</span>
+    <span class="nt">&lt;hr&gt;</span>
+  <span class="nt">&lt;/header&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">itemprop=</span><span class="s">"articleBody"</span><span class="nt">&gt;</span>
+    {{ content }}
+  <span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/article&gt;</span>
+
+</code></pre>
+</div>
+
+<p>Change the content of your <code class="highlighter-rouge">index.html</code> file to the following in order to show a listing of your blog posts:</p>
+
+<div class="language-html highlighter-rouge"><pre class="highlight"><code>
+---
+title: LevelUp
+layout: default
+---
+
+{% for post in site.posts %}
+  <span class="nt">&lt;small&gt;</span>{{ post.date | date: "%B %-d, %Y" }}<span class="nt">&lt;/small&gt;</span>
+  <span class="nt">&lt;h4&gt;&lt;a</span> <span class="na">href=</span><span class="s">"{{ post.url | relative_url }}"</span><span class="nt">&gt;</span>{{ post.title }}<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;small&gt;</span>{% if post.author %} by {{ post.author }}{% endif %}<span class="nt">&lt;/small&gt;&lt;/h3&gt;</span>
+  <span class="nt">&lt;p&gt;</span>{{ post.excerpt }} <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"{{ post.url | relative_url }}"</span><span class="nt">&gt;</span>Read more <span class="ni">&amp;hellip;</span><span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+  {% unless forloop.last == true %}
+    <span class="nt">&lt;hr&gt;</span>
+  {% endunless %}
+{% endfor %}
+
+</code></pre>
+</div>
+
+<p>Finally, change the autogenerated post in your <code class="highlighter-rouge">_posts</code> folder to whatever you’d like to start blogging about. The section below will help if you want to discuss code in your posts.</p>
+
+<h2 id="add-code-syntax-highlighting">Add Code Syntax Highlighting</h2>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>gem install rouge
+<span class="gp">$  </span>rougify <span class="nb">help </span>style <span class="c"># This will list available themes</span>
+<span class="gp">$  </span>rougify style monokai.sublime &gt; _sass/_syntax-highlighting.scss <span class="c"># substitute your favorite for monokai.sublime</span>
+</code></pre>
+</div>
+
+<p>Add an <code class="highlighter-rouge">assets/stylesheets/main.scss</code> file and add the following to it:</p>
+
+<div class="language-scss highlighter-rouge"><pre class="highlight"><code><span class="nt">---</span>
+<span class="nt">---</span>
+<span class="o">@</span><span class="nt">charset</span> <span class="s2">"utf-8"</span><span class="p">;</span>
+<span class="k">@import</span>
+  <span class="s2">"syntax-highlighting"</span>
+<span class="p">;</span>
+</code></pre>
+</div>
+
+<p>Now armed with a <a href="https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers">list of supported languages</a> you will then be able to wrap your code blocks in Liquid tags like so:</p>
+
+<div class="language-liquid highlighter-rouge"><pre class="highlight"><code><span class="p">{%</span><span class="w"> </span><span class="nt">highlight</span><span class="w"> </span>ruby<span class="w"> </span><span class="p">%}</span>
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+<span class="p">{%</span><span class="w"> </span><span class="nt">endhighlight</span><span class="w"> </span><span class="p">%}</span>
+</code></pre>
+</div>
+
+<p>or on Markdown pages you can also use fenced code blocks like so:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>```ruby
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+```
+</code></pre>
+</div>
+
+<p>Which will output your highlighted code block like so:</p>
+
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">show</span>
+  <span class="vi">@widget</span> <span class="o">=</span> <span class="no">Widget</span><span class="p">(</span><span class="n">params</span><span class="p">[</span><span class="ss">:id</span><span class="p">])</span>
+  <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+    <span class="nb">format</span><span class="p">.</span><span class="nf">html</span> <span class="c1"># show.html.erb</span>
+    <span class="nb">format</span><span class="p">.</span><span class="nf">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json: </span><span class="vi">@widget</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div>
+
+<h2 id="hosting-on-github-pages">Hosting on GitHub pages</h2>
+
+<p>All you have to do to host your site on GitHub pages is to run a build of your site and then push the contents of your <code class="highlighter-rouge">_site</code> directory to your <code class="highlighter-rouge">gh-pages</code> branch. Run:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>jekyll build
+<span class="gp">$  </span>git subtree push --prefix _site origin gh-pages
+</code></pre>
+</div>
+
+<h2 id="more-info">More Info</h2>
+
+<p>If you would like to skip all the above and just snag the code for this website up to this point, pull the <code class="highlighter-rouge">phase1</code> branch of this repo.</p>
+
+<p>Visit <a href="http://jekyllrb.com/docs">Jekyll docs</a> for more info.</p>
+
+  </div>
+
+</article>
+        </div>
+      </div>
+    </div>
+    <footer class="container text-center">
+  <p>Subscribe <a href="/levelup/feed.xml">via RSS</a></p>
+</footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  </body>
+</html>
