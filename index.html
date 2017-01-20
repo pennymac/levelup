@@ -1,0 +1,14 @@
+---
+title: LevelUp
+layout: default
+---
+
+{% for post in site.posts %}
+  <small>{{ post.date | date: "%B %-d, %Y" }}</small>
+  <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <small>{% if post.author %} by {{ post.author }}{% endif %}</small></h3>
+  <p>{{ post.excerpt }} <a href="{{ post.url | relative_url }}">Read more &hellip;</a></p>
+  {% unless forloop.last == true %}
+    <hr>
+  {% endunless %}
+{% endfor %}
+

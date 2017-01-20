@@ -21,7 +21,7 @@ $  bundle install
 
 For development, run:
 ```
-$  jekyll liveserve --baseurl ''
+$  jekyll liveserve --incremental --baseurl ''
 ```
 
 then navigate to `http://localhost:4000/` in your browser.
