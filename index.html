@@ -1,14 +1,21 @@
 ---
-title: LevelUp
+title: Welcome
 layout: default
 ---
+<h2>Share What You Know</h2>
+<p class="lead">Welcome to the Central App Dev blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. <a href="{{ baseurl }}how-to-contribute-to-levelup">Here's a how-to article</a> to show you how to get started.</p>
 
-{% for post in site.posts %}
-  <small>{{ post.date | date: "%B %-d, %Y" }}</small>
-  <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <small>{% if post.author %} by {{ post.author }}{% endif %}</small></h3>
-  <p>{{ post.excerpt }} <a href="{{ post.url | relative_url }}">Read more &hellip;</a></p>
-  {% unless forloop.last == true %}
-    <hr>
-  {% endunless %}
-{% endfor %}
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <h3>Recent Posts</h3>
+    {% for post in site.posts %}
+      <small>{{ post.date | date: "%B %-d, %Y" }}</small>
+      <h4><a href="{{ post.url | relative_url }}">{{ post.title }}</a> <small>{% if post.author %} by {{ post.author }}{% endif %}</small></h4>
+      <p>{{ post.excerpt }} <a href="{{ post.url | relative_url }}">Read more &hellip;</a></p>
+      {% unless forloop.last == true %}
+        <hr>
+      {% endunless %}
+    {% endfor %}
+  </div>
+</div>
 

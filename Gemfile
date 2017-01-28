@@ -20,6 +20,9 @@ gem "jekyll", "3.3.1"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-   gem "jekyll-feed", "~> 0.6"
-   gem "hawkins"
+  gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-stitch-plus"
+  gem "uglifier"
+  gem "jekyll-autoprefixer"
+  gem "hawkins"
 end

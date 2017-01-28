@@ -36,3 +36,13 @@ The command to do this on GitHub pages is:
 ```
 $  git subtree push --prefix _site origin gh-pages
 ```
+
+## Contributing
+Create a feature branch off of master and make a pull-request.
+
+## Feature wish list
+ - Add an archive page with pagination
+ - Add sidebar with 3-5 most recent posts listed and a tag cloud
+ - Add tag index pages with pagination
+ - Set up notification service and newsletter form on sidebar (AWeber?)
+ - Set up Discus comments
