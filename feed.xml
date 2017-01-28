@@ -1,5 +1,144 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://jackiejohnston.github.io//levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://jackiejohnston.github.io//levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jackiejohnston.github.io//levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-01-20T14:48:23-08:00</updated><id>https://jackiejohnston.github.io//levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
-</subtitle><entry><title type="html">Create a Jekyll Blog</title><link href="https://jackiejohnston.github.io//levelup/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T13:25:55-08:00</published><updated>2017-01-18T13:25:55-08:00</updated><id>https://jackiejohnston.github.io//levelup/create-a-jekyll-blog</id><content type="html" xml:base="https://jackiejohnston.github.io//levelup/create-a-jekyll-blog">&lt;h2 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://jackiejohnston.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://jackiejohnston.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://jackiejohnston.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-01-27T17:24:08-08:00</updated><id>https://jackiejohnston.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
+</subtitle><entry><title type="html">How to Contribute to LevelUp</title><link href="https://jackiejohnston.github.io/levelup/how-to-contribute-to-levelup" rel="alternate" type="text/html" title="How to Contribute to LevelUp" /><published>2017-01-27T00:00:00-08:00</published><updated>2017-01-27T00:00:00-08:00</updated><id>https://jackiejohnston.github.io/levelup/how-to-contribute-to-levelup</id><content type="html" xml:base="https://jackiejohnston.github.io/levelup/how-to-contribute-to-levelup">&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;If this is the first time you’ve posted, you’ll need to install Jekyll and download the repo.&lt;/p&gt;
+
+&lt;h3 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h3&gt;
+&lt;p&gt;First, you’ll need the following installed on your dev environment:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/downloads/&quot;&gt;Ruby&lt;/a&gt; (including development headers, v2.3.1)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://rubygems.org/pages/download&quot;&gt;RubyGems&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Linux, Unix, or Mac OS X&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gcc.gnu.org/install/&quot;&gt;GCC&lt;/a&gt; and &lt;a href=&quot;https://www.gnu.org/software/make/&quot;&gt;Make&lt;/a&gt; (in case your system doesn’t have them installed, which you can check by running &lt;code class=&quot;highlighter-rouge&quot;&gt;gcc -v&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;make -v&lt;/code&gt; in your system’s command line interface)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;download-the-repo&quot;&gt;Download the Repo&lt;/h3&gt;
+
+&lt;p&gt;Run:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git clone git@github.com:jackiejohnston/levelup.git
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;levelup
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rvm --ruby-version use 2.3.1@levelup --create &lt;span class=&quot;c&quot;&gt;# optional, if you use RVM&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;bundle
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git checkout -b post/my-awesome-post-title &lt;span class=&quot;c&quot;&gt;# create a branch off of master&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll liveserve --incremental --baseurl &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;At this point you can go to &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4000/&lt;/code&gt; in your browser to see the site.&lt;/p&gt;
+
+&lt;h3 id=&quot;create-a-post&quot;&gt;Create a post&lt;/h3&gt;
+
+&lt;p&gt;Make a new Markdown file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory named according to the following format, where &lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number and &lt;code class=&quot;highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;YEAR-MONTH-DAY-title.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;For example, these are the two I’ve created so far:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2017-01-18-create-a-jekyll-blog.md
+2017-01-27-how-to-contribute-to-levelup.md
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;yaml-front-matter&quot;&gt;YAML Front Matter&lt;/h3&gt;
+
+&lt;p&gt;The first thing in your new file will be YAML front matter set between triple-dashed lines. Here’s the what I’m using on the current post:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+layout: post
+title: How to Contribute to LevelUp
+date:   2017-01-27
+author: Jackie Johnston
+excerpt: This is a quick walk-through on how to create a post for this site.
+tags: [jekyll, markdown, yaml]
+---
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You will obviously change all the values here except for the first one which you’ll leave as &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;write-your-post&quot;&gt;Write your post&lt;/h3&gt;
+
+&lt;p&gt;You are now ready to compose your post using &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;Markdown&lt;/a&gt;. You can use fenced code blocks for syntax highlighting like so:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```ruby
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+```
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Which will output to:&lt;/p&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
+  &lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# show.html.erb&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Here’s a &lt;a href=&quot;https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers&quot;&gt;list of supported languages&lt;/a&gt; that you can use.&lt;/p&gt;
+
+&lt;h3 id=&quot;adding-photos--videos&quot;&gt;Adding Photos &amp;amp; Videos&lt;/h3&gt;
+
+&lt;p&gt;To add a responsive image like the following:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/desktop.jpg&quot; alt=&quot;image-title-here&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Just add the photo to the &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/images&lt;/code&gt; directory and use the following tag in your post:&lt;/p&gt;
+
+&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;image-title-here&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;{{&lt;/span&gt; baseurl }}/assets/images/desktop.jpg){:class=&quot;img-responsive&quot;}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;To embed a YouTube video like the following:&lt;/p&gt;
+
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;http://youtube.com/embed/FOfIoCi9uTI&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;First get the video id. It will be everything after the &lt;code class=&quot;highlighter-rouge&quot;&gt;v=&lt;/code&gt;. So for &lt;code class=&quot;highlighter-rouge&quot;&gt;youtube.com/watch?v=FOfIoCi9uTI&lt;/code&gt; the id is &lt;code class=&quot;highlighter-rouge&quot;&gt;FOfIoCi9uTI&lt;/code&gt;. Then add it to a Liquid tag like:&lt;/p&gt;
+
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;youtube&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;FOfIoCi&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;uTI&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If instead you have a Vimeo video, take the id from the URL, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;vimeo.com/22439234&lt;/code&gt; and add to a Vimeo Liquid tag:&lt;/p&gt;
+
+&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;vimeo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;170526921&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;to get this:&lt;/p&gt;
+
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://player.vimeo.com/video/170526921&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;preview--build&quot;&gt;Preview &amp;amp; Build&lt;/h3&gt;
+
+&lt;p&gt;You will be able to preview your blog post by running:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll liveserve --incremental --baseurl &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Your post will be listed on the homepage with a link.&lt;/p&gt;
+
+&lt;p&gt;Once it looks perfect, run:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;JEKYLL_ENV&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;production jekyll build
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git add .
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;Added new post&quot;&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git push origin post/my-awesome-post-title
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Then go to the &lt;a href=&quot;https://github.com/jackiejohnston/levelup&quot;&gt;repo&lt;/a&gt; and create a merge request.&lt;/p&gt;
+
+&lt;p&gt;Start blogging now!&lt;/p&gt;</content><author><name>Jackie Johnston</name></author><category term="jekyll" /><category term="markdown" /><category term="yaml" /><summary type="html">This is a quick walk-through on how to create a post for this site.</summary></entry><entry><title type="html">Create a Jekyll Blog</title><link href="https://jackiejohnston.github.io/levelup/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T00:00:00-08:00</published><updated>2017-01-18T00:00:00-08:00</updated><id>https://jackiejohnston.github.io/levelup/create-a-jekyll-blog</id><content type="html" xml:base="https://jackiejohnston.github.io/levelup/create-a-jekyll-blog">&lt;h2 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h2&gt;
 &lt;p&gt;First, you’ll need the following installed on your dev environment:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/downloads/&quot;&gt;Ruby&lt;/a&gt; (including development headers, v1.9.3 or above)&lt;/li&gt;
