@@ -7,7 +7,6 @@
 
 <title>Welcome</title>
 <meta name="description" content="This is a blog and/or wiki for Central App Dev to share knowledge with each other.">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="/levelup/assets/stylesheets/main.css">
 <link rel="canonical" href="https://jackiejohnston.github.io/levelup/">
 <link rel="alternate" type="application/rss+xml" title="LevelUp" href="https://jackiejohnston.github.io/levelup/feed.xml">
@@ -72,24 +71,151 @@
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-offset-2 main">
           <h2>Share What You Know</h2>
-<p class="lead">Welcome to the Central App Dev blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. <a href="how-to-contribute-to-levelup">Here's a how-to article</a> to show you how to get started.</p>
+<p class="lead">Welcome to the Central App Dev blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. <a href="how-to-contribute-to-levelup">Here&#8217;s a how-to article</a> to show you how to get started.</p>
+
+<div class="blog-tags-list m-t-3 text-center">
+  <a href onclick="removeFilters(); return false;" class="btn btn-primary btn-xs m-b-1">Recent Posts <span class="badge">2</span></a>
+  
+  
+    
+    
+    <span class="blog-tag-item" id="jekyll-item">
+      <a href onclick="filter('jekyll'); return false;" class="btn btn-primary btn-xs m-b-1">Jekyll Posts <span class="badge">2</span></a> 
+    </span>  
+  
+    
+    
+    <span class="blog-tag-item" id="liquid-item">
+      <a href onclick="filter('liquid'); return false;" class="btn btn-primary btn-xs m-b-1">Liquid Posts <span class="badge">1</span></a> 
+    </span>  
+  
+    
+    
+    <span class="blog-tag-item" id="markdown-item">
+      <a href onclick="filter('markdown'); return false;" class="btn btn-primary btn-xs m-b-1">Markdown Posts <span class="badge">2</span></a> 
+    </span>  
+  
+    
+    
+    <span class="blog-tag-item" id="yaml-item">
+      <a href onclick="filter('yaml'); return false;" class="btn btn-primary btn-xs m-b-1">Yaml Posts <span class="badge">2</span></a> 
+    </span>  
+  
+</div>
 
 <div class="row">
   <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-    <h3>Recent Posts</h3>
-    
-      <small>January 27, 2017</small>
-      <h4><a href="/levelup/how-to-contribute-to-levelup">How to Contribute to LevelUp</a> <small> by Jackie Johnston</small></h4>
-      <p>This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup">Read more &hellip;</a></p>
+
+    <div id="recent">
+      <h3>Recent Posts</h3>
       
-        <hr>
+        <small>January 27, 2017</small>
+        <h4><a href="/levelup/how-to-contribute-to-levelup">How to Contribute to LevelUp</a> <small> by Jackie Johnston</small></h4>
+        <p>This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup">Read more &hellip;</a></p>
+        
+          <hr>
+        
       
-    
-      <small>January 18, 2017</small>
-      <h4><a href="/levelup/create-a-jekyll-blog">Create a Jekyll Blog</a> <small> by Jackie Johnston</small></h4>
-      <p>This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog">Read more &hellip;</a></p>
+        <small>January 18, 2017</small>
+        <h4><a href="/levelup/create-a-jekyll-blog">Create a Jekyll Blog</a> <small> by Jackie Johnston</small></h4>
+        <p>This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog">Read more &hellip;</a></p>
+        
       
+    </div>
     
+    
+      
+      
+      <div class="blog-list-container hidden" id="jekyll-container">
+        <div class="blog-list">
+          <h3>Jekyll Posts</h3>
+          
+            
+              <small>January 27, 2017</small>
+              <h4><a href="/levelup/how-to-contribute-to-levelup">How to Contribute to LevelUp</a> <small> by Jackie Johnston</small></h4>
+              <p>This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup">Read more &hellip;</a></p>
+              
+                <hr>
+              
+            
+          
+            
+              <small>January 18, 2017</small>
+              <h4><a href="/levelup/create-a-jekyll-blog">Create a Jekyll Blog</a> <small> by Jackie Johnston</small></h4>
+              <p>This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog">Read more &hellip;</a></p>
+              
+            
+          
+        </div>
+      </div>
+    
+      
+      
+      <div class="blog-list-container hidden" id="liquid-container">
+        <div class="blog-list">
+          <h3>Liquid Posts</h3>
+          
+            
+              <small>January 18, 2017</small>
+              <h4><a href="/levelup/create-a-jekyll-blog">Create a Jekyll Blog</a> <small> by Jackie Johnston</small></h4>
+              <p>This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog">Read more &hellip;</a></p>
+              
+            
+          
+        </div>
+      </div>
+    
+      
+      
+      <div class="blog-list-container hidden" id="markdown-container">
+        <div class="blog-list">
+          <h3>Markdown Posts</h3>
+          
+            
+              <small>January 27, 2017</small>
+              <h4><a href="/levelup/how-to-contribute-to-levelup">How to Contribute to LevelUp</a> <small> by Jackie Johnston</small></h4>
+              <p>This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup">Read more &hellip;</a></p>
+              
+                <hr>
+              
+            
+          
+            
+              <small>January 18, 2017</small>
+              <h4><a href="/levelup/create-a-jekyll-blog">Create a Jekyll Blog</a> <small> by Jackie Johnston</small></h4>
+              <p>This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog">Read more &hellip;</a></p>
+              
+            
+          
+        </div>
+      </div>
+    
+      
+      
+      <div class="blog-list-container hidden" id="yaml-container">
+        <div class="blog-list">
+          <h3>Yaml Posts</h3>
+          
+            
+              <small>January 27, 2017</small>
+              <h4><a href="/levelup/how-to-contribute-to-levelup">How to Contribute to LevelUp</a> <small> by Jackie Johnston</small></h4>
+              <p>This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup">Read more &hellip;</a></p>
+              
+                <hr>
+              
+            
+          
+            
+              <small>January 18, 2017</small>
+              <h4><a href="/levelup/create-a-jekyll-blog">Create a Jekyll Blog</a> <small> by Jackie Johnston</small></h4>
+              <p>This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog">Read more &hellip;</a></p>
+              
+            
+          
+        </div>
+      </div>
+    
+
   </div>
 </div>
 
@@ -100,5 +226,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="/levelup/assets/javascripts/application.min.js"></script>
+
+<script>
+
+</script>
   </body>
 </html>

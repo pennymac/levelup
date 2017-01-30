@@ -95,12 +95,12 @@ Here's a [list of supported languages](https://github.com/jneen/rouge/wiki/List-
 
 To add a responsive image like the following:
 
-![image-title-here]({{ baseurl }}/assets/images/desktop.jpg){:class="img-responsive"}
+![Laptop computer on desk]({{ baseurl }}/assets/images/desktop.jpg){:class="img-responsive"}
 
 Just add the photo to the `assets/images` directory and use the following tag in your post:
 
 ```markdown{% raw %}
-![image-title-here]({{ baseurl }}/assets/images/desktop.jpg){:class="img-responsive"}
+![Image alt text here.]({{ baseurl }}/assets/images/desktop.jpg){:class="img-responsive"}
 {% endraw %}```
 
 To embed a YouTube video like the following:
@@ -142,6 +142,8 @@ $  git add .
 $  git commit -m "Added new post"
 $  git push origin post/my-awesome-post-title
 ```
+
+### Pull Request
 
 Then go to the [repo](https://github.com/jackiejohnston/levelup) and create a merge request.
 
