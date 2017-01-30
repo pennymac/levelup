@@ -167,11 +167,11 @@ end
 
 <p>To add a responsive image like the following:</p>
 
-<p><img src="/assets/images/desktop.jpg" alt="Laptop computer on desk" class="img-responsive" /></p>
+<p><img src="/levelup/assets/images/desktop.jpg" alt="Laptop computer on desk" class="img-responsive" /></p>
 
 <p>Just add the photo to the <code class="highlighter-rouge">assets/images</code> directory and use the following tag in your post:</p>
 
-<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Image alt text here.</span><span class="p">](</span><span class="sx">{{</span> baseurl }}/assets/images/desktop.jpg){:class="img-responsive"}
+<div class="language-markdown highlighter-rouge"><pre class="highlight"><code><span class="p">![</span><span class="nv">Image alt text here.</span><span class="p">](</span><span class="sx">{{</span> <span class="nn">'/assets/images/desktop.jpg'</span> | relative_url }}){:class="img-responsive"}
 </code></pre>
 </div>
 

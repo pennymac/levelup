@@ -95,12 +95,12 @@ Here's a [list of supported languages](https://github.com/jneen/rouge/wiki/List-
 
 To add a responsive image like the following:
 
-![Laptop computer on desk]({{ baseurl }}/assets/images/desktop.jpg){:class="img-responsive"}
+![Laptop computer on desk]({{ '/assets/images/desktop.jpg' | relative_url }}){:class="img-responsive"}
 
 Just add the photo to the `assets/images` directory and use the following tag in your post:
 
 ```markdown{% raw %}
-![Image alt text here.]({{ baseurl }}/assets/images/desktop.jpg){:class="img-responsive"}
+![Image alt text here.]({{ '/assets/images/desktop.jpg' | relative_url }}){:class="img-responsive"}
 {% endraw %}```
 
 To embed a YouTube video like the following:
