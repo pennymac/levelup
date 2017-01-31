@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
+<div id="social-share">
+  <a class="js-social-share" href="https://plus.google.com/share
+     ?url={{ page.url | url_encode }}" title="Share on Google+"><i class="fa fa-google" aria-hidden="true"></i></a><br class="hidden-xs" /><a class="js-social-share" href="https://www.facebook.com/sharer/sharer.php?u={{ page.url | url_encode }}" title="Share on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a><br class="hidden-xs" /><a class="js-social-share" href="https://twitter.com/intent/tweet?url={{ page.url | url_encode }}&text={{ page.title | url_encode }}{{ ': ' | url_encode }}{{ page.excerpt | url_encode }}&hashtags={{ page.tags | array_to_sentence_string | replace: 'and', '' | url_encode }}" title="Tweet"><i class="fa fa-twitter" aria-hidden="true"></i></a><br class="hidden-xs" /><a class="js-social-share" href="http://www.reddit.com/submit/?url={{ page.url | url_encode }}" title="Share on Reddit"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a><br class="hidden-xs" /><a class="js-social-share" href="https://www.linkedin.com/shareArticle?mini=true&url={{ page.url | url_encode }}&title={{ page.title | url_encode }}&source={{ site.url | append: site.baseurl | url_encode }}&summary={{ page.excerpt | url_encode }}" title="Share on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+</div>
 <article itemscope itemtype="http://schema.org/BlogPosting">
 
   <div itemprop="articleBody">

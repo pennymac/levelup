@@ -104,6 +104,36 @@ footer {
   left: 0; top: 0;
 }
 
-.blog-tags-list {
-  a { white-space: nowrap; }
+.blog-tags-list a { white-space: nowrap; }
+
+a .fa-facebook, a .fa-twitter, a .fa-google, a .fa-linkedin, a .fa-reddit-alien {
+  font-size: 24px;
+  line-height: 48px;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  vertical-align: bottom;
+  display: inline-block;
+  margin: 0;
+  color: white !important;
+}
+
+a .fa-facebook { background-color: rgb(59, 89, 152); }
+
+a .fa-twitter { background-color: rgb(29, 161, 242); }
+
+a .fa-google { background-color: rgb(66, 133, 244); }
+
+a .fa-reddit-alien { background-color: rgb(255, 87, 0);; }
+
+a .fa-linkedin { background-color: rgb(0, 119, 181); }
+
+#social-share { text-align: center; }
+
+@media (min-width: 768px) {
+  #social-share {
+    position: absolute;
+    top: 0;
+    left: -48px;
+  }
 }
