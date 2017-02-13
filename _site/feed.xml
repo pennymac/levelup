@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-02-13T09:53:01-08:00</updated><id>https://pennymac.github.io//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
-</subtitle><entry><title type="html">How to Contribute to LevelUp</title><link href="https://pennymac.github.io/how-to-contribute-to-levelup" rel="alternate" type="text/html" title="How to Contribute to LevelUp" /><published>2017-01-27T00:00:00-08:00</published><updated>2017-01-27T00:00:00-08:00</updated><id>https://pennymac.github.io/how-to-contribute-to-levelup</id><content type="html" xml:base="https://pennymac.github.io/how-to-contribute-to-levelup">&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-02-13T09:57:12-08:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
+</subtitle><entry><title type="html">How to Contribute to LevelUp</title><link href="https://pennymac.github.io/levelup/how-to-contribute-to-levelup" rel="alternate" type="text/html" title="How to Contribute to LevelUp" /><published>2017-01-27T00:00:00-08:00</published><updated>2017-01-27T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/how-to-contribute-to-levelup</id><content type="html" xml:base="https://pennymac.github.io/levelup/how-to-contribute-to-levelup">&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;If this is the first time you’ve posted, you’ll need to install Jekyll and download the repo.&lt;/p&gt;
 
 &lt;h3 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h3&gt;
@@ -89,7 +89,7 @@ end
 
 &lt;p&gt;To add a responsive image like the following:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/desktop.jpg&quot; alt=&quot;Laptop computer on desk&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/levelup/assets/images/desktop.jpg&quot; alt=&quot;Laptop computer on desk&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Just add the photo to the &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/images&lt;/code&gt; directory and use the following tag in your post:&lt;/p&gt;
 
@@ -140,7 +140,7 @@ end
 
 &lt;p&gt;Then go to the &lt;a href=&quot;https://github.com/pennymac/levelup&quot;&gt;repo&lt;/a&gt; and create a merge request.&lt;/p&gt;
 
-&lt;p&gt;Start blogging now!&lt;/p&gt;</content><author><name>Jackie Johnston</name></author><category term="jekyll" /><category term="markdown" /><category term="yaml" /><summary type="html">This is a quick walk-through on how to create a post for this site.</summary></entry><entry><title type="html">Create a Jekyll Blog</title><link href="https://pennymac.github.io/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T00:00:00-08:00</published><updated>2017-01-18T00:00:00-08:00</updated><id>https://pennymac.github.io/create-a-jekyll-blog</id><content type="html" xml:base="https://pennymac.github.io/create-a-jekyll-blog">&lt;h2 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h2&gt;
+&lt;p&gt;Start blogging now!&lt;/p&gt;</content><author><name>Jackie Johnston</name></author><category term="jekyll" /><category term="markdown" /><category term="yaml" /><summary type="html">This is a quick walk-through on how to create a post for this site.</summary></entry><entry><title type="html">Create a Jekyll Blog</title><link href="https://pennymac.github.io/levelup/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T00:00:00-08:00</published><updated>2017-01-18T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/create-a-jekyll-blog</id><content type="html" xml:base="https://pennymac.github.io/levelup/create-a-jekyll-blog">&lt;h2 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h2&gt;
 &lt;p&gt;First, you’ll need the following installed on your dev environment:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/downloads/&quot;&gt;Ruby&lt;/a&gt; (including development headers, v1.9.3 or above)&lt;/li&gt;
