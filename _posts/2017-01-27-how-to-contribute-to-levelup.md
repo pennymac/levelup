@@ -22,7 +22,7 @@ First, you'll need the following installed on your dev environment:
 
 Run:
 ```shell
-$  git clone git@github.com:jackiejohnston/levelup.git
+$  git clone git@github.com:pennymac/levelup.git
 $  cd levelup
 $  rvm --ruby-version use 2.3.1@levelup --create # optional, if you use RVM
 $  bundle
@@ -145,7 +145,7 @@ $  git push origin post/my-awesome-post-title
 
 ### Pull Request
 
-Then go to the [repo](https://github.com/jackiejohnston/levelup) and create a merge request.
+Then go to the [repo](https://github.com/pennymac/levelup) and create a merge request.
 
 Start blogging now!
 

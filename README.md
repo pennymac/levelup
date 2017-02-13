@@ -1,7 +1,7 @@
 # LevelUp
 This is a demo site built with [Jekyll 3](https://jekyllrb.com/).
 
-You can view it on GitHub Pages at: [https://jackiejohnston.github.io/levelup/](https://jackiejohnston.github.io/levelup/)
+You can view it on GitHub Pages at: [https://pennymac.github.io/levelup/](https://pennymac.github.io/levelup/)
 
 ## Requirements
 
@@ -14,7 +14,7 @@ You can view it on GitHub Pages at: [https://jackiejohnston.github.io/levelup/](
 
 Run the following commands in your console:
 ```
-$  git clone git@github.com:jackiejohnston/levelup.git
+$  git clone git@github.com:pennymac/levelup.git
 $  cd levelup
 $  bundle install
 ```

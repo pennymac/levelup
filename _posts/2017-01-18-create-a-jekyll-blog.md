@@ -39,7 +39,7 @@ $  git commit -m "Add RVM wrappers"
 
 ```yaml
 baseline: /levelup # If you are using on GitHub pages this will be the name of your repo
-url: https://jackiejohnston.github.io/ # If you are using on GitHub pages you will have your username as the subdomain
+url: https://pennymac.github.io/ # If you are using on GitHub pages you will have your username as the subdomain
 lang: en
 timezone: America/Los_Angeles
 permalink: /:title # This is just one way to structure your links, 

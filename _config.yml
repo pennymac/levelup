@@ -18,7 +18,7 @@ lang: en
 timezone: America/Los_Angeles
 description: > # this means to ignore newlines until "baseurl:"
   This is a blog and/or wiki for Central App Dev to share knowledge with each other.
-url: https://jackiejohnston.github.io # the base hostname & protocol for your site, e.g. http://example.com
+url: https://pennymac.github.io # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: /levelup # the subpath of your site, e.g. /blog
 permalink: /:title
 
