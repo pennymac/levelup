@@ -11,10 +11,10 @@
           <div class="col-xs-12 title">
             <div class="container">
               <h1 itemprop="name headline">{{ page.title | upcase }}</h1>
-              {% if page.author or page.date %}<h2><small>
+              {% if page.author_name or page.date %}<h2><small>
               {% if page.date %}<time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %-d, %Y" | upcase }}</time>{% endif %}
-              {% if page.author and page.date %}&nbsp;/&nbsp;{% endif %}
-              {% if page.author %}<span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author | upcase }}</span></span>{% endif %}
+              {% if page.author_name and page.date %}&nbsp;/&nbsp;{% endif %}
+              {% if page.author_name %}<span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author_name | upcase }}</span></span>{% endif %}
               </small></h2>{% endif %}
             </div>
           </div>

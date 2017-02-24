@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-02-13T09:57:12-08:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-02-24T11:59:38-08:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
 </subtitle><entry><title type="html">How to Contribute to LevelUp</title><link href="https://pennymac.github.io/levelup/how-to-contribute-to-levelup" rel="alternate" type="text/html" title="How to Contribute to LevelUp" /><published>2017-01-27T00:00:00-08:00</published><updated>2017-01-27T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/how-to-contribute-to-levelup</id><content type="html" xml:base="https://pennymac.github.io/levelup/how-to-contribute-to-levelup">&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;If this is the first time you’ve posted, you’ll need to install Jekyll and download the repo.&lt;/p&gt;
 
@@ -47,13 +47,16 @@
 layout: post
 title: How to Contribute to LevelUp
 date:   2017-01-27
-author: Jackie Johnston
+image: https://source.unsplash.com/N7XodRrbzS0/500x300
+author_name: Jackie Johnston
+author_image: https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300
+author_url: https://www.jackiejohnston.com
 excerpt: This is a quick walk-through on how to create a post for this site.
 tags: [jekyll, markdown, yaml]
 ---
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;You will obviously change all the values here except for the first one which you’ll leave as &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You will obviously change all the values here except for the first one which you’ll leave as &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_url&lt;/code&gt; are all optional. Please use external urls for the &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt;. If you are looking for an image, I recommend one of the laptop images at &lt;a href=&quot;https://unsplash.com/search/laptop&quot;&gt;Unsplash&lt;/a&gt;. Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says &lt;code class=&quot;highlighter-rouge&quot;&gt;https://unsplash.com/search/laptop?photo=It0DCaCBr40&lt;/code&gt;, then &lt;code class=&quot;highlighter-rouge&quot;&gt;It0DCaCBr40&lt;/code&gt; is the ID. Just substitute that ID into the URL displayed in the front matter above, so it’ll be &lt;code class=&quot;highlighter-rouge&quot;&gt;https://source.unsplash.com/It0DCaCBr40/500x300&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&quot;write-your-post&quot;&gt;Write your post&lt;/h3&gt;
 
@@ -140,7 +143,7 @@ end
 
 &lt;p&gt;Then go to the &lt;a href=&quot;https://github.com/pennymac/levelup&quot;&gt;repo&lt;/a&gt; and create a merge request.&lt;/p&gt;
 
-&lt;p&gt;Start blogging now!&lt;/p&gt;</content><author><name>Jackie Johnston</name></author><category term="jekyll" /><category term="markdown" /><category term="yaml" /><summary type="html">This is a quick walk-through on how to create a post for this site.</summary></entry><entry><title type="html">Create a Jekyll Blog</title><link href="https://pennymac.github.io/levelup/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T00:00:00-08:00</published><updated>2017-01-18T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/create-a-jekyll-blog</id><content type="html" xml:base="https://pennymac.github.io/levelup/create-a-jekyll-blog">&lt;h2 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h2&gt;
+&lt;p&gt;Start blogging now!&lt;/p&gt;</content><category term="jekyll" /><category term="markdown" /><category term="yaml" /><summary type="html">This is a quick walk-through on how to create a post for this site.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/N7XodRrbzS0/500x300" /></entry><entry><title type="html">Create a Jekyll Blog</title><link href="https://pennymac.github.io/levelup/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T00:00:00-08:00</published><updated>2017-01-18T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/create-a-jekyll-blog</id><content type="html" xml:base="https://pennymac.github.io/levelup/create-a-jekyll-blog">&lt;h2 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h2&gt;
 &lt;p&gt;First, you’ll need the following installed on your dev environment:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/downloads/&quot;&gt;Ruby&lt;/a&gt; (including development headers, v1.9.3 or above)&lt;/li&gt;
@@ -419,4 +422,4 @@ end
 
 &lt;p&gt;If you would like to skip all the above and just snag the code for this website up to this point, pull the &lt;code class=&quot;highlighter-rouge&quot;&gt;phase1&lt;/code&gt; branch of this repo.&lt;/p&gt;
 
-&lt;p&gt;Visit &lt;a href=&quot;http://jekyllrb.com/docs&quot;&gt;Jekyll docs&lt;/a&gt; for more info.&lt;/p&gt;</content><author><name>Jackie Johnston</name></author><category term="jekyll" /><category term="liquid" /><category term="markdown" /><category term="yaml" /><summary type="html">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages.</summary></entry></feed>
+&lt;p&gt;Visit &lt;a href=&quot;http://jekyllrb.com/docs&quot;&gt;Jekyll docs&lt;/a&gt; for more info.&lt;/p&gt;</content><category term="jekyll" /><category term="liquid" /><category term="markdown" /><category term="yaml" /><summary type="html">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/lRssALOk1fU/500x300" /></entry></feed>
