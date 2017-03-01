@@ -21,20 +21,20 @@ $  bundle install
 
 For development, run:
 ```
-$  jekyll liveserve --incremental --baseurl ''
+$  rake serve
 ```
 
 then navigate to `http://localhost:4000/` in your browser.
 
 To create a build for production, run:
 ```
-$  JEKYLL_ENV=production jekyll build
+$  rake build
 ```
 Then upload the contents of the `_site` directory to your webhost.
 
 The command to do this on GitHub pages is:
 ```
-$  git subtree push --prefix _site origin gh-pages
+$  rake publish
 ```
 
 ## Contributing

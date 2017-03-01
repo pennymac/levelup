@@ -2,79 +2,80 @@
 title: Welcome
 layout: default
 ---
-<h2>Share What You Know</h2>
-<p class="lead">Welcome to the Central App Dev blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. <a href="{{ baseurl }}how-to-contribute-to-levelup">Here&#8217;s a how-to article</a> to show you how to get started.</p>
+<div id="main" tabindex="-1">
+  <h2>Share What You Know</h2>
+  <p class="lead">Welcome to the Central App Dev blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. <a href="{{ baseurl }}how-to-contribute-to-levelup">Here&#8217;s a how-to article</a> to show you how to get started.</p>
 
-<div class="blog-tags-list m-t-3 text-center">
-  <a href onclick="removeFilters(); return false;" class="btn btn-primary btn-xs m-b-1">Recent Posts <span class="badge">{{ site.posts.size }}</span></a>
-  {% assign sorted_tags = site.tags | sort %}
-  {% for tag in sorted_tags %}
-    {% assign t = tag | first %}
-    {% assign posts = tag | last %}
-    <span class="blog-tag-item" id="{{ t }}-item">
-      <a href onclick="filter('{{ t }}'); return false;" class="btn btn-primary btn-xs m-b-1">{{ t | capitalize }} Posts <span class="badge">{{ site.tags[t].size }}</span></a> 
-    </span>  
-  {% endfor %}
-</div>
+  <div class="blog-tags-list m-t-3 text-center">
+    <a href onclick="removeFilters(); return false;" class="btn btn-primary btn-xs m-b-1">Recent <span class="badge">{{ site.posts.size }}</span></a>
+    {% assign sorted_tags = site.tags | sort %}
+    {% for tag in sorted_tags %}
+      {% assign t = tag | first %}
+      {% assign posts = tag | last %}
+      <span class="blog-tag-item" id="{{ t }}-item">
+        <a href onclick="filter('{{ t }}'); return false;" class="btn btn-primary btn-xs m-b-1">{{ t | capitalize }} <span class="badge">{{ site.tags[t].size }}</span></a> 
+      </span>  
+    {% endfor %}
+  </div>
 
 
-<div class="row">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
 
-    <div id="recent">
-      <h3>Recent Posts</h3>
-      {% for post in site.posts %}
-        <div class="card m-b-3">
-          {% if post.image %}
-            <a href="{{ post.url | relative_url }}"><img class="card-img-top img-fluid" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}"></a>
-          {% else %}
-            <img class="card-img-top img-fluid" src="https://source.unsplash.com/category/technology/?laptop" alt="{{ post.title }}"> 
-          {% endif %}
-          {% if post.author_image and post.author_url %}
-            <a href="{{ post.author_url }}" data-toggle="tooltip" data-placement="bottom" title="Go to {{ post.author_name }}'s website" target="_blank">
-              <img src="{{ post.author_image }}" alt="{{ post.author_name }}" class="img-circle center-block author-pic">
-            </a>
-          {% endif %}
-          <div class="card-block">
-            <h4 class="card-title">{{ post.title }} <small>by {{ post.author_name }}</small></h4>
-            <p class="card-text">{{ post.excerpt }} <a href="{{ post.url | relative_url }}" class="card-link">Read more&hellip;</a></p>
-            <p class="footer"><small class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</small></p>
+      <div id="recent">
+        <h3>Recent Posts</h3>
+        {% for post in site.posts %}
+          <div class="card m-b-3">
+            {% if post.image %}
+              <a href="{{ post.url | relative_url }}"><img class="card-img-top img-fluid" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}"></a>
+            {% else %}
+              <img class="card-img-top img-fluid" src="https://source.unsplash.com/category/technology/?laptop" alt="{{ post.title }}"> 
+            {% endif %}
+            {% if post.author_image and post.author_url %}
+              <a href="{{ post.author_url }}" data-toggle="tooltip" data-placement="bottom" title="Go to {{ post.author_name }}'s website" target="_blank">
+                <img src="{{ post.author_image }}" alt="{{ post.author_name }}" class="img-circle center-block author-pic">
+              </a>
+            {% endif %}
+            <div class="card-block">
+              <h4 class="card-title">{{ post.title }} <small>by {{ post.author_name }}</small></h4>
+              <p class="card-text">{{ post.excerpt }} <a href="{{ post.url | relative_url }}" class="card-link">Read more&hellip;</a></p>
+              <p class="footer"><small class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</small></p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      
+      {% for tag in site.tags %}
+        {% assign t = tag | first %}
+        {% assign posts = tag | last %}
+        <div class="blog-list-container hidden" id="{{ t }}-container">
+          <div class="blog-list">
+            <h3>{{ t | capitalize }} Posts</h3>
+            {% for post in posts %}
+              {% if post.tags contains t %}
+                <div class="card m-b-3">
+                  {% if post.image %}
+                    <a href="{{ post.url | relative_url }}"><img class="card-img-top img-fluid" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}"></a>
+                  {% else %}
+                    <img class="card-img-top img-fluid" src="https://source.unsplash.com/category/technology/?laptop" alt="{{ post.title }}"> 
+                  {% endif %}
+                  {% if post.author_image and post.author_url %}
+                    <a href="{{ post.author_url }}" data-toggle="tooltip" data-placement="bottom" title="Go to {{ post.author_name }}'s website" target="_blank">
+                      <img src="{{ post.author_image }}" alt="{{ post.author_name }}" class="img-circle center-block author-pic">
+                    </a>
+                  {% endif %}
+                  <div class="card-block">
+                    <h4 class="card-title">{{ post.title }} <small>by {{ post.author_name }}</small></h4>
+                    <p class="card-text">{{ post.excerpt }} <a href="{{ post.url | relative_url }}" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</small></p>
+                  </div>
+                </div>
+              {% endif %}
+            {% endfor %}
           </div>
         </div>
       {% endfor %}
-    </div>
-    
-    {% for tag in site.tags %}
-      {% assign t = tag | first %}
-      {% assign posts = tag | last %}
-      <div class="blog-list-container hidden" id="{{ t }}-container">
-        <div class="blog-list">
-          <h3>{{ t | capitalize }} Posts</h3>
-          {% for post in posts %}
-            {% if post.tags contains t %}
-              <div class="card m-b-3">
-                {% if post.image %}
-                  <a href="{{ post.url | relative_url }}"><img class="card-img-top img-fluid" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}"></a>
-                {% else %}
-                  <img class="card-img-top img-fluid" src="https://source.unsplash.com/category/technology/?laptop" alt="{{ post.title }}"> 
-                {% endif %}
-                {% if post.author_image and post.author_url %}
-                  <a href="{{ post.author_url }}" data-toggle="tooltip" data-placement="bottom" title="Go to {{ post.author_name }}'s website" target="_blank">
-                    <img src="{{ post.author_image }}" alt="{{ post.author_name }}" class="img-circle center-block author-pic">
-                  </a>
-                {% endif %}
-                <div class="card-block">
-                  <h4 class="card-title">{{ post.title }} <small>by {{ post.author_name }}</small></h4>
-                  <p class="card-text">{{ post.excerpt }} <a href="{{ post.url | relative_url }}" class="card-link">Read more&hellip;</a></p>
-                  <p class="footer"><small class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</small></p>
-                </div>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
-    {% endfor %}
 
+    </div>
   </div>
 </div>
-
