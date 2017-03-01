@@ -46,6 +46,7 @@
       <div class="navbar navbar-default">
   <div class="container">
     <nav class="navbar-header">
+      <a id="skip-to-main-link" href="#main" class="sr-only sr-only-focusable pull-left ">Skip to main content.</a>  
       <a class="navbar-brand" href="/levelup/">
         <img alt="LevelUp" src="/levelup/assets/images/levelup-logo.svg" height="43">
       </a>
@@ -69,248 +70,364 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-offset-2 main">
-          <h2>Share What You Know</h2>
-<p class="lead">Welcome to the Central App Dev blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. <a href="how-to-contribute-to-levelup">Here&#8217;s a how-to article</a> to show you how to get started.</p>
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 main" role="main">
+          <div id="main" tabindex="-1">
+  <h2>Share What You Know</h2>
+  <p class="lead">Welcome to the Central App Dev blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. <a href="how-to-contribute-to-levelup">Here&#8217;s a how-to article</a> to show you how to get started.</p>
 
-<div class="blog-tags-list m-t-3 text-center">
-  <a href onclick="removeFilters(); return false;" class="btn btn-primary btn-xs m-b-1">Recent Posts <span class="badge">2</span></a>
-  
-  
+  <div class="blog-tags-list m-t-3 text-center">
+    <a href onclick="removeFilters(); return false;" class="btn btn-primary btn-xs m-b-1">Recent <span class="badge">3</span></a>
     
     
-    <span class="blog-tag-item" id="jekyll-item">
-      <a href onclick="filter('jekyll'); return false;" class="btn btn-primary btn-xs m-b-1">Jekyll Posts <span class="badge">2</span></a> 
-    </span>  
-  
-    
-    
-    <span class="blog-tag-item" id="liquid-item">
-      <a href onclick="filter('liquid'); return false;" class="btn btn-primary btn-xs m-b-1">Liquid Posts <span class="badge">1</span></a> 
-    </span>  
-  
-    
-    
-    <span class="blog-tag-item" id="markdown-item">
-      <a href onclick="filter('markdown'); return false;" class="btn btn-primary btn-xs m-b-1">Markdown Posts <span class="badge">2</span></a> 
-    </span>  
-  
-    
-    
-    <span class="blog-tag-item" id="yaml-item">
-      <a href onclick="filter('yaml'); return false;" class="btn btn-primary btn-xs m-b-1">Yaml Posts <span class="badge">2</span></a> 
-    </span>  
-  
-</div>
-
-
-<div class="row">
-  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-
-    <div id="recent">
-      <h3>Recent Posts</h3>
       
-        <div class="card m-b-3">
-          
-            <a href="/levelup/how-to-contribute-to-levelup"><img class="card-img-top img-fluid" src="https://source.unsplash.com/N7XodRrbzS0/500x300" alt="How to Contribute to LevelUp" title="How to Contribute to LevelUp"></a>
-          
-          
-            <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-              <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-            </a>
-          
-          <div class="card-block">
-            <h4 class="card-title">How to Contribute to LevelUp <small>by Jackie Johnston</small></h4>
-            <p class="card-text">This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup" class="card-link">Read more&hellip;</a></p>
-            <p class="footer"><small class="text-muted">January 27, 2017</small></p>
+      
+      <span class="blog-tag-item" id="accessibility-item">
+        <a href onclick="filter('accessibility'); return false;" class="btn btn-primary btn-xs m-b-1">Accessibility <span class="badge">1</span></a> 
+      </span>  
+    
+      
+      
+      <span class="blog-tag-item" id="css-item">
+        <a href onclick="filter('css'); return false;" class="btn btn-primary btn-xs m-b-1">Css <span class="badge">1</span></a> 
+      </span>  
+    
+      
+      
+      <span class="blog-tag-item" id="html-item">
+        <a href onclick="filter('html'); return false;" class="btn btn-primary btn-xs m-b-1">Html <span class="badge">1</span></a> 
+      </span>  
+    
+      
+      
+      <span class="blog-tag-item" id="jekyll-item">
+        <a href onclick="filter('jekyll'); return false;" class="btn btn-primary btn-xs m-b-1">Jekyll <span class="badge">2</span></a> 
+      </span>  
+    
+      
+      
+      <span class="blog-tag-item" id="liquid-item">
+        <a href onclick="filter('liquid'); return false;" class="btn btn-primary btn-xs m-b-1">Liquid <span class="badge">1</span></a> 
+      </span>  
+    
+      
+      
+      <span class="blog-tag-item" id="markdown-item">
+        <a href onclick="filter('markdown'); return false;" class="btn btn-primary btn-xs m-b-1">Markdown <span class="badge">2</span></a> 
+      </span>  
+    
+      
+      
+      <span class="blog-tag-item" id="yaml-item">
+        <a href onclick="filter('yaml'); return false;" class="btn btn-primary btn-xs m-b-1">Yaml <span class="badge">2</span></a> 
+      </span>  
+    
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+
+      <div id="recent">
+        <h3>Recent Posts</h3>
+        
+          <div class="card m-b-3">
+            
+              <a href="/levelup/how-to-make-a-skip-link"><img class="card-img-top img-fluid" src="https://source.unsplash.com/4m66VBr8zns/500x300" alt="How to Make a Skip Link" title="How to Make a Skip Link"></a>
+            
+            
+              <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+              </a>
+            
+            <div class="card-block">
+              <h4 class="card-title">How to Make a Skip Link <small>by Jackie Johnston</small></h4>
+              <p class="card-text">This shows one way to make your site easier to navigate by keyboard. <a href="/levelup/how-to-make-a-skip-link" class="card-link">Read more&hellip;</a></p>
+              <p class="footer"><small class="text-muted">March 1, 2017</small></p>
+            </div>
+          </div>
+        
+          <div class="card m-b-3">
+            
+              <a href="/levelup/how-to-contribute-to-levelup"><img class="card-img-top img-fluid" src="https://source.unsplash.com/N7XodRrbzS0/500x300" alt="How to Contribute to LevelUp" title="How to Contribute to LevelUp"></a>
+            
+            
+              <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+              </a>
+            
+            <div class="card-block">
+              <h4 class="card-title">How to Contribute to LevelUp <small>by Jackie Johnston</small></h4>
+              <p class="card-text">This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup" class="card-link">Read more&hellip;</a></p>
+              <p class="footer"><small class="text-muted">January 27, 2017</small></p>
+            </div>
+          </div>
+        
+          <div class="card m-b-3">
+            
+              <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
+            
+            
+              <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+              </a>
+            
+            <div class="card-block">
+              <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
+              <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
+              <p class="footer"><small class="text-muted">January 18, 2017</small></p>
+            </div>
+          </div>
+        
+      </div>
+      
+      
+        
+        
+        <div class="blog-list-container hidden" id="jekyll-container">
+          <div class="blog-list">
+            <h3>Jekyll Posts</h3>
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/how-to-contribute-to-levelup"><img class="card-img-top img-fluid" src="https://source.unsplash.com/N7XodRrbzS0/500x300" alt="How to Contribute to LevelUp" title="How to Contribute to LevelUp"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">How to Contribute to LevelUp <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">January 27, 2017</small></p>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">January 18, 2017</small></p>
+                  </div>
+                </div>
+              
+            
           </div>
         </div>
       
-        <div class="card m-b-3">
-          
-            <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
-          
-          
-            <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-              <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-            </a>
-          
-          <div class="card-block">
-            <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
-            <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
-            <p class="footer"><small class="text-muted">January 18, 2017</small></p>
+        
+        
+        <div class="blog-list-container hidden" id="liquid-container">
+          <div class="blog-list">
+            <h3>Liquid Posts</h3>
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">January 18, 2017</small></p>
+                  </div>
+                </div>
+              
+            
           </div>
         </div>
       
+        
+        
+        <div class="blog-list-container hidden" id="markdown-container">
+          <div class="blog-list">
+            <h3>Markdown Posts</h3>
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/how-to-contribute-to-levelup"><img class="card-img-top img-fluid" src="https://source.unsplash.com/N7XodRrbzS0/500x300" alt="How to Contribute to LevelUp" title="How to Contribute to LevelUp"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">How to Contribute to LevelUp <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">January 27, 2017</small></p>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">January 18, 2017</small></p>
+                  </div>
+                </div>
+              
+            
+          </div>
+        </div>
+      
+        
+        
+        <div class="blog-list-container hidden" id="yaml-container">
+          <div class="blog-list">
+            <h3>Yaml Posts</h3>
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/how-to-contribute-to-levelup"><img class="card-img-top img-fluid" src="https://source.unsplash.com/N7XodRrbzS0/500x300" alt="How to Contribute to LevelUp" title="How to Contribute to LevelUp"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">How to Contribute to LevelUp <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">January 27, 2017</small></p>
+                  </div>
+                </div>
+              
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">January 18, 2017</small></p>
+                  </div>
+                </div>
+              
+            
+          </div>
+        </div>
+      
+        
+        
+        <div class="blog-list-container hidden" id="html-container">
+          <div class="blog-list">
+            <h3>Html Posts</h3>
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/how-to-make-a-skip-link"><img class="card-img-top img-fluid" src="https://source.unsplash.com/4m66VBr8zns/500x300" alt="How to Make a Skip Link" title="How to Make a Skip Link"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">How to Make a Skip Link <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This shows one way to make your site easier to navigate by keyboard. <a href="/levelup/how-to-make-a-skip-link" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">March 1, 2017</small></p>
+                  </div>
+                </div>
+              
+            
+          </div>
+        </div>
+      
+        
+        
+        <div class="blog-list-container hidden" id="css-container">
+          <div class="blog-list">
+            <h3>Css Posts</h3>
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/how-to-make-a-skip-link"><img class="card-img-top img-fluid" src="https://source.unsplash.com/4m66VBr8zns/500x300" alt="How to Make a Skip Link" title="How to Make a Skip Link"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">How to Make a Skip Link <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This shows one way to make your site easier to navigate by keyboard. <a href="/levelup/how-to-make-a-skip-link" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">March 1, 2017</small></p>
+                  </div>
+                </div>
+              
+            
+          </div>
+        </div>
+      
+        
+        
+        <div class="blog-list-container hidden" id="accessibility-container">
+          <div class="blog-list">
+            <h3>Accessibility Posts</h3>
+            
+              
+                <div class="card m-b-3">
+                  
+                    <a href="/levelup/how-to-make-a-skip-link"><img class="card-img-top img-fluid" src="https://source.unsplash.com/4m66VBr8zns/500x300" alt="How to Make a Skip Link" title="How to Make a Skip Link"></a>
+                  
+                  
+                    <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
+                      <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
+                    </a>
+                  
+                  <div class="card-block">
+                    <h4 class="card-title">How to Make a Skip Link <small>by Jackie Johnston</small></h4>
+                    <p class="card-text">This shows one way to make your site easier to navigate by keyboard. <a href="/levelup/how-to-make-a-skip-link" class="card-link">Read more&hellip;</a></p>
+                    <p class="footer"><small class="text-muted">March 1, 2017</small></p>
+                  </div>
+                </div>
+              
+            
+          </div>
+        </div>
+      
+
     </div>
-    
-    
-      
-      
-      <div class="blog-list-container hidden" id="jekyll-container">
-        <div class="blog-list">
-          <h3>Jekyll Posts</h3>
-          
-            
-              <div class="card m-b-3">
-                
-                  <a href="/levelup/how-to-contribute-to-levelup"><img class="card-img-top img-fluid" src="https://source.unsplash.com/N7XodRrbzS0/500x300" alt="How to Contribute to LevelUp" title="How to Contribute to LevelUp"></a>
-                
-                
-                  <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-                    <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-                  </a>
-                
-                <div class="card-block">
-                  <h4 class="card-title">How to Contribute to LevelUp <small>by Jackie Johnston</small></h4>
-                  <p class="card-text">This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup" class="card-link">Read more&hellip;</a></p>
-                  <p class="footer"><small class="text-muted">January 27, 2017</small></p>
-                </div>
-              </div>
-            
-          
-            
-              <div class="card m-b-3">
-                
-                  <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
-                
-                
-                  <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-                    <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-                  </a>
-                
-                <div class="card-block">
-                  <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
-                  <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
-                  <p class="footer"><small class="text-muted">January 18, 2017</small></p>
-                </div>
-              </div>
-            
-          
-        </div>
-      </div>
-    
-      
-      
-      <div class="blog-list-container hidden" id="liquid-container">
-        <div class="blog-list">
-          <h3>Liquid Posts</h3>
-          
-            
-              <div class="card m-b-3">
-                
-                  <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
-                
-                
-                  <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-                    <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-                  </a>
-                
-                <div class="card-block">
-                  <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
-                  <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
-                  <p class="footer"><small class="text-muted">January 18, 2017</small></p>
-                </div>
-              </div>
-            
-          
-        </div>
-      </div>
-    
-      
-      
-      <div class="blog-list-container hidden" id="markdown-container">
-        <div class="blog-list">
-          <h3>Markdown Posts</h3>
-          
-            
-              <div class="card m-b-3">
-                
-                  <a href="/levelup/how-to-contribute-to-levelup"><img class="card-img-top img-fluid" src="https://source.unsplash.com/N7XodRrbzS0/500x300" alt="How to Contribute to LevelUp" title="How to Contribute to LevelUp"></a>
-                
-                
-                  <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-                    <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-                  </a>
-                
-                <div class="card-block">
-                  <h4 class="card-title">How to Contribute to LevelUp <small>by Jackie Johnston</small></h4>
-                  <p class="card-text">This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup" class="card-link">Read more&hellip;</a></p>
-                  <p class="footer"><small class="text-muted">January 27, 2017</small></p>
-                </div>
-              </div>
-            
-          
-            
-              <div class="card m-b-3">
-                
-                  <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
-                
-                
-                  <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-                    <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-                  </a>
-                
-                <div class="card-block">
-                  <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
-                  <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
-                  <p class="footer"><small class="text-muted">January 18, 2017</small></p>
-                </div>
-              </div>
-            
-          
-        </div>
-      </div>
-    
-      
-      
-      <div class="blog-list-container hidden" id="yaml-container">
-        <div class="blog-list">
-          <h3>Yaml Posts</h3>
-          
-            
-              <div class="card m-b-3">
-                
-                  <a href="/levelup/how-to-contribute-to-levelup"><img class="card-img-top img-fluid" src="https://source.unsplash.com/N7XodRrbzS0/500x300" alt="How to Contribute to LevelUp" title="How to Contribute to LevelUp"></a>
-                
-                
-                  <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-                    <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-                  </a>
-                
-                <div class="card-block">
-                  <h4 class="card-title">How to Contribute to LevelUp <small>by Jackie Johnston</small></h4>
-                  <p class="card-text">This is a quick walk-through on how to create a post for this site. <a href="/levelup/how-to-contribute-to-levelup" class="card-link">Read more&hellip;</a></p>
-                  <p class="footer"><small class="text-muted">January 27, 2017</small></p>
-                </div>
-              </div>
-            
-          
-            
-              <div class="card m-b-3">
-                
-                  <a href="/levelup/create-a-jekyll-blog"><img class="card-img-top img-fluid" src="https://source.unsplash.com/lRssALOk1fU/500x300" alt="Create a Jekyll Blog" title="Create a Jekyll Blog"></a>
-                
-                
-                  <a href="https://www.jackiejohnston.com" data-toggle="tooltip" data-placement="bottom" title="Go to Jackie Johnston's website" target="_blank">
-                    <img src="https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300" alt="Jackie Johnston" class="img-circle center-block author-pic">
-                  </a>
-                
-                <div class="card-block">
-                  <h4 class="card-title">Create a Jekyll Blog <small>by Jackie Johnston</small></h4>
-                  <p class="card-text">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages. <a href="/levelup/create-a-jekyll-blog" class="card-link">Read more&hellip;</a></p>
-                  <p class="footer"><small class="text-muted">January 18, 2017</small></p>
-                </div>
-              </div>
-            
-          
-        </div>
-      </div>
-    
-
   </div>
 </div>
-
 
         </div>
       </div>
