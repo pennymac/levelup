@@ -135,7 +135,7 @@ to get this:
 You will be able to preview your blog post by running:
 
 ```shell
-$  jekyll liveserve --incremental --baseurl ''
+$  rake serve
 ```
 
 Your post will be listed on the homepage with a link.
@@ -143,7 +143,7 @@ Your post will be listed on the homepage with a link.
 Once it looks perfect, run:
 
 ```shell
-$  JEKYLL_ENV=production jekyll build
+$  rake build
 $  git add .
 $  git commit -m "Added new post"
 $  git push origin post/my-awesome-post-title

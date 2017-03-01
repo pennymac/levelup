@@ -206,7 +206,7 @@ end
 
 <p>You will be able to preview your blog post by running:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>jekyll liveserve --incremental --baseurl <span class="s1">''</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>rake serve
 </code></pre>
 </div>
 
@@ -214,7 +214,7 @@ end
 
 <p>Once it looks perfect, run:</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span><span class="nv">JEKYLL_ENV</span><span class="o">=</span>production jekyll build
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>rake build
 <span class="gp">$  </span>git add .
 <span class="gp">$  </span>git commit -m <span class="s2">"Added new post"</span>
 <span class="gp">$  </span>git push origin post/my-awesome-post-title
