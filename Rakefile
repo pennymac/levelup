@@ -2,7 +2,7 @@ require 'rake'
 
 desc "serve"
 task :serve do
-  sh "jekyll liveserve --incremental --baseurl ''"
+  sh "jekyll liveserve --baseurl ''"
 end
 
 desc "build"

@@ -4,7 +4,7 @@ title:  Create a Jekyll Blog
 date:   2017-01-18
 author_name: Jackie Johnston
 author_image: https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300
-author_url: https://www.jackiejohnston.com
+author_url: https://pennymac.github.io/levelup/jackiejohnston
 image: https://source.unsplash.com/lRssALOk1fU/500x300
 excerpt: This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages.
 tags: [jekyll, liquid, markdown, yaml]

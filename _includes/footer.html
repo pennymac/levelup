@@ -2,6 +2,11 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="{{ '/assets/javascripts/application.min.js' | relative_url }}"></script>
 
-<script>
-
-</script>
+{% if page.url == "/author" %}
+  <script>
+    var url = window.location.href;
+    var author_param = decodeURIComponent(/author=([^&]+)/.exec(url)[1]);
+    console.log(author_param);
+    $("#author_capture").html(author_param);
+  </script>
+{% endif %}

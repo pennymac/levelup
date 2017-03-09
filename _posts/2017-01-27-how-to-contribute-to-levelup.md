@@ -4,7 +4,7 @@ title:  How to Contribute to LevelUp
 date:   2017-01-27
 author_name: Jackie Johnston
 author_image: https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300
-author_url: https://www.jackiejohnston.com
+author_url: https://pennymac.github.io/levelup/jackiejohnston
 image: https://source.unsplash.com/N7XodRrbzS0/500x300
 excerpt: This is a quick walk-through on how to create a post for this site.
 tags: [jekyll, markdown, yaml]
@@ -61,12 +61,12 @@ date:   2017-01-27
 image: https://source.unsplash.com/N7XodRrbzS0/500x300
 author_name: Jackie Johnston
 author_image: https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300
-author_url: https://www.jackiejohnston.com
+author_url: https://pennymac.github.io/levelup/jackiejohnston
 excerpt: This is a quick walk-through on how to create a post for this site.
 tags: [jekyll, markdown, yaml]
 ---{% endraw %}
 ```
-You will obviously change all the values here except for the first one which you'll leave as `post`. The `image`, `author_image` and `author_url` are all optional. Please use external urls for the `image` and `author_image`. If you are looking for an image, I recommend one of the laptop images at [Unsplash](https://unsplash.com/search/laptop). Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says `https://unsplash.com/search/laptop?photo=It0DCaCBr40`, then `It0DCaCBr40` is the ID. Just substitute that ID into the URL displayed in the front matter above, so it'll be `https://source.unsplash.com/It0DCaCBr40/500x300`.
+You will obviously change all the values here except for the first one which you'll leave as `post`. The `image`, `author_image` and `author_url` are all optional. Please use external urls for the `image` and `author_image`. If you are looking for an image, I recommend one of the laptop images at [Unsplash](https://unsplash.com/search/laptop). Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says `https://unsplash.com/search/laptop?photo=It0DCaCBr40`, then `It0DCaCBr40` is the ID. Just substitute that ID into the URL displayed in the front matter above, so it'll be `https://source.unsplash.com/It0DCaCBr40/500x300`. You are welcome to create an author page on this site to use as your website URL. Take a look at [the one I've created](https://pennymac.github.io/levelup/jackiejohnston) as an example.
 
 ### Write your post
 

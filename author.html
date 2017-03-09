@@ -1,0 +1,41 @@
+---
+title: Posts by Author
+layout: default
+permalink: /jackiejohnston
+---
+<div id="main" tabindex="-1">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+
+
+
+
+
+
+
+      <h2>Posts by Jackie Johnston</h2>
+      {% assign author_posts = site.posts | where: "author_name", "Jackie Johnston" %}
+      {% for post in author_posts %}
+        <div class="card m-b-3">
+          {% if post.image %}
+            <a href="{{ post.url | relative_url }}"><img class="card-img-top img-fluid" src="{{ post.image }}" alt="{{ post.title }}" title="{{ post.title }}"></a>
+          {% else %}
+            <img class="card-img-top img-fluid" src="https://source.unsplash.com/category/technology/?laptop" alt="{{ post.title }}"> 
+          {% endif %}
+          {% if post.author_image %}
+            <a href="/author?author={{ post.author_name }}" data-toggle="tooltip" data-placement="bottom" title="See {{ post.author_name }}'s posts">
+              <img src="{{ post.author_image }}" alt="{{ post.author_name }}" class="img-circle center-block author-pic">
+            </a>
+          {% endif %}
+          <div class="card-block">
+            <h4 class="card-title">{{ post.title }} <small>by {{ post.author_name }}</small></h4>
+            <p class="card-text">{{ post.excerpt }} <a href="{{ post.url | relative_url }}" class="card-link">Read more&hellip;</a></p>
+            <p class="footer"><small class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</small></p>
+          </div>
+        </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</div>
+

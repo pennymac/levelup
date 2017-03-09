@@ -3,3 +3,4 @@
 .DS_Store
 .ruby-gemset
 .ruby-version
+/node_modules

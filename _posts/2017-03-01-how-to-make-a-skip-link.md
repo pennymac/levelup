@@ -4,8 +4,8 @@ title:  How to Make a Skip Link
 date:   2017-03-01
 author_name: Jackie Johnston
 author_image: https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300
-author_url: https://www.jackiejohnston.com
-image: https://source.unsplash.com/4m66VBr8zns/500x300
+author_url: https://pennymac.github.io/levelup/jackiejohnston
+image: https://source.unsplash.com/DErxVSSQNdM/500x300
 excerpt: This shows one way to make your site easier to navigate by keyboard.
 tags: [html, css, accessibility]
 ---
