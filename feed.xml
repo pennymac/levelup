@@ -1,5 +1,113 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-03-01T15:49:49-08:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
-</subtitle><entry><title type="html">How to Make a Skip Link</title><link href="https://pennymac.github.io/levelup/how-to-make-a-skip-link" rel="alternate" type="text/html" title="How to Make a Skip Link" /><published>2017-03-01T00:00:00-08:00</published><updated>2017-03-01T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/how-to-make-a-skip-link</id><content type="html" xml:base="https://pennymac.github.io/levelup/how-to-make-a-skip-link">&lt;h2 id=&quot;whats-a-skip-link&quot;&gt;What’s a Skip Link?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-03-09T14:15:16-08:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
+</subtitle><entry><title type="html">Automated Accessibility Testing</title><link href="https://pennymac.github.io/levelup/automated-accessibility-testing" rel="alternate" type="text/html" title="Automated Accessibility Testing" /><published>2017-03-09T00:00:00-08:00</published><updated>2017-03-09T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/automated-accessibility-testing</id><content type="html" xml:base="https://pennymac.github.io/levelup/automated-accessibility-testing">&lt;h2 id=&quot;why-automate-accessibility-testing&quot;&gt;Why automate accessibility testing?&lt;/h2&gt;
+
+&lt;p&gt;There are a lot of rules when it comes to accessibility standards. Check out the &lt;a href=&quot;https://www.w3.org/TR/WCAG20/&quot;&gt;W3C Recommendation for WCAG 2.0&lt;/a&gt; and you’ll see what I mean. There are some sites that have boiled these standards down to checklists and these, like the one at &lt;a href=&quot;http://a11yproject.com/checklist.html&quot;&gt;The A11Y Project&lt;/a&gt;, are a good place to start to get a handle on what you need to do. But it would be tedious to go through the checklist for each of your pages and manually look through the code for each item.&lt;/p&gt;
+
+&lt;p&gt;In addition to checklists, there are also some ways to test your site online. One validator that I like is WAVE which you can &lt;a href=&quot;http://wave.webaim.org/&quot;&gt;access from their website&lt;/a&gt; or through the &lt;a href=&quot;https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US&quot;&gt;WAVE Chrome extension&lt;/a&gt;. These are great for a quick look, but don’t have the ability to set different criteria, say between conformance levels AA and AAA.&lt;/p&gt;
+
+&lt;p&gt;I’m sure there are a huge number of ways out there to automatically test for accessibility. The one we’ll be looking at uses &lt;a href=&quot;https://github.com/yargalot/AccessSniff&quot;&gt;AccessSniff&lt;/a&gt; and &lt;a href=&quot;https://github.com/squizlabs/HTML_CodeSniffer&quot;&gt;HTML Codesniffer&lt;/a&gt; along with a Grunt plugin called &lt;a href=&quot;https://github.com/yargalot/grunt-accessibility&quot;&gt;grunt-accessibility&lt;/a&gt;. (Please note, if you are a Gulp fan, there is a &lt;a href=&quot;https://github.com/yargalot/gulp-accessibility&quot;&gt;Gulp plugin&lt;/a&gt; you can use instead, though that is beyond the scope of this tutorial.)&lt;/p&gt;
+
+&lt;h2 id=&quot;how-to-set-up-a-grunt-task-to-test-your-pages&quot;&gt;How to set up a Grunt task to test your pages.&lt;/h2&gt;
+
+&lt;p&gt;If you can run your website locally, this solution should work for you. I’ve tested it with a Jekyll static site and a Rails site so far. You can also test any pages already on the internet.&lt;/p&gt;
+
+&lt;p&gt;If you are not already set up with Node.js, npm and the grunt-cli, please follow the &lt;a href=&quot;http://gruntjs.com/getting-started&quot;&gt;instructions to get started with Grunt&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Next, at the root of your project, if you don’t already have one, add a &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; file with the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;my-project-name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0.1.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Gruntfile.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;grunt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^1.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;grunt-accessibility&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^5.0.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;Customize the name and version number of your project.&lt;/p&gt;
+
+&lt;p&gt;Then if you don’t already have one, add a &lt;code class=&quot;highlighter-rouge&quot;&gt;Gruntfile.js&lt;/code&gt; at the root of your project with the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+
+    &lt;span class=&quot;na&quot;&gt;accessibility&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// Levels are WCAG2A, WCAG2AA, WCAG2AAA, and Section508&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;accessibilityLevel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;WCAG2AAA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// reportType: &quot;json&quot;,&lt;/span&gt;
+        &lt;span class=&quot;c1&quot;&gt;// reportLocation: &quot;reports&quot;,&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;reportLevels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;notice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;warning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;ignore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+          &lt;span class=&quot;c1&quot;&gt;// &quot;WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17&quot;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;na&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;http://localhost:3000/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;s2&quot;&gt;&quot;http://localhost:3000/users/sign_in&quot;&lt;/span&gt;
+          &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+
+
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loadNpmTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;grunt-accessibility&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;default&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;accessibility&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt; 
+
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;You can change the &lt;code class=&quot;highlighter-rouge&quot;&gt;assessibilityLevel&lt;/code&gt; to any of the following:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;WCAG2A&lt;/li&gt;
+  &lt;li&gt;WCAG2AA&lt;/li&gt;
+  &lt;li&gt;WCAG2AAA&lt;/li&gt;
+  &lt;li&gt;Section508&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Change the &lt;code class=&quot;highlighter-rouge&quot;&gt;urls&lt;/code&gt; listed to the ones you want to check locally.&lt;/p&gt;
+
+&lt;p&gt;Also, if you uncomment the &lt;code class=&quot;highlighter-rouge&quot;&gt;reportType&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;reportLocation&lt;/code&gt;, your tests will print the results in both the console and in a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;report.json&lt;/code&gt; located in the &lt;code class=&quot;highlighter-rouge&quot;&gt;reports&lt;/code&gt; folder.&lt;/p&gt;
+
+&lt;p&gt;You can &lt;a href=&quot;https://github.com/yargalot/AccessSniff&quot;&gt;check out the documentation&lt;/a&gt; to further configure your options.&lt;/p&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules/&lt;/code&gt; to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt; file, and run the following to install your necessary modules:&lt;/p&gt;
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;npm install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Have your site running in one tab of your command line console, and in the other tab, run:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;grunt accessibility --force
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;And that’s all there is to it! You should see a print out in the terminal of your error messages. Here’s one, I expect you’ll see a lot of if you are using the WCAG2AAA standards:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ERROR WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail
+Line:193 Col:19
+This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 7:1, but text &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;this element has a contrast ratio of 5.75:1. Recommendation: change text colour to &lt;span class=&quot;c&quot;&gt;#0656b1.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;what-it-doesnt-do&quot;&gt;What it doesn’t do.&lt;/h2&gt;
+
+&lt;p&gt;While automated testing is nice, it can’t do everything for you. It can’t test your site using a screen reader or keyboard only. And it can’t check what your site looks like for different types of color blindness. (Here’s &lt;a href=&quot;https://chrome.google.com/webstore/detail/i-want-to-see-like-the-co/jebeedfnielkcjlcokhiobodkjjpbjia&quot;&gt;a Chrome extension&lt;/a&gt; that can help with that.)&lt;/p&gt;
+
+&lt;p&gt;At least for now, we will probably need a combination of checklists, automated testing and human testing.&lt;/p&gt;</content><category term="accessibility" /><category term="testing" /><summary type="html">You can set up a Grunt task to check for different levels of accessibility.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/JVSgcV8_vb4/500x300" /></entry><entry><title type="html">How to Make a Skip Link</title><link href="https://pennymac.github.io/levelup/how-to-make-a-skip-link" rel="alternate" type="text/html" title="How to Make a Skip Link" /><published>2017-03-01T00:00:00-08:00</published><updated>2017-03-01T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/how-to-make-a-skip-link</id><content type="html" xml:base="https://pennymac.github.io/levelup/how-to-make-a-skip-link">&lt;h2 id=&quot;whats-a-skip-link&quot;&gt;What’s a Skip Link?&lt;/h2&gt;
 
 &lt;p&gt;Some website visitors only use their keyboard or a switch device to navigate sites. In order for them to navigate to a link or a form field in the main part of your website, they often have to tab through a ton of content in your header, usually all your menu links.&lt;/p&gt;
 
@@ -97,7 +205,7 @@
 
 &lt;p&gt;You can &lt;a href=&quot;http://webaim.org/techniques/skipnav/&quot;&gt;read more about skip links&lt;/a&gt; in this article on the Web AIM site.&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2016/03/focus-start-point?hl=en&quot;&gt;https://developers.google.com/web/updates/2016/03/focus-start-point?hl=en&lt;/a&gt;&lt;/p&gt;</content><category term="html" /><category term="css" /><category term="accessibility" /><summary type="html">This shows one way to make your site easier to navigate by keyboard.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/4m66VBr8zns/500x300" /></entry><entry><title type="html">How to Contribute to LevelUp</title><link href="https://pennymac.github.io/levelup/how-to-contribute-to-levelup" rel="alternate" type="text/html" title="How to Contribute to LevelUp" /><published>2017-01-27T00:00:00-08:00</published><updated>2017-01-27T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/how-to-contribute-to-levelup</id><content type="html" xml:base="https://pennymac.github.io/levelup/how-to-contribute-to-levelup">&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2016/03/focus-start-point?hl=en&quot;&gt;https://developers.google.com/web/updates/2016/03/focus-start-point?hl=en&lt;/a&gt;&lt;/p&gt;</content><category term="html" /><category term="css" /><category term="accessibility" /><summary type="html">This shows one way to make your site easier to navigate by keyboard.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/DErxVSSQNdM/500x300" /></entry><entry><title type="html">How to Contribute to LevelUp</title><link href="https://pennymac.github.io/levelup/how-to-contribute-to-levelup" rel="alternate" type="text/html" title="How to Contribute to LevelUp" /><published>2017-01-27T00:00:00-08:00</published><updated>2017-01-27T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/how-to-contribute-to-levelup</id><content type="html" xml:base="https://pennymac.github.io/levelup/how-to-contribute-to-levelup">&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
 &lt;p&gt;If this is the first time you’ve posted, you’ll need to install Jekyll and download the repo.&lt;/p&gt;
 
 &lt;h3 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h3&gt;
@@ -148,13 +256,13 @@ date:   2017-01-27
 image: https://source.unsplash.com/N7XodRrbzS0/500x300
 author_name: Jackie Johnston
 author_image: https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=300
-author_url: https://www.jackiejohnston.com
+author_url: https://pennymac.github.io/levelup/jackiejohnston
 excerpt: This is a quick walk-through on how to create a post for this site.
 tags: [jekyll, markdown, yaml]
 ---
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;You will obviously change all the values here except for the first one which you’ll leave as &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_url&lt;/code&gt; are all optional. Please use external urls for the &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt;. If you are looking for an image, I recommend one of the laptop images at &lt;a href=&quot;https://unsplash.com/search/laptop&quot;&gt;Unsplash&lt;/a&gt;. Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says &lt;code class=&quot;highlighter-rouge&quot;&gt;https://unsplash.com/search/laptop?photo=It0DCaCBr40&lt;/code&gt;, then &lt;code class=&quot;highlighter-rouge&quot;&gt;It0DCaCBr40&lt;/code&gt; is the ID. Just substitute that ID into the URL displayed in the front matter above, so it’ll be &lt;code class=&quot;highlighter-rouge&quot;&gt;https://source.unsplash.com/It0DCaCBr40/500x300&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;You will obviously change all the values here except for the first one which you’ll leave as &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_url&lt;/code&gt; are all optional. Please use external urls for the &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt;. If you are looking for an image, I recommend one of the laptop images at &lt;a href=&quot;https://unsplash.com/search/laptop&quot;&gt;Unsplash&lt;/a&gt;. Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says &lt;code class=&quot;highlighter-rouge&quot;&gt;https://unsplash.com/search/laptop?photo=It0DCaCBr40&lt;/code&gt;, then &lt;code class=&quot;highlighter-rouge&quot;&gt;It0DCaCBr40&lt;/code&gt; is the ID. Just substitute that ID into the URL displayed in the front matter above, so it’ll be &lt;code class=&quot;highlighter-rouge&quot;&gt;https://source.unsplash.com/It0DCaCBr40/500x300&lt;/code&gt;. You are welcome to create an author page on this site to use as your website URL. Take a look at &lt;a href=&quot;https://pennymac.github.io/levelup/jackiejohnston&quot;&gt;the one I’ve created&lt;/a&gt; as an example.&lt;/p&gt;
 
 &lt;h3 id=&quot;write-your-post&quot;&gt;Write your post&lt;/h3&gt;
 
