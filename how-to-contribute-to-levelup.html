@@ -138,7 +138,7 @@ tags: [jekyll, markdown, yaml]
 ---
 </code></pre>
 </div>
-<p>You will obviously change all the values here except for the first one which you’ll leave as <code class="highlighter-rouge">post</code>. The <code class="highlighter-rouge">image</code>, <code class="highlighter-rouge">author_image</code> and <code class="highlighter-rouge">author_url</code> are all optional. Please use external urls for the <code class="highlighter-rouge">image</code> and <code class="highlighter-rouge">author_image</code>. If you are looking for an image, I recommend one of the laptop images at <a href="https://unsplash.com/search/laptop">Unsplash</a>. Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says <code class="highlighter-rouge">https://unsplash.com/search/laptop?photo=It0DCaCBr40</code>, then <code class="highlighter-rouge">It0DCaCBr40</code> is the ID. Just substitute that ID into the URL displayed in the front matter above, so it’ll be <code class="highlighter-rouge">https://source.unsplash.com/It0DCaCBr40/500x300</code>. You are welcome to create an author page on this site to use as your website URL. Take a look at <a href="https://pennymac.github.io/levelup/jackiejohnston">the one I’ve created</a> as an example.</p>
+<p>You will obviously change all the values here except for the first one which you’ll leave as <code class="highlighter-rouge">post</code>. The <code class="highlighter-rouge">image</code>, <code class="highlighter-rouge">author_image</code> and <code class="highlighter-rouge">author_url</code> are all optional. Please use external urls for the <code class="highlighter-rouge">image</code> and <code class="highlighter-rouge">author_image</code>. If you are looking for an image, I recommend one of the laptop images at <a href="https://unsplash.com/search/laptop">Unsplash</a>. Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says <code class="highlighter-rouge">https://unsplash.com/search/laptop?photo=It0DCaCBr40</code>, then <code class="highlighter-rouge">It0DCaCBr40</code> is the ID. Just substitute that ID into the URL displayed in the front matter above, so it’ll be <code class="highlighter-rouge">https://source.unsplash.com/It0DCaCBr40/500x300</code>. If you don’t have a website you’d like to link to, you can create an author page on this site to use as your website URL. Take a look at <a href="https://pennymac.github.io/levelup/jackiejohnston">the one I’ve created</a> as an example.</p>
 
 <h3 id="write-your-post">Write your post</h3>
 
@@ -184,7 +184,7 @@ end
 
 <p>To embed a YouTube video like the following:</p>
 
-<iframe width="640" height="360" src="https://youtube.com/embed/FOfIoCi9uTI" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+<iframe width="640" height="360" src="https://youtube.com/embed/FOfIoCi9uTI" frameborder="0" title="youtube video" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 
 <p>First get the video id. It will be everything after the <code class="highlighter-rouge">v=</code>. So for <code class="highlighter-rouge">youtube.com/watch?v=FOfIoCi9uTI</code> the id is <code class="highlighter-rouge">FOfIoCi9uTI</code>. Then add it to a Liquid tag like:</p>
 
@@ -200,7 +200,7 @@ end
 
 <p>to get this:</p>
 
-<iframe width="640" height="360" src="https://player.vimeo.com/video/170526921" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+<iframe width="640" height="360" src="https://player.vimeo.com/video/170526921" frameborder="0" title="vimeo video" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 
 <h3 id="preview--build">Preview &amp; Build</h3>
 
