@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-03-09T14:17:04-08:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-03-10T13:42:30-08:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
 </subtitle><entry><title type="html">Automated Accessibility Testing</title><link href="https://pennymac.github.io/levelup/automated-accessibility-testing" rel="alternate" type="text/html" title="Automated Accessibility Testing" /><published>2017-03-09T00:00:00-08:00</published><updated>2017-03-09T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/automated-accessibility-testing</id><content type="html" xml:base="https://pennymac.github.io/levelup/automated-accessibility-testing">&lt;h2 id=&quot;why-automate-accessibility-testing&quot;&gt;Why automate accessibility testing?&lt;/h2&gt;
 
 &lt;p&gt;There are a lot of rules when it comes to accessibility standards. Check out the &lt;a href=&quot;https://www.w3.org/TR/WCAG20/&quot;&gt;W3C Recommendation for WCAG 2.0&lt;/a&gt; and you’ll see what I mean. There are some sites that have boiled these standards down to checklists and these, like the one at &lt;a href=&quot;http://a11yproject.com/checklist.html&quot;&gt;The A11Y Project&lt;/a&gt;, are a good place to start to get a handle on what you need to do. But it would be tedious to go through the checklist for each of your pages and manually look through the code for each item.&lt;/p&gt;
@@ -82,6 +82,8 @@
 
 &lt;p&gt;Also, if you uncomment the &lt;code class=&quot;highlighter-rouge&quot;&gt;reportType&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;reportLocation&lt;/code&gt;, your tests will print the results in both the console and in a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;report.json&lt;/code&gt; located in the &lt;code class=&quot;highlighter-rouge&quot;&gt;reports&lt;/code&gt; folder.&lt;/p&gt;
 
+&lt;p&gt;You can uncomment the rule under &lt;code class=&quot;highlighter-rouge&quot;&gt;ignore&lt;/code&gt; or add others to skip certain rules. This might be helpful for instance if you are getting a lot of contrast errors and want to filter them out until you get everything else passing.&lt;/p&gt;
+
 &lt;p&gt;You can &lt;a href=&quot;https://github.com/yargalot/AccessSniff&quot;&gt;check out the documentation&lt;/a&gt; to further configure your options.&lt;/p&gt;
 
 &lt;p&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules/&lt;/code&gt; to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt; file, and run the following to install your necessary modules:&lt;/p&gt;
@@ -113,7 +115,7 @@ This element has insufficient contrast at this conformance level. Expected a con
 
 &lt;p&gt;But there’s an easy way you can allow them fewer clicks to get where they want to go. You can add a &lt;em&gt;skip link&lt;/em&gt;.&lt;/p&gt;
 
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://youtube.com/embed/rD3db6-vmuo&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://youtube.com/embed/rD3db6-vmuo&quot; frameborder=&quot;0&quot; title=&quot;youtube video&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 &lt;p&gt;The above video is part of a free &lt;a href=&quot;https://www.udacity.com/course/web-accessibility--ud891&quot;&gt;Web Accessibility course&lt;/a&gt; on Udacity created by Google.&lt;/p&gt;
 
 &lt;h2 id=&quot;specs&quot;&gt;Specs&lt;/h2&gt;
@@ -262,7 +264,7 @@ tags: [jekyll, markdown, yaml]
 ---
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;p&gt;You will obviously change all the values here except for the first one which you’ll leave as &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_url&lt;/code&gt; are all optional. Please use external urls for the &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt;. If you are looking for an image, I recommend one of the laptop images at &lt;a href=&quot;https://unsplash.com/search/laptop&quot;&gt;Unsplash&lt;/a&gt;. Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says &lt;code class=&quot;highlighter-rouge&quot;&gt;https://unsplash.com/search/laptop?photo=It0DCaCBr40&lt;/code&gt;, then &lt;code class=&quot;highlighter-rouge&quot;&gt;It0DCaCBr40&lt;/code&gt; is the ID. Just substitute that ID into the URL displayed in the front matter above, so it’ll be &lt;code class=&quot;highlighter-rouge&quot;&gt;https://source.unsplash.com/It0DCaCBr40/500x300&lt;/code&gt;. You are welcome to create an author page on this site to use as your website URL. Take a look at &lt;a href=&quot;https://pennymac.github.io/levelup/jackiejohnston&quot;&gt;the one I’ve created&lt;/a&gt; as an example.&lt;/p&gt;
+&lt;p&gt;You will obviously change all the values here except for the first one which you’ll leave as &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_url&lt;/code&gt; are all optional. Please use external urls for the &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt;. If you are looking for an image, I recommend one of the laptop images at &lt;a href=&quot;https://unsplash.com/search/laptop&quot;&gt;Unsplash&lt;/a&gt;. Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says &lt;code class=&quot;highlighter-rouge&quot;&gt;https://unsplash.com/search/laptop?photo=It0DCaCBr40&lt;/code&gt;, then &lt;code class=&quot;highlighter-rouge&quot;&gt;It0DCaCBr40&lt;/code&gt; is the ID. Just substitute that ID into the URL displayed in the front matter above, so it’ll be &lt;code class=&quot;highlighter-rouge&quot;&gt;https://source.unsplash.com/It0DCaCBr40/500x300&lt;/code&gt;. If you don’t have a website you’d like to link to, you can create an author page on this site to use as your website URL. Take a look at &lt;a href=&quot;https://pennymac.github.io/levelup/jackiejohnston&quot;&gt;the one I’ve created&lt;/a&gt; as an example.&lt;/p&gt;
 
 &lt;h3 id=&quot;write-your-post&quot;&gt;Write your post&lt;/h3&gt;
 
@@ -308,7 +310,7 @@ end
 
 &lt;p&gt;To embed a YouTube video like the following:&lt;/p&gt;
 
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://youtube.com/embed/FOfIoCi9uTI&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://youtube.com/embed/FOfIoCi9uTI&quot; frameborder=&quot;0&quot; title=&quot;youtube video&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;First get the video id. It will be everything after the &lt;code class=&quot;highlighter-rouge&quot;&gt;v=&lt;/code&gt;. So for &lt;code class=&quot;highlighter-rouge&quot;&gt;youtube.com/watch?v=FOfIoCi9uTI&lt;/code&gt; the id is &lt;code class=&quot;highlighter-rouge&quot;&gt;FOfIoCi9uTI&lt;/code&gt;. Then add it to a Liquid tag like:&lt;/p&gt;
 
@@ -324,7 +326,7 @@ end
 
 &lt;p&gt;to get this:&lt;/p&gt;
 
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://player.vimeo.com/video/170526921&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://player.vimeo.com/video/170526921&quot; frameborder=&quot;0&quot; title=&quot;vimeo video&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
 &lt;h3 id=&quot;preview--build&quot;&gt;Preview &amp;amp; Build&lt;/h3&gt;
 

@@ -157,3 +157,32 @@ a .fa-linkedin { background-color: rgb(0, 119, 181); }
   overflow: visible;
   clip: auto;
 } 
+
+a {
+  color: #034575;
+  text-decoration: underline;
+}
+
+.blog-tags-list a { text-decoration: none; }
+
+.text-muted {
+  color: #727272;
+}
+
+.author-pic {
+  width: 100px;
+  margin-top: -50px;
+  border: 10px solid white;
+}
+
+.author-pic:hover,
+.hover {
+  -webkit-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.h4-size {
+  font-size: 18px;
+  margin-top: 10px;
+}

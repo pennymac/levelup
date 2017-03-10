@@ -14,3 +14,8 @@ desc "publish"
 task :publish do
   sh "git subtree push --prefix _site origin gh-pages"
 end
+
+desc "test"
+task :test do
+  sh "grunt accessibility --force"
+end

@@ -16,6 +16,7 @@ module Jekyll
       if markup =~ Syntax then
         @host = Hosts[tag_name]
         @id = $1
+        @tag_name = tag_name
 
         if $2.nil? then
             @width = 640
@@ -30,7 +31,7 @@ module Jekyll
     end
 
     def render(context)
-      "<iframe width=\"#{@width}\" height=\"#{@height}\" src=\"#{@host.call(@id)}\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
+      "<iframe width=\"#{@width}\" height=\"#{@height}\" src=\"#{@host.call(@id)}\" frameborder=\"0\" title=\"#{@tag_name} video\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>"
     end
     
     Hosts.each_key { |key| Liquid::Template.register_tag key, self }

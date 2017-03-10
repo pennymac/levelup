@@ -20,8 +20,8 @@ permalink: /jackiejohnston
               </a>
             {% endif %}
           <div class="card-block">
-            <h4 class="card-title">{{ post.title }} <small>by {{ post.author_name }}</small></h4>
-            <p class="card-text">{{ post.excerpt }} <a href="{{ post.url | relative_url }}" class="card-link">Read more&hellip;</a></p>
+            <h2 class="card-title h4-size"><a href="{{ post.url | relative_url }}" class="card-link">{{ post.title }}</a> <small>by {{ post.author_name }}</small></h2>
+            <p class="card-text">{{ post.excerpt }}</p>
             <p class="footer"><small class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</small></p>
           </div>
         </div>

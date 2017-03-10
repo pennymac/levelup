@@ -15,7 +15,8 @@ module.exports = function(grunt) {
           error: true
         },
         ignore: [
-          'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17'
+          'WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17',
+          'WCAG2AA.Principle1.Guideline1_4.1_4_3.G18'
         ]
       },
       test: {

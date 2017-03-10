@@ -1492,28 +1492,3 @@ $card-columns-margin:       $card-spacer-y !default;
     }
   }
 }
-
-
-
-
-a {
-  color: #034575;
-  text-decoration: underline;
-}
-
-.text-muted {
-  color: #727272;
-}
-
-.author-pic {
-  width: 100px;
-  margin-top: -50px;
-  border: 10px solid white;
-}
-
-.author-pic:hover,
-.hover {
-  -webkit-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
-  box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.5);
-}

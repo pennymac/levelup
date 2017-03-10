@@ -4,7 +4,7 @@ layout: default
 ---
 <div id="main" tabindex="-1">
   <h2>Share What You Know</h2>
-  <p class="lead">Welcome to the Central App Dev blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. <a href="{{ baseurl }}how-to-contribute-to-levelup">Here&#8217;s a how-to article</a> to show you how to get started.</p>
+  <p class="lead">Welcome to the LevelUp blog. This site can be used to share resources and how-to articles with your fellow developers here at PennyMac. A good place to start is this <a href="{{ baseurl }}how-to-contribute-to-levelup">article on how to contribute to LevelUp</a>.</p>
 
   <div class="blog-tags-list m-t-3 text-center">
     <a href onclick="removeFilters(); return false;" class="btn btn-primary btn-xs m-b-1">Recent <span class="badge">{{ site.posts.size }}</span></a>
@@ -32,13 +32,13 @@ layout: default
               <img class="card-img-top img-fluid" src="https://source.unsplash.com/category/technology/?laptop" alt="{{ post.title }}"> 
             {% endif %}
             {% if post.author_image and post.author_url %}
-              <a href="{{ post.author_url }}" data-toggle="tooltip" data-placement="bottom" title="Go to {{ post.author_name }}'s website" target="_blank">
+              <a href="{{ post.author_url }}" data-toggle="tooltip" data-placement="bottom" title="Go to {{ post.author_name }}'s website">
                 <img src="{{ post.author_image }}" alt="{{ post.author_name }}" class="img-circle center-block author-pic">
               </a>
             {% endif %}
             <div class="card-block">
-              <h4 class="card-title">{{ post.title }} <small>by {{ post.author_name }}</small></h4>
-              <p class="card-text">{{ post.excerpt }} <a href="{{ post.url | relative_url }}" class="card-link">Read more&hellip;</a></p>
+              <h4 class="card-title"><a href="{{ post.url | relative_url }}" class="card-link">{{ post.title }}</a> <small>by {{ post.author_name }}</small></h4>
+              <p class="card-text">{{ post.excerpt }}</p>
               <p class="footer"><small class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</small></p>
             </div>
           </div>
@@ -65,8 +65,8 @@ layout: default
                     </a>
                   {% endif %}
                   <div class="card-block">
-                    <h4 class="card-title">{{ post.title }} <small>by {{ post.author_name }}</small></h4>
-                    <p class="card-text">{{ post.excerpt }} <a href="{{ post.url | relative_url }}" class="card-link">Read more&hellip;</a></p>
+                    <h4 class="card-title"><a href="{{ post.url | relative_url }}" class="card-link">{{ post.title }}</a> <small>by {{ post.author_name }}</small></h4>
+                    <p class="card-text">{{ post.excerpt }}</p>
                     <p class="footer"><small class="text-muted">{{ post.date | date: "%B %-d, %Y" }}</small></p>
                   </div>
                 </div>

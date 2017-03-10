@@ -91,6 +91,8 @@ Change the `urls` listed to the ones you want to check locally.
 
 Also, if you uncomment the `reportType` and `reportLocation`, your tests will print the results in both the console and in a file called `report.json` located in the `reports` folder.
 
+You can uncomment the rule under `ignore` or add others to skip certain rules. This might be helpful for instance if you are getting a lot of contrast errors and want to filter them out until you get everything else passing.
+
 You can [check out the documentation](https://github.com/yargalot/AccessSniff) to further configure your options.
 
 Add `node_modules/` to your `.gitignore` file, and run the following to install your necessary modules:
