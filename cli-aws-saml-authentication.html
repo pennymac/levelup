@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Authenticating to AWS from the command line</title>
+<meta name="description" content="Go beyond the AWS console">
+<link rel="stylesheet" href="/levelup/assets/stylesheets/main.css">
+<link rel="canonical" href="https://pennymac.github.io/levelup/cli-aws-saml-authentication">
+<link rel="alternate" type="application/rss+xml" title="LevelUp" href="https://pennymac.github.io/levelup/feed.xml">
+
+<!-- START Favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://pennypixels.pennymacusa.com/img/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="https://pennypixels.pennymacusa.com/img/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="https://pennypixels.pennymacusa.com/img/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://pennypixels.pennymacusa.com/img/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://pennypixels.pennymacusa.com/img/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="https://pennypixels.pennymacusa.com/img/manifest.json">
+  <link rel="mask-icon" href="https://pennypixels.pennymacusa.com/img/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="https://pennypixels.pennymacusa.com/img/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="https://pennypixels.pennymacusa.com/img/mstile-144x144.png">
+  <meta name="msapplication-config" content="https://pennypixels.pennymacusa.com/img/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+<!-- END Favicons -->
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  </head>
+  <body>
+    <div class="header">
+      <div class="navbar navbar-default">
+  <div class="container">
+    <nav class="navbar-header">
+      <a id="skip-to-main-link" href="#main" class="sr-only sr-only-focusable pull-left ">Skip to main content.</a>  
+      <a class="navbar-brand" href="/levelup/">
+        <img alt="LevelUp" src="/levelup/assets/images/levelup-logo.svg" height="43">
+      </a>
+    </nav>
+  </div>
+</div>
+      <div class="text-center container-fluid">
+        <div class="row">
+          <div class="col-xs-12 title">
+            <div class="container">
+              <h1 itemprop="name headline">AUTHENTICATING TO AWS FROM THE COMMAND LINE</h1>
+              <h2><small>
+              <time datetime="2017-03-30T00:00:00-07:00" itemprop="datePublished">MARCH 30, 2017</time>
+              &nbsp;/&nbsp;
+              <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">DANIEL DYBA</span></span>
+              </small></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="bkg" class="hidden-xs">
+      <img alt="Laptop work station." src="assets/images/work-station-straight-on-view.jpg">
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 main" role="main">
+          <div id="social-share">
+  <a class="js-social-share" href="https://plus.google.com/share?url=https%3A%2F%2Fpennymac.github.io%2Flevelup%2Fcli-aws-saml-authentication" title="Share on Google+"><i class="fa fa-google" aria-hidden="true"></i></a><br class="hidden-xs" /><a class="js-social-share" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fpennymac.github.io%2Flevelup%2Fcli-aws-saml-authentication" title="Share on Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a><br class="hidden-xs" /><a class="js-social-share" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fpennymac.github.io%2Flevelup%2Fcli-aws-saml-authentication&text=Authenticating%20to%20AWS%20from%20the%20command%20line%3A%20Go%20beyond%20the%20AWS%20console&hashtags=aws" title="Tweet"><i class="fa fa-twitter" aria-hidden="true"></i></a><br class="hidden-xs" /><a class="js-social-share" href="http://www.reddit.com/submit/?url=https%3A%2F%2Fpennymac.github.io%2Flevelup%2Fcli-aws-saml-authentication" title="Share on Reddit"><i class="fa fa-reddit-alien" aria-hidden="true"></i></a><br class="hidden-xs" /><a class="js-social-share" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fpennymac.github.io%2Flevelup%2Fcli-aws-saml-authentication&title=Authenticating%20to%20AWS%20from%20the%20command%20line&source=LevelUp&summary=Go%20beyond%20the%20AWS%20console" title="Share on LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+</div>
+<article itemscope itemtype="http://schema.org/BlogPosting" id="main" tabindex="-1">
+
+  <div itemprop="articleBody">
+    <p>At PennyMac, we use OneLogin as a single-sign on platform for authenticating to third-party applications, three of which are Amazon Web Services accounts. Today, we’re going to look at using a Python script that takes away the complexity of authenticating to AWS through OneLogin.</p>
+
+<p>The link to the repository is <a href="https://gitlab.pnmac.com/windows/aws_saml_api">here</a>. The instructions in the README are straightforward. Clone the repository to your computer.</p>
+
+<p>If you’re on a Mac and have Homebrew installed, you’re one command away from installing the <a href="https://aws.amazon.com/cli/">AWS CLI</a>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>brew install awscli
+</code></pre>
+</div>
+
+<p>Go to the repository and run the Python script <code class="highlighter-rouge">aws_cli_sso_via_vco.py</code> and pass <code class="highlighter-rouge">dev</code> as the first argument. Here <code class="highlighter-rouge">dev</code> is the AWS development account you’ll be authenticating against:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>python aws_cli_sso_via_vco.py dev
+</code></pre>
+</div>
+
+<p>Running that script will produce the following output:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Username: your-username-here
+Password:
+Getting SAML assertion. Please wait. . .
+
+
+----------------------------------------------------------------
+Your new access key pair has been stored in the AWS configuration file /Users/your-username-here/.aws/credentials under the dev profile.
+Note that it will expire at 2017-03-30T18:03:19Z.
+After this time you may safely rerun this script to refresh your access key pair.
+To use this credential call the AWS CLI with the --profile option (e.g. aws --profile dev ec2 describe-instances).
+----------------------------------------------------------------
+
+
+Testing new creds:  passed
+</code></pre>
+</div>
+
+<blockquote>
+  <p><strong>NOTE</strong> <em>You’ll have to regularly run this script (every hour), in order to maintain a fresh set of valid credentials.</em></p>
+</blockquote>
+
+<p>As the script mentions, you can try out the AWS CLI with a simple command:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>aws --profile dev ec2 describe-instances
+</code></pre>
+</div>
+
+<p>Note the reappearance of <code class="highlighter-rouge">dev</code> here as the argument to the <code class="highlighter-rouge">--profile</code> switch. If you want to avoid having to keep track of remembering to specify <code class="highlighter-rouge">dev</code> as the profile, you can export the <code class="highlighter-rouge">AWS_PROFILE</code> variable or add it to your <code class="highlighter-rouge">.bashrc</code> or <code class="highlighter-rouge">.zshrc</code>:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>export AWS_PROFILE=dev
+</code></pre>
+</div>
+
+<h2 id="troubleshooting-notes">Troubleshooting Notes</h2>
+
+<p>If your password contains a <code class="highlighter-rouge">&amp;</code>, you may have some difficulties logging in successfully.</p>
+
+<p>If you already have a <code class="highlighter-rouge">credentials</code> file in the <code class="highlighter-rouge">~/.aws</code> folder, you’ll also need to add a section at the bottom of the file:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>[dev]
+</code></pre>
+</div>
+
+<p>If you can’t successfully authenticate, it’s likely that you don’t have access to the VCO server on port 8281. You’ll want to open a ticket with ServiceNow and ask them for access to the VCO server. You can see the name of the server <a href="https://gitlab.pnmac.com/windows/aws_saml_api/blob/master/aws_cli_sso_via_vco.py#L64">here</a>.</p>
+
+<p>If you still don’t have access, you may need to request to be placed in the group that has access to the AWS development account. Again, open a ServiceNow ticket requesting this.</p>
+
+  </div>
+
+</article>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="/levelup/assets/javascripts/application.min.js"></script>
+
+
+  </body>
+</html>
