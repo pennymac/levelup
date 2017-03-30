@@ -10,25 +10,25 @@ excerpt: Go beyond the AWS console
 tags: [aws]
 ---
 
-At PennyMac, we use OneLogin as a single-sign on platform for authenticating to third-party applications, three of which are Amazon Web Services accounts. Today, we're going to look at using a Python script that takes away the complexity of authenticating to AWS through OneLogin.
+At PennyMac, we use OneLogin as a single sign-on platform for authenticating to third-party applications, three of which are Amazon Web Services accounts. Today, we're going to look at using a Python script that takes away the complexity of authenticating to AWS through OneLogin.
 
 The link to the repository is [here](https://gitlab.pnmac.com/windows/aws_saml_api). The instructions in the README are straightforward. Clone the repository to your computer.
 
 If you're on a Mac and have Homebrew installed, you're one command away from installing the [AWS CLI](https://aws.amazon.com/cli/):
 
-```
-brew install awscli
+```shell
+$  brew install awscli
 ```
 
 Go to the repository and run the Python script `aws_cli_sso_via_vco.py` and pass `dev` as the first argument. Here `dev` is the AWS development account you'll be authenticating against:
 
-```
-python aws_cli_sso_via_vco.py dev
+```shell
+$  python aws_cli_sso_via_vco.py dev
 ```
 
 Running that script will produce the following output:
 
-```
+```shell
 Username: your-username-here
 Password:
 Getting SAML assertion. Please wait. . .
@@ -45,18 +45,18 @@ To use this credential call the AWS CLI with the --profile option (e.g. aws --pr
 Testing new creds:  passed
 ```
 
-> **NOTE** _You'll have to regularly run this script (every hour), in order to maintain a fresh set of valid credentials._
+> **Note** _You'll have to regularly run this script (every hour), in order to maintain a fresh set of valid credentials._
 
 As the script mentions, you can try out the AWS CLI with a simple command:
 
-```
-aws --profile dev ec2 describe-instances
+```shell
+$  aws --profile dev ec2 describe-instances
 ```
 
 Note the reappearance of `dev` here as the argument to the `--profile` switch. If you want to avoid having to keep track of remembering to specify `dev` as the profile, you can export the `AWS_PROFILE` variable or add it to your `.bashrc` or `.zshrc`:
 
-```
-export AWS_PROFILE=dev
+```shell
+$  export AWS_PROFILE=dev
 ```
 
 ## Troubleshooting Notes
