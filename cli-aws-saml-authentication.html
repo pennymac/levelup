@@ -81,34 +81,34 @@
 <article itemscope itemtype="http://schema.org/BlogPosting" id="main" tabindex="-1">
 
   <div itemprop="articleBody">
-    <p>At PennyMac, we use OneLogin as a single-sign on platform for authenticating to third-party applications, three of which are Amazon Web Services accounts. Today, we’re going to look at using a Python script that takes away the complexity of authenticating to AWS through OneLogin.</p>
+    <p>At PennyMac, we use OneLogin as a single sign-on platform for authenticating to third-party applications, three of which are Amazon Web Services accounts. Today, we’re going to look at using a Python script that takes away the complexity of authenticating to AWS through OneLogin.</p>
 
 <p>The link to the repository is <a href="https://gitlab.pnmac.com/windows/aws_saml_api">here</a>. The instructions in the README are straightforward. Clone the repository to your computer.</p>
 
 <p>If you’re on a Mac and have Homebrew installed, you’re one command away from installing the <a href="https://aws.amazon.com/cli/">AWS CLI</a>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>brew install awscli
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>brew install awscli
 </code></pre>
 </div>
 
 <p>Go to the repository and run the Python script <code class="highlighter-rouge">aws_cli_sso_via_vco.py</code> and pass <code class="highlighter-rouge">dev</code> as the first argument. Here <code class="highlighter-rouge">dev</code> is the AWS development account you’ll be authenticating against:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python aws_cli_sso_via_vco.py dev
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>python aws_cli_sso_via_vco.py dev
 </code></pre>
 </div>
 
 <p>Running that script will produce the following output:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Username: your-username-here
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>Username: your-username-here
 Password:
 Getting SAML assertion. Please wait. . .
 
 
 ----------------------------------------------------------------
-Your new access key pair has been stored in the AWS configuration file /Users/your-username-here/.aws/credentials under the dev profile.
+Your new access key pair has been stored <span class="k">in </span>the AWS configuration file /Users/your-username-here/.aws/credentials under the dev profile.
 Note that it will expire at 2017-03-30T18:03:19Z.
-After this time you may safely rerun this script to refresh your access key pair.
-To use this credential call the AWS CLI with the --profile option (e.g. aws --profile dev ec2 describe-instances).
+After this <span class="nb">time </span>you may safely rerun this script to refresh your access key pair.
+To use this credential call the AWS CLI with the --profile option <span class="o">(</span>e.g. aws --profile dev ec2 describe-instances<span class="o">)</span>.
 ----------------------------------------------------------------
 
 
@@ -117,18 +117,18 @@ Testing new creds:  passed
 </div>
 
 <blockquote>
-  <p><strong>NOTE</strong> <em>You’ll have to regularly run this script (every hour), in order to maintain a fresh set of valid credentials.</em></p>
+  <p><strong>Note</strong> <em>You’ll have to regularly run this script (every hour), in order to maintain a fresh set of valid credentials.</em></p>
 </blockquote>
 
 <p>As the script mentions, you can try out the AWS CLI with a simple command:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>aws --profile dev ec2 describe-instances
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span>aws --profile dev ec2 describe-instances
 </code></pre>
 </div>
 
 <p>Note the reappearance of <code class="highlighter-rouge">dev</code> here as the argument to the <code class="highlighter-rouge">--profile</code> switch. If you want to avoid having to keep track of remembering to specify <code class="highlighter-rouge">dev</code> as the profile, you can export the <code class="highlighter-rouge">AWS_PROFILE</code> variable or add it to your <code class="highlighter-rouge">.bashrc</code> or <code class="highlighter-rouge">.zshrc</code>:</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export AWS_PROFILE=dev
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$  </span><span class="nb">export </span><span class="nv">AWS_PROFILE</span><span class="o">=</span>dev
 </code></pre>
 </div>
 
