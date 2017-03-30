@@ -1,5 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-03-10T13:42:30-08:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
-</subtitle><entry><title type="html">Automated Accessibility Testing</title><link href="https://pennymac.github.io/levelup/automated-accessibility-testing" rel="alternate" type="text/html" title="Automated Accessibility Testing" /><published>2017-03-09T00:00:00-08:00</published><updated>2017-03-09T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/automated-accessibility-testing</id><content type="html" xml:base="https://pennymac.github.io/levelup/automated-accessibility-testing">&lt;h2 id=&quot;why-automate-accessibility-testing&quot;&gt;Why automate accessibility testing?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-03-30T11:03:11-07:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
+</subtitle><entry><title type="html">Authenticating to AWS from the command line</title><link href="https://pennymac.github.io/levelup/cli-aws-saml-authentication" rel="alternate" type="text/html" title="Authenticating to AWS from the command line" /><published>2017-03-30T00:00:00-07:00</published><updated>2017-03-30T00:00:00-07:00</updated><id>https://pennymac.github.io/levelup/cli-aws-saml-authentication</id><content type="html" xml:base="https://pennymac.github.io/levelup/cli-aws-saml-authentication">&lt;p&gt;At PennyMac, we use OneLogin as a single sign-on platform for authenticating to third-party applications, three of which are Amazon Web Services accounts. Today, we’re going to look at using a Python script that takes away the complexity of authenticating to AWS through OneLogin.&lt;/p&gt;
+
+&lt;p&gt;The link to the repository is &lt;a href=&quot;https://gitlab.pnmac.com/windows/aws_saml_api&quot;&gt;here&lt;/a&gt;. The instructions in the README are straightforward. Clone the repository to your computer.&lt;/p&gt;
+
+&lt;p&gt;If you’re on a Mac and have Homebrew installed, you’re one command away from installing the &lt;a href=&quot;https://aws.amazon.com/cli/&quot;&gt;AWS CLI&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;brew install awscli
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Go to the repository and run the Python script &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_cli_sso_via_vco.py&lt;/code&gt; and pass &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; as the first argument. Here &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; is the AWS development account you’ll be authenticating against:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;python aws_cli_sso_via_vco.py dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Running that script will produce the following output:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: your-username-here
+Password:
+Getting SAML assertion. Please wait. . .
+
+
+----------------------------------------------------------------
+Your new access key pair has been stored &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the AWS configuration file /Users/your-username-here/.aws/credentials under the dev profile.
+Note that it will expire at 2017-03-30T18:03:19Z.
+After this &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;you may safely rerun this script to refresh your access key pair.
+To use this credential call the AWS CLI with the --profile option &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;e.g. aws --profile dev ec2 describe-instances&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
+----------------------------------------------------------------
+
+
+Testing new creds:  passed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; &lt;em&gt;You’ll have to regularly run this script (every hour), in order to maintain a fresh set of valid credentials.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As the script mentions, you can try out the AWS CLI with a simple command:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;aws --profile dev ec2 describe-instances
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Note the reappearance of &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; here as the argument to the &lt;code class=&quot;highlighter-rouge&quot;&gt;--profile&lt;/code&gt; switch. If you want to avoid having to keep track of remembering to specify &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; as the profile, you can export the &lt;code class=&quot;highlighter-rouge&quot;&gt;AWS_PROFILE&lt;/code&gt; variable or add it to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;.zshrc&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;AWS_PROFILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;troubleshooting-notes&quot;&gt;Troubleshooting Notes&lt;/h2&gt;
+
+&lt;p&gt;If your password contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt;, you may have some difficulties logging in successfully.&lt;/p&gt;
+
+&lt;p&gt;If you already have a &lt;code class=&quot;highlighter-rouge&quot;&gt;credentials&lt;/code&gt; file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.aws&lt;/code&gt; folder, you’ll also need to add a section at the bottom of the file:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[dev]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;If you can’t successfully authenticate, it’s likely that you don’t have access to the VCO server on port 8281. You’ll want to open a ticket with ServiceNow and ask them for access to the VCO server. You can see the name of the server &lt;a href=&quot;https://gitlab.pnmac.com/windows/aws_saml_api/blob/master/aws_cli_sso_via_vco.py#L64&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you still don’t have access, you may need to request to be placed in the group that has access to the AWS development account. Again, open a ServiceNow ticket requesting this.&lt;/p&gt;</content><category term="aws" /><summary type="html">Go beyond the AWS console</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/MwRZqE1JuGs/500x300" /></entry><entry><title type="html">Automated Accessibility Testing</title><link href="https://pennymac.github.io/levelup/automated-accessibility-testing" rel="alternate" type="text/html" title="Automated Accessibility Testing" /><published>2017-03-09T00:00:00-08:00</published><updated>2017-03-09T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/automated-accessibility-testing</id><content type="html" xml:base="https://pennymac.github.io/levelup/automated-accessibility-testing">&lt;h2 id=&quot;why-automate-accessibility-testing&quot;&gt;Why automate accessibility testing?&lt;/h2&gt;
 
 &lt;p&gt;There are a lot of rules when it comes to accessibility standards. Check out the &lt;a href=&quot;https://www.w3.org/TR/WCAG20/&quot;&gt;W3C Recommendation for WCAG 2.0&lt;/a&gt; and you’ll see what I mean. There are some sites that have boiled these standards down to checklists and these, like the one at &lt;a href=&quot;http://a11yproject.com/checklist.html&quot;&gt;The A11Y Project&lt;/a&gt;, are a good place to start to get a handle on what you need to do. But it would be tedious to go through the checklist for each of your pages and manually look through the code for each item.&lt;/p&gt;
 
