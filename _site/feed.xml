@@ -1,320 +1,316 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/levelup/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/levelup/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/levelup/" rel="alternate" type="text/html" hreflang="en" /><updated>2017-03-30T11:09:02-07:00</updated><id>https://pennymac.github.io/levelup//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
-</subtitle><entry><title type="html">Authenticating to AWS from the command line</title><link href="https://pennymac.github.io/levelup/cli-aws-saml-authentication" rel="alternate" type="text/html" title="Authenticating to AWS from the command line" /><published>2017-03-30T00:00:00-07:00</published><updated>2017-03-30T00:00:00-07:00</updated><id>https://pennymac.github.io/levelup/cli-aws-saml-authentication</id><content type="html" xml:base="https://pennymac.github.io/levelup/cli-aws-saml-authentication">&lt;p&gt;At PennyMac, we use OneLogin as a single sign-on platform for authenticating to third-party applications, three of which are Amazon Web Services accounts. Today, we’re going to look at using a Python script that takes away the complexity of authenticating to AWS through OneLogin.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="https://pennymac.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="http://jekyllrb.com" version="3.3.1">Jekyll</generator><link href="https://pennymac.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://pennymac.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2018-03-13T10:05:20-07:00</updated><id>https://pennymac.github.io//</id><title type="html">LevelUp</title><subtitle>This is a blog and/or wiki for Central App Dev to share knowledge with each other.
+</subtitle><entry><title type="html">Part 1 Building Financial Intelligence Part 2 Business and Automation</title><link href="https://pennymac.github.io/Part-One-building-financial-intelligence-Part-Two-business-and-automation" rel="alternate" type="text/html" title="Part 1 Building Financial Intelligence Part 2 Business and Automation" /><published>2018-01-27T00:00:00-08:00</published><updated>2018-01-27T00:00:00-08:00</updated><id>https://pennymac.github.io/Part-One-building-financial-intelligence-Part-Two-business-and-automation</id><content type="html" xml:base="https://pennymac.github.io/Part-One-building-financial-intelligence-Part-Two-business-and-automation"></content><category term="jekyll" /><category term="markdown" /><category term="yaml" /><summary type="html">Did you miss our Financial Intelligence, Business and Automation LevelUp? Fear not, we recorded it for you.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/photos/w7ZyuGYNpRQ/500x300" /></entry><entry><title type="html">Authenticating to AWS from the command line</title><link href="https://pennymac.github.io/cli-aws-saml-authentication" rel="alternate" type="text/html" title="Authenticating to AWS from the command line" /><published>2017-03-30T00:00:00-07:00</published><updated>2017-03-30T00:00:00-07:00</updated><id>https://pennymac.github.io/cli-aws-saml-authentication</id><content type="html" xml:base="https://pennymac.github.io/cli-aws-saml-authentication">At PennyMac, we use OneLogin as a single sign-on platform for authenticating to third-party applications, three of which are Amazon Web Services accounts. Today, we're going to look at using a Python script that takes away the complexity of authenticating to AWS through OneLogin.
 
-&lt;p&gt;The link to the repository is &lt;a href=&quot;https://gitlab.pnmac.com/windows/aws_saml_api&quot;&gt;here&lt;/a&gt;. The instructions in the README are straightforward. Clone the repository to your computer.&lt;/p&gt;
+The link to the repository is [here](https://gitlab.pnmac.com/windows/aws_saml_api). The instructions in the README are straightforward. Clone the repository to your computer.
 
-&lt;p&gt;If you’re on a Mac and have Homebrew installed, you’re one command away from installing the &lt;a href=&quot;https://aws.amazon.com/cli/&quot;&gt;AWS CLI&lt;/a&gt;:&lt;/p&gt;
+If you're on a Mac and have Homebrew installed, you're one command away from installing the [AWS CLI](https://aws.amazon.com/cli/):
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;brew install awscli
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```shell
+$  brew install awscli
+```
 
-&lt;p&gt;Go to the repository and run the Python script &lt;code class=&quot;highlighter-rouge&quot;&gt;aws_cli_sso_via_vco.py&lt;/code&gt; and pass &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; as the first argument. Here &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; is the AWS development account you’ll be authenticating against:&lt;/p&gt;
+Go to the repository and run the Python script `aws_cli_sso_via_vco.py` and pass `dev` as the first argument. Here `dev` is the AWS development account you'll be authenticating against:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;python aws_cli_sso_via_vco.py dev
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```shell
+$  python aws_cli_sso_via_vco.py dev
+```
 
-&lt;p&gt;Running that script will produce the following output:&lt;/p&gt;
+Running that script will produce the following output:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Username: your-username-here
+```shell
+Username: your-username-here
 Password:
 Getting SAML assertion. Please wait. . .
 
 
 ----------------------------------------------------------------
-Your new access key pair has been stored &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;the AWS configuration file /Users/your-username-here/.aws/credentials under the dev profile.
+Your new access key pair has been stored in the AWS configuration file /Users/your-username-here/.aws/credentials under the dev profile.
 Note that it will expire at 2017-03-30T18:03:19Z.
-After this &lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;you may safely rerun this script to refresh your access key pair.
-To use this credential call the AWS CLI with the --profile option &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;e.g. aws --profile dev ec2 describe-instances&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;.
+After this time you may safely rerun this script to refresh your access key pair.
+To use this credential call the AWS CLI with the --profile option (e.g. aws --profile dev ec2 describe-instances).
 ----------------------------------------------------------------
 
 
 Testing new creds:  passed
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; &lt;em&gt;You’ll have to regularly run this script (every hour), in order to maintain a fresh set of valid credentials.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&gt; **Note** _You'll have to regularly run this script (every hour), in order to maintain a fresh set of valid credentials._
 
-&lt;p&gt;As the script mentions, you can try out the AWS CLI with a simple command:&lt;/p&gt;
+As the script mentions, you can try out the AWS CLI with a simple command:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;aws --profile dev ec2 describe-instances
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```shell
+$  aws --profile dev ec2 describe-instances
+```
 
-&lt;p&gt;Note the reappearance of &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; here as the argument to the &lt;code class=&quot;highlighter-rouge&quot;&gt;--profile&lt;/code&gt; switch. If you want to avoid having to keep track of remembering to specify &lt;code class=&quot;highlighter-rouge&quot;&gt;dev&lt;/code&gt; as the profile, you can export the &lt;code class=&quot;highlighter-rouge&quot;&gt;AWS_PROFILE&lt;/code&gt; variable or add it to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.bashrc&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;.zshrc&lt;/code&gt;:&lt;/p&gt;
+Note the reappearance of `dev` here as the argument to the `--profile` switch. If you want to avoid having to keep track of remembering to specify `dev` as the profile, you can export the `AWS_PROFILE` variable or add it to your `.bashrc` or `.zshrc`:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;AWS_PROFILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;dev
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```shell
+$  export AWS_PROFILE=dev
+```
 
-&lt;h2 id=&quot;troubleshooting-notes&quot;&gt;Troubleshooting Notes&lt;/h2&gt;
+## Troubleshooting Notes
 
-&lt;p&gt;If your password contains a &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;&lt;/code&gt;, you may have some difficulties logging in successfully.&lt;/p&gt;
+If your password contains a `&amp;`, you may have some difficulties logging in successfully.
 
-&lt;p&gt;If you already have a &lt;code class=&quot;highlighter-rouge&quot;&gt;credentials&lt;/code&gt; file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.aws&lt;/code&gt; folder, you’ll also need to add a section at the bottom of the file:&lt;/p&gt;
+If you already have a `credentials` file in the `~/.aws` folder, you'll also need to add a section at the bottom of the file:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[dev]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```
+[dev]
+```
 
-&lt;p&gt;If you can’t successfully authenticate, it’s likely that you don’t have access to the VCO server on port 8281. You’ll want to open a ticket with ServiceNow and ask them for access to the VCO server. You can see the name of the server &lt;a href=&quot;https://gitlab.pnmac.com/windows/aws_saml_api/blob/master/aws_cli_sso_via_vco.py#L64&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+If you can't successfully authenticate, it's likely that you don't have access to the VCO server on port 8281. You'll want to open a ticket with ServiceNow and ask them for access to the VCO server. You can see the name of the server [here](https://gitlab.pnmac.com/windows/aws_saml_api/blob/master/aws_cli_sso_via_vco.py#L64).
 
-&lt;p&gt;If you still don’t have access, you may need to request to be placed in the group that has access to the AWS development account. Again, open a ServiceNow ticket requesting this.&lt;/p&gt;</content><category term="aws" /><summary type="html">Go beyond the AWS console</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/MwRZqE1JuGs/500x300" /></entry><entry><title type="html">Automated Accessibility Testing</title><link href="https://pennymac.github.io/levelup/automated-accessibility-testing" rel="alternate" type="text/html" title="Automated Accessibility Testing" /><published>2017-03-09T00:00:00-08:00</published><updated>2017-03-09T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/automated-accessibility-testing</id><content type="html" xml:base="https://pennymac.github.io/levelup/automated-accessibility-testing">&lt;h2 id=&quot;why-automate-accessibility-testing&quot;&gt;Why automate accessibility testing?&lt;/h2&gt;
+If you still don't have access, you may need to request to be placed in the group that has access to the AWS development account. Again, open a ServiceNow ticket requesting this.</content><category term="aws" /><summary type="html">Go beyond the AWS console</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/MwRZqE1JuGs/500x300" /></entry><entry><title type="html">Automated Accessibility Testing</title><link href="https://pennymac.github.io/automated-accessibility-testing" rel="alternate" type="text/html" title="Automated Accessibility Testing" /><published>2017-03-09T00:00:00-08:00</published><updated>2017-03-09T00:00:00-08:00</updated><id>https://pennymac.github.io/automated-accessibility-testing</id><content type="html" xml:base="https://pennymac.github.io/automated-accessibility-testing">## Why automate accessibility testing?
 
-&lt;p&gt;There are a lot of rules when it comes to accessibility standards. Check out the &lt;a href=&quot;https://www.w3.org/TR/WCAG20/&quot;&gt;W3C Recommendation for WCAG 2.0&lt;/a&gt; and you’ll see what I mean. There are some sites that have boiled these standards down to checklists and these, like the one at &lt;a href=&quot;http://a11yproject.com/checklist.html&quot;&gt;The A11Y Project&lt;/a&gt;, are a good place to start to get a handle on what you need to do. But it would be tedious to go through the checklist for each of your pages and manually look through the code for each item.&lt;/p&gt;
+There are a lot of rules when it comes to accessibility standards. Check out the [W3C Recommendation for WCAG 2.0](https://www.w3.org/TR/WCAG20/) and you'll see what I mean. There are some sites that have boiled these standards down to checklists and these, like the one at [The A11Y Project](http://a11yproject.com/checklist.html), are a good place to start to get a handle on what you need to do. But it would be tedious to go through the checklist for each of your pages and manually look through the code for each item.
 
-&lt;p&gt;In addition to checklists, there are also some ways to test your site online. One validator that I like is WAVE which you can &lt;a href=&quot;http://wave.webaim.org/&quot;&gt;access from their website&lt;/a&gt; or through the &lt;a href=&quot;https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US&quot;&gt;WAVE Chrome extension&lt;/a&gt;. These are great for a quick look, but don’t have the ability to set different criteria, say between conformance levels AA and AAA.&lt;/p&gt;
+In addition to checklists, there are also some ways to test your site online. One validator that I like is WAVE which you can [access from their website](http://wave.webaim.org/) or through the [WAVE Chrome extension](https://chrome.google.com/webstore/detail/wave-evaluation-tool/jbbplnpkjmmeebjpijfedlgcdilocofh?hl=en-US). These are great for a quick look, but don't have the ability to set different criteria, say between conformance levels AA and AAA.
 
-&lt;p&gt;I’m sure there are a huge number of ways out there to automatically test for accessibility. The one we’ll be looking at uses &lt;a href=&quot;https://github.com/yargalot/AccessSniff&quot;&gt;AccessSniff&lt;/a&gt; and &lt;a href=&quot;https://github.com/squizlabs/HTML_CodeSniffer&quot;&gt;HTML Codesniffer&lt;/a&gt; along with a Grunt plugin called &lt;a href=&quot;https://github.com/yargalot/grunt-accessibility&quot;&gt;grunt-accessibility&lt;/a&gt;. (Please note, if you are a Gulp fan, there is a &lt;a href=&quot;https://github.com/yargalot/gulp-accessibility&quot;&gt;Gulp plugin&lt;/a&gt; you can use instead, though that is beyond the scope of this tutorial.)&lt;/p&gt;
+I'm sure there are a huge number of ways out there to automatically test for accessibility. The one we'll be looking at uses [AccessSniff](https://github.com/yargalot/AccessSniff) and [HTML Codesniffer](https://github.com/squizlabs/HTML_CodeSniffer) along with a Grunt plugin called [grunt-accessibility](https://github.com/yargalot/grunt-accessibility). (Please note, if you are a Gulp fan, there is a [Gulp plugin](https://github.com/yargalot/gulp-accessibility) you can use instead, though that is beyond the scope of this tutorial.)
 
-&lt;h2 id=&quot;how-to-set-up-a-grunt-task-to-test-your-pages&quot;&gt;How to set up a Grunt task to test your pages.&lt;/h2&gt;
+## How to set up a Grunt task to test your pages.
 
-&lt;p&gt;If you can run your website locally, this solution should work for you. I’ve tested it with a Jekyll static site and a Rails site so far. You can also test any pages already on the internet.&lt;/p&gt;
+If you can run your website locally, this solution should work for you. I've tested it with a Jekyll static site and a Rails site so far. You can also test any pages already on the internet.
 
-&lt;p&gt;If you are not already set up with Node.js, npm and the grunt-cli, please follow the &lt;a href=&quot;http://gruntjs.com/getting-started&quot;&gt;instructions to get started with Grunt&lt;/a&gt;.&lt;/p&gt;
+If you are not already set up with Node.js, npm and the grunt-cli, please follow the [instructions to get started with Grunt](http://gruntjs.com/getting-started).
 
-&lt;p&gt;Next, at the root of your project, if you don’t already have one, add a &lt;code class=&quot;highlighter-rouge&quot;&gt;package.json&lt;/code&gt; file with the following:&lt;/p&gt;
+Next, at the root of your project, if you don't already have one, add a `package.json` file with the following:
 
-&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;my-project-name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;version&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;0.1.0&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Gruntfile.js&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;devDependencies&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;grunt&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^1.0.1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&quot;grunt-accessibility&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;^5.0.0&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;Customize the name and version number of your project.&lt;/p&gt;
+```json
+{
+  &quot;name&quot;: &quot;my-project-name&quot;,
+  &quot;version&quot;: &quot;0.1.0&quot;,
+  &quot;main&quot;: &quot;Gruntfile.js&quot;,
+  &quot;devDependencies&quot;: {
+    &quot;grunt&quot;: &quot;^1.0.1&quot;,
+    &quot;grunt-accessibility&quot;: &quot;^5.0.0&quot;
+  }
+}
+```
+Customize the name and version number of your project.
 
-&lt;p&gt;Then if you don’t already have one, add a &lt;code class=&quot;highlighter-rouge&quot;&gt;Gruntfile.js&lt;/code&gt; at the root of your project with the following:&lt;/p&gt;
+Then if you don't already have one, add a `Gruntfile.js` at the root of your project with the following:
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;module&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exports&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+```javascript
+module.exports = function(grunt) {
 
-  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;initConfig&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+  grunt.initConfig({
 
-    &lt;span class=&quot;na&quot;&gt;accessibility&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// Levels are WCAG2A, WCAG2AA, WCAG2AAA, and Section508&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;accessibilityLevel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;WCAG2AAA&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;browser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// reportType: &quot;json&quot;,&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;// reportLocation: &quot;reports&quot;,&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;reportLevels&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;notice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;warning&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;error&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;ignore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-          &lt;span class=&quot;c1&quot;&gt;// &quot;WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17&quot;&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-      &lt;span class=&quot;na&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;na&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-          &lt;span class=&quot;na&quot;&gt;urls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;http://localhost:3000/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-            &lt;span class=&quot;s2&quot;&gt;&quot;http://localhost:3000/users/sign_in&quot;&lt;/span&gt;
-          &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    accessibility: {
+      options: {
+        // Levels are WCAG2A, WCAG2AA, WCAG2AAA, and Section508
+        accessibilityLevel: &quot;WCAG2AAA&quot;,
+        browser: true,
+        // reportType: &quot;json&quot;,
+        // reportLocation: &quot;reports&quot;,
+        reportLevels: {
+          notice: false,
+          warning: false,
+          error: true
+        },
+        ignore: [
+          // &quot;WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17&quot;
+        ]
+      },
+      test: {
+        options: {
+          urls: [
+            &quot;http://localhost:3000/&quot;,
+            &quot;http://localhost:3000/users/sign_in&quot;
+          ]
+        }
+      }
+    }
 
-  &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+  });
 
 
-  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;loadNpmTasks&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;grunt-accessibility&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  grunt.loadNpmTasks(&quot;grunt-accessibility&quot;);
 
-  &lt;span class=&quot;nx&quot;&gt;grunt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;registerTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;default&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;accessibility&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]);&lt;/span&gt; 
+  grunt.registerTask(&quot;default&quot;, [&quot;accessibility&quot;]); 
 
-&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;You can change the &lt;code class=&quot;highlighter-rouge&quot;&gt;assessibilityLevel&lt;/code&gt; to any of the following:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;WCAG2A&lt;/li&gt;
-  &lt;li&gt;WCAG2AA&lt;/li&gt;
-  &lt;li&gt;WCAG2AAA&lt;/li&gt;
-  &lt;li&gt;Section508&lt;/li&gt;
-&lt;/ul&gt;
+};
+```
+You can change the `assessibilityLevel` to any of the following:
+ - WCAG2A
+ - WCAG2AA
+ - WCAG2AAA
+ - Section508
 
-&lt;p&gt;Change the &lt;code class=&quot;highlighter-rouge&quot;&gt;urls&lt;/code&gt; listed to the ones you want to check locally.&lt;/p&gt;
+Change the `urls` listed to the ones you want to check locally.
 
-&lt;p&gt;Also, if you uncomment the &lt;code class=&quot;highlighter-rouge&quot;&gt;reportType&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;reportLocation&lt;/code&gt;, your tests will print the results in both the console and in a file called &lt;code class=&quot;highlighter-rouge&quot;&gt;report.json&lt;/code&gt; located in the &lt;code class=&quot;highlighter-rouge&quot;&gt;reports&lt;/code&gt; folder.&lt;/p&gt;
+Also, if you uncomment the `reportType` and `reportLocation`, your tests will print the results in both the console and in a file called `report.json` located in the `reports` folder.
 
-&lt;p&gt;You can uncomment the rule under &lt;code class=&quot;highlighter-rouge&quot;&gt;ignore&lt;/code&gt; or add others to skip certain rules. This might be helpful for instance if you are getting a lot of contrast errors and want to filter them out until you get everything else passing.&lt;/p&gt;
+You can uncomment the rule under `ignore` or add others to skip certain rules. This might be helpful for instance if you are getting a lot of contrast errors and want to filter them out until you get everything else passing.
 
-&lt;p&gt;You can &lt;a href=&quot;https://github.com/yargalot/AccessSniff&quot;&gt;check out the documentation&lt;/a&gt; to further configure your options.&lt;/p&gt;
+You can [check out the documentation](https://github.com/yargalot/AccessSniff) to further configure your options.
 
-&lt;p&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;node_modules/&lt;/code&gt; to your &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt; file, and run the following to install your necessary modules:&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;npm install
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+Add `node_modules/` to your `.gitignore` file, and run the following to install your necessary modules:
+```shell
+$  npm install
+```
 
-&lt;p&gt;Have your site running in one tab of your command line console, and in the other tab, run:&lt;/p&gt;
+Have your site running in one tab of your command line console, and in the other tab, run:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;grunt accessibility --force
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```shell
+$  grunt accessibility --force
+```
 
-&lt;p&gt;And that’s all there is to it! You should see a print out in the terminal of your error messages. Here’s one, I expect you’ll see a lot of if you are using the WCAG2AAA standards:&lt;/p&gt;
+And that's all there is to it! You should see a print out in the terminal of your error messages. Here's one, I expect you'll see a lot of if you are using the WCAG2AAA standards:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ERROR WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail
+```shell
+ERROR WCAG2AAA.Principle1.Guideline1_4.1_4_6.G17.Fail
 Line:193 Col:19
-This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 7:1, but text &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;this element has a contrast ratio of 5.75:1. Recommendation: change text colour to &lt;span class=&quot;c&quot;&gt;#0656b1.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+This element has insufficient contrast at this conformance level. Expected a contrast ratio of at least 7:1, but text in this element has a contrast ratio of 5.75:1. Recommendation: change text colour to #0656b1.
+```
 
-&lt;h2 id=&quot;what-it-doesnt-do&quot;&gt;What it doesn’t do.&lt;/h2&gt;
+## What it doesn't do.
 
-&lt;p&gt;While automated testing is nice, it can’t do everything for you. It can’t test your site using a screen reader or keyboard only. And it can’t check what your site looks like for different types of color blindness. (Here’s &lt;a href=&quot;https://chrome.google.com/webstore/detail/i-want-to-see-like-the-co/jebeedfnielkcjlcokhiobodkjjpbjia&quot;&gt;a Chrome extension&lt;/a&gt; that can help with that.)&lt;/p&gt;
+While automated testing is nice, it can't do everything for you. It can't test your site using a screen reader or keyboard only. And it can't check what your site looks like for different types of color blindness. (Here's [a Chrome extension](https://chrome.google.com/webstore/detail/i-want-to-see-like-the-co/jebeedfnielkcjlcokhiobodkjjpbjia) that can help with that.)
 
-&lt;p&gt;At least for now, we will probably need a combination of checklists, automated testing and human testing.&lt;/p&gt;</content><category term="accessibility" /><category term="testing" /><summary type="html">You can set up a Grunt task to check for different levels of accessibility.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/JVSgcV8_vb4/500x300" /></entry><entry><title type="html">How to Make a Skip Link</title><link href="https://pennymac.github.io/levelup/how-to-make-a-skip-link" rel="alternate" type="text/html" title="How to Make a Skip Link" /><published>2017-03-01T00:00:00-08:00</published><updated>2017-03-01T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/how-to-make-a-skip-link</id><content type="html" xml:base="https://pennymac.github.io/levelup/how-to-make-a-skip-link">&lt;h2 id=&quot;whats-a-skip-link&quot;&gt;What’s a Skip Link?&lt;/h2&gt;
+At least for now, we will probably need a combination of checklists, automated testing and human testing.</content><category term="accessibility" /><category term="testing" /><summary type="html">You can set up a Grunt task to check for different levels of accessibility.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/JVSgcV8_vb4/500x300" /></entry><entry><title type="html">How to Make a Skip Link</title><link href="https://pennymac.github.io/how-to-make-a-skip-link" rel="alternate" type="text/html" title="How to Make a Skip Link" /><published>2017-03-01T00:00:00-08:00</published><updated>2017-03-01T00:00:00-08:00</updated><id>https://pennymac.github.io/how-to-make-a-skip-link</id><content type="html" xml:base="https://pennymac.github.io/how-to-make-a-skip-link">## What's a Skip Link?
 
-&lt;p&gt;Some website visitors only use their keyboard or a switch device to navigate sites. In order for them to navigate to a link or a form field in the main part of your website, they often have to tab through a ton of content in your header, usually all your menu links.&lt;/p&gt;
+Some website visitors only use their keyboard or a switch device to navigate sites. In order for them to navigate to a link or a form field in the main part of your website, they often have to tab through a ton of content in your header, usually all your menu links. 
 
-&lt;p&gt;But there’s an easy way you can allow them fewer clicks to get where they want to go. You can add a &lt;em&gt;skip link&lt;/em&gt;.&lt;/p&gt;
+But there's an easy way you can allow them fewer clicks to get where they want to go. You can add a *skip link*.
 
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://youtube.com/embed/rD3db6-vmuo&quot; frameborder=&quot;0&quot; title=&quot;youtube video&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;The above video is part of a free &lt;a href=&quot;https://www.udacity.com/course/web-accessibility--ud891&quot;&gt;Web Accessibility course&lt;/a&gt; on Udacity created by Google.&lt;/p&gt;
+{% youtube rD3db6-vmuo %}
+The above video is part of a free [Web Accessibility course](https://www.udacity.com/course/web-accessibility--ud891) on Udacity created by Google.
 
-&lt;h2 id=&quot;specs&quot;&gt;Specs&lt;/h2&gt;
+## Specs
 
-&lt;p&gt;A skip link should only be visible on your page when a user clicks the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; key for the first time after the page is loaded. And if the user then clicks the &lt;code class=&quot;highlighter-rouge&quot;&gt;enter/return&lt;/code&gt; key while this link is in focus, it will take them to the main part of the page and the next time they click the &lt;code class=&quot;highlighter-rouge&quot;&gt;tab&lt;/code&gt; key they will be focused on the next focusable element in the main part of your page instead of in your header.&lt;/p&gt;
+A skip link should only be visible on your page when a user clicks the `tab` key for the first time after the page is loaded. And if the user then clicks the `enter/return` key while this link is in focus, it will take them to the main part of the page and the next time they click the `tab` key they will be focused on the next focusable element in the main part of your page instead of in your header.
 
-&lt;h2 id=&quot;how-to&quot;&gt;How To&lt;/h2&gt;
+## How To
 
-&lt;p&gt;Let’s say your page markup looks something like this:&lt;/p&gt;
+Let's say your page markup looks something like this:
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+```html
+{% raw %}&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
     ...
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;role=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navigation&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header role=&quot;navigation&quot;&gt;
       ...
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;main&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;role=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;main&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;/header&gt;
+    &lt;main role=&quot;main&quot;&gt;
       ...
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/main&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;role=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navigation&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;/main&gt;
+    &lt;footer role=&quot;navigation&quot;&gt;
       ...
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    &lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;{% endraw %}
+```
 
-&lt;p&gt;First you’ll need to add an anchor link somewhere after the opening &lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt; tag and before your first focusable content that will link to the element with a &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt; id:&lt;/p&gt;
+First you'll need to add an anchor link somewhere after the opening `body` tag and before your first focusable content that will link to the element with a `main` id:
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;skip-to-main-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#main&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sr-only sr-only-focusable&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Skip to main content.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```html
+&lt;a id=&quot;skip-to-main-link&quot; href=&quot;#main&quot; class=&quot;sr-only sr-only-focusable&quot;&gt;Skip to main content.&lt;/a&gt;
+```
 
-&lt;p&gt;You may have to experiment a little with the best place to put this link. Right after the opening &lt;code class=&quot;highlighter-rouge&quot;&gt;body&lt;/code&gt; tag would be the easiest location but you may have to put it inside your header before the menu links begin.&lt;/p&gt;
+You may have to experiment a little with the best place to put this link. Right after the opening `body` tag would be the easiest location but you may have to put it inside your header before the menu links begin.
 
-&lt;p&gt;Next, add &lt;code class=&quot;highlighter-rouge&quot;&gt;id=&quot;main&quot;&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;tabindex=&quot;-1&quot;&lt;/code&gt; attributes to your &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt; opening tag (or whatever element you consider the beginning of your main content) so now your markup looks like:&lt;/p&gt;
+Next, add `id=&quot;main&quot;` and `tabindex=&quot;-1&quot;` attributes to your `main` opening tag (or whatever element you consider the beginning of your main content) so now your markup looks like:
 
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;en&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+```html
+{% raw %}&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;head&gt;
     ...
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;skip-to-main-link&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;#main&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sr-only sr-only-focusable&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Skip to main content.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;role=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navigation&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;a id=&quot;skip-to-main-link&quot; href=&quot;#main&quot; class=&quot;sr-only sr-only-focusable&quot;&gt;Skip to main content.&lt;/a&gt;
+    &lt;header role=&quot;navigation&quot;&gt;
       ...
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;main&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;role=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;main&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;main&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;tabindex=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;-1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;/header&gt;
+    &lt;main role=&quot;main&quot; id=&quot;main&quot; tabindex=&quot;-1&quot;&gt;
       ...
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/main&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;role=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navigation&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;/main&gt;
+    &lt;footer role=&quot;navigation&quot;&gt;
       ...
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    &lt;/footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;{% endraw %}
+```
 
-&lt;p&gt;If you are using &lt;a href=&quot;https://v4-alpha.getbootstrap.com&quot;&gt;Bootstrap v4&lt;/a&gt; in your project, that should be all that’s necessary, otherwise add the following to your CSS so that your skip link will only be visible when it’s in focus:&lt;/p&gt;
+If you are using [Bootstrap v4](https://v4-alpha.getbootstrap.com) in your project, that should be all that's necessary, otherwise add the following to your CSS so that your skip link will only be visible when it's in focus:
 
-&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nc&quot;&gt;.sr-only&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;absolute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;-1px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;hidden&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;rect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+```css
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
-&lt;span class=&quot;nc&quot;&gt;.sr-only-focusable&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:active&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;.sr-only-focusable&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;:focus&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;static&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;nl&quot;&gt;clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+}
+```
 
-&lt;p&gt;I’ve added a skip link to this site, so you can go ahead and try it out on this page. Although there’s only one link in the menu bar at this point, I have a bunch of social share links on the post pages that you’d have to tab through without the skip link.&lt;/p&gt;
+I've added a skip link to this site, so you can go ahead and try it out on this page. Although there's only one link in the menu bar at this point, I have a bunch of social share links on the post pages that you'd have to tab through without the skip link.
 
-&lt;h2 id=&quot;resources&quot;&gt;Resources&lt;/h2&gt;
+## Resources
 
-&lt;p&gt;You can &lt;a href=&quot;http://webaim.org/techniques/skipnav/&quot;&gt;read more about skip links&lt;/a&gt; in this article on the Web AIM site.&lt;/p&gt;
+You can [read more about skip links](http://webaim.org/techniques/skipnav/) in this article on the Web AIM site.
 
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/web/updates/2016/03/focus-start-point?hl=en&quot;&gt;https://developers.google.com/web/updates/2016/03/focus-start-point?hl=en&lt;/a&gt;&lt;/p&gt;</content><category term="html" /><category term="css" /><category term="accessibility" /><summary type="html">This shows one way to make your site easier to navigate by keyboard.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/DErxVSSQNdM/500x300" /></entry><entry><title type="html">How to Contribute to LevelUp</title><link href="https://pennymac.github.io/levelup/how-to-contribute-to-levelup" rel="alternate" type="text/html" title="How to Contribute to LevelUp" /><published>2017-01-27T00:00:00-08:00</published><updated>2017-01-27T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/how-to-contribute-to-levelup</id><content type="html" xml:base="https://pennymac.github.io/levelup/how-to-contribute-to-levelup">&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
-&lt;p&gt;If this is the first time you’ve posted, you’ll need to install Jekyll and download the repo.&lt;/p&gt;
+[https://developers.google.com/web/updates/2016/03/focus-start-point?hl=en](https://developers.google.com/web/updates/2016/03/focus-start-point?hl=en)</content><category term="html" /><category term="css" /><category term="accessibility" /><summary type="html">This shows one way to make your site easier to navigate by keyboard.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/DErxVSSQNdM/500x300" /></entry><entry><title type="html">How to Contribute to LevelUp</title><link href="https://pennymac.github.io/how-to-contribute-to-levelup" rel="alternate" type="text/html" title="How to Contribute to LevelUp" /><published>2017-01-27T00:00:00-08:00</published><updated>2017-01-27T00:00:00-08:00</updated><id>https://pennymac.github.io/how-to-contribute-to-levelup</id><content type="html" xml:base="https://pennymac.github.io/how-to-contribute-to-levelup">## Getting Started
+If this is the first time you've posted, you'll need to install Jekyll and download the repo.
+ 
+### Check the Requirements
+First, you'll need the following installed on your dev environment:
+ - [Ruby](https://www.ruby-lang.org/en/downloads/) (including development headers, v2.3.1)
+ - [RubyGems](https://rubygems.org/pages/download)
+ - Linux, Unix, or Mac OS X
+ - [GCC](https://gcc.gnu.org/install/) and [Make](https://www.gnu.org/software/make/) (in case your system doesn't have them installed, which you can check by running `gcc -v` and `make -v` in your system's command line interface)
 
-&lt;h3 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h3&gt;
-&lt;p&gt;First, you’ll need the following installed on your dev environment:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/downloads/&quot;&gt;Ruby&lt;/a&gt; (including development headers, v2.3.1)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://rubygems.org/pages/download&quot;&gt;RubyGems&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Linux, Unix, or Mac OS X&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gcc.gnu.org/install/&quot;&gt;GCC&lt;/a&gt; and &lt;a href=&quot;https://www.gnu.org/software/make/&quot;&gt;Make&lt;/a&gt; (in case your system doesn’t have them installed, which you can check by running &lt;code class=&quot;highlighter-rouge&quot;&gt;gcc -v&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;make -v&lt;/code&gt; in your system’s command line interface)&lt;/li&gt;
-&lt;/ul&gt;
 
-&lt;h3 id=&quot;download-the-repo&quot;&gt;Download the Repo&lt;/h3&gt;
+### Download the Repo
 
-&lt;p&gt;Run:&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git clone git@github.com:pennymac/levelup.git
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;levelup
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rvm --ruby-version use 2.3.1@levelup --create &lt;span class=&quot;c&quot;&gt;# optional, if you use RVM&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;bundle
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git checkout -b post/my-awesome-post-title &lt;span class=&quot;c&quot;&gt;# create a branch off of master&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll liveserve --incremental --baseurl &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+Run:
+```shell
+$  git clone git@github.com:pennymac/levelup.git
+$  cd levelup
+$  rvm --ruby-version use 2.3.1@levelup --create # optional, if you use RVM
+$  bundle
+$  git checkout -b post/my-awesome-post-title # create a branch off of master
+$  jekyll liveserve --incremental --baseurl ''
+```
 
-&lt;p&gt;At this point you can go to &lt;code class=&quot;highlighter-rouge&quot;&gt;http://localhost:4000/&lt;/code&gt; in your browser to see the site.&lt;/p&gt;
+At this point you can go to `http://localhost:4000/` in your browser to see the site.
 
-&lt;h3 id=&quot;create-a-post&quot;&gt;Create a post&lt;/h3&gt;
+### Create a post
 
-&lt;p&gt;Make a new Markdown file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory named according to the following format, where &lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number and &lt;code class=&quot;highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers:&lt;/p&gt;
+Make a new Markdown file in the `_posts` directory named according to the following format, where `YEAR` is a four-digit number and `MONTH` and `DAY` are both two-digit numbers:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;YEAR-MONTH-DAY-title.md
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;For example, these are the two I’ve created so far:&lt;/p&gt;
+```
+YEAR-MONTH-DAY-title.md
+```
+ For example, these are the two I've created so far:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2017-01-18-create-a-jekyll-blog.md
+```
+2017-01-18-create-a-jekyll-blog.md
 2017-01-27-how-to-contribute-to-levelup.md
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```
 
-&lt;h3 id=&quot;yaml-front-matter&quot;&gt;YAML Front Matter&lt;/h3&gt;
+### YAML Front Matter
 
-&lt;p&gt;The first thing in your new file will be YAML front matter set between triple-dashed lines. Here’s the what I’m using on the current post:&lt;/p&gt;
+The first thing in your new file will be YAML front matter set between triple-dashed lines. Here's the what I'm using on the current post:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;---
+```
+{% raw %}---
 layout: post
 title: How to Contribute to LevelUp
 date:   2017-01-27
@@ -324,16 +320,28 @@ author_image: https://s.gravatar.com/avatar/ceffcbfa4a2c365c07e91177db9b618c?s=3
 author_url: https://pennymac.github.io/levelup/jackiejohnston
 excerpt: This is a quick walk-through on how to create a post for this site.
 tags: [jekyll, markdown, yaml]
----
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;You will obviously change all the values here except for the first one which you’ll leave as &lt;code class=&quot;highlighter-rouge&quot;&gt;post&lt;/code&gt;. The &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_url&lt;/code&gt; are all optional. Please use external urls for the &lt;code class=&quot;highlighter-rouge&quot;&gt;image&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;author_image&lt;/code&gt;. If you are looking for an image, I recommend one of the laptop images at &lt;a href=&quot;https://unsplash.com/search/laptop&quot;&gt;Unsplash&lt;/a&gt;. Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says &lt;code class=&quot;highlighter-rouge&quot;&gt;https://unsplash.com/search/laptop?photo=It0DCaCBr40&lt;/code&gt;, then &lt;code class=&quot;highlighter-rouge&quot;&gt;It0DCaCBr40&lt;/code&gt; is the ID. Just substitute that ID into the URL displayed in the front matter above, so it’ll be &lt;code class=&quot;highlighter-rouge&quot;&gt;https://source.unsplash.com/It0DCaCBr40/500x300&lt;/code&gt;. If you don’t have a website you’d like to link to, you can create an author page on this site to use as your website URL. Take a look at &lt;a href=&quot;https://pennymac.github.io/levelup/jackiejohnston&quot;&gt;the one I’ve created&lt;/a&gt; as an example.&lt;/p&gt;
+---{% endraw %}
+```
+You will obviously change all the values here except for the first one which you'll leave as `post`. The `image`, `author_image` and `author_url` are all optional. Please use external urls for the `image` and `author_image`. If you are looking for an image, I recommend one of the laptop images at [Unsplash](https://unsplash.com/search/laptop). Find a photo you like, and when you click to zoom in on it you should find a photo ID in the url. If the url says `https://unsplash.com/search/laptop?photo=It0DCaCBr40`, then `It0DCaCBr40` is the ID. Just substitute that ID into the URL displayed in the front matter above, so it'll be `https://source.unsplash.com/It0DCaCBr40/500x300`. If you don't have a website you'd like to link to, you can create an author page on this site to use as your website URL. Take a look at [the one I've created](https://pennymac.github.io/levelup/jackiejohnston) as an example.
 
-&lt;h3 id=&quot;write-your-post&quot;&gt;Write your post&lt;/h3&gt;
+### Write your post
 
-&lt;p&gt;You are now ready to compose your post using &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;Markdown&lt;/a&gt;. You can use fenced code blocks for syntax highlighting like so:&lt;/p&gt;
+You are now ready to compose your post using [Markdown](https://guides.github.com/features/mastering-markdown/). You can use fenced code blocks for syntax highlighting like so:
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```ruby
+
+    ```ruby
+    def show
+      @widget = Widget(params[:id])
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @widget }
+      end
+    end
+    ```
+
+Which will output to:
+
+```ruby
 def show
   @widget = Widget(params[:id])
   respond_to do |format|
@@ -341,356 +349,342 @@ def show
     format.json { render json: @widget }
   end
 end
+``` 
+
+Here's a [list of supported languages](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) that you can use.
+
+### Adding Photos &amp; Videos
+
+To add a responsive image like the following:
+
+![Laptop computer on desk]({{ '/assets/images/desktop.jpg' | relative_url }}){:class=&quot;img-responsive&quot;}
+
+Just add the photo to the `assets/images` directory and use the following tag in your post:
+
+```markdown{% raw %}
+![Image alt text here.]({{ '/assets/images/desktop.jpg' | relative_url }}){:class=&quot;img-responsive&quot;}
+{% endraw %}```
+
+To embed a YouTube video like the following:
+
+{% youtube FOfIoCi9uTI %}
+
+First get the video id. It will be everything after the `v=`. So for `youtube.com/watch?v=FOfIoCi9uTI` the id is `FOfIoCi9uTI`. Then add it to a Liquid tag like:
+
+```liquid{% raw %}
+{% youtube FOfIoCi9uTI %}
+```{% endraw %}
+
+If instead you have a Vimeo video, take the id from the URL, such as `vimeo.com/22439234` and add to a Vimeo Liquid tag:
+
+```liquid{% raw %}
+{% vimeo 170526921 %}
+```{% endraw %}
+
+to get this:
+
+{% vimeo 170526921 %}
+
+
+### Preview &amp; Build
+
+You will be able to preview your blog post by running:
+
+```shell
+$  rake serve
 ```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;Which will output to:&lt;/p&gt;
+Your post will be listed on the homepage with a link.
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# show.html.erb&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+Once it looks perfect, run:
 
-&lt;p&gt;Here’s a &lt;a href=&quot;https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers&quot;&gt;list of supported languages&lt;/a&gt; that you can use.&lt;/p&gt;
+```shell
+$  rake build
+$  git add .
+$  git commit -m &quot;Added new post&quot;
+$  git push origin post/my-awesome-post-title
+```
 
-&lt;h3 id=&quot;adding-photos--videos&quot;&gt;Adding Photos &amp;amp; Videos&lt;/h3&gt;
+### Pull Request
 
-&lt;p&gt;To add a responsive image like the following:&lt;/p&gt;
+Then go to the [repo](https://github.com/pennymac/levelup) and create a merge request.
 
-&lt;p&gt;&lt;img src=&quot;/levelup/assets/images/desktop.jpg&quot; alt=&quot;Laptop computer on desk&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+Start blogging now!</content><category term="jekyll" /><category term="markdown" /><category term="yaml" /><summary type="html">This is a quick walk-through on how to create a post for this site.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/N7XodRrbzS0/500x300" /></entry><entry><title type="html">Create a Jekyll Blog</title><link href="https://pennymac.github.io/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T00:00:00-08:00</published><updated>2017-01-18T00:00:00-08:00</updated><id>https://pennymac.github.io/create-a-jekyll-blog</id><content type="html" xml:base="https://pennymac.github.io/create-a-jekyll-blog">## Check the Requirements
+First, you'll need the following installed on your dev environment:
+ - [Ruby](https://www.ruby-lang.org/en/downloads/) (including development headers, v1.9.3 or above)
+ - [RubyGems](https://rubygems.org/pages/download)
+ - Linux, Unix, or Mac OS X
+ - [GCC](https://gcc.gnu.org/install/) and [Make](https://www.gnu.org/software/make/) (in case your system doesn't have them installed, which you can check by running `gcc -v` and `make -v` in your system's command line interface)
 
-&lt;p&gt;Just add the photo to the &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/images&lt;/code&gt; directory and use the following tag in your post:&lt;/p&gt;
+## Getting Started
 
-&lt;div class=&quot;language-markdown highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;![&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Image alt text here.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;](&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;{{&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;'/assets/images/desktop.jpg'&lt;/span&gt; | relative_url }}){:class=&quot;img-responsive&quot;}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+Run:
+```shell
+$  gem install jekyll
+$  jekyll new levelup # Substitute 'levelup' with the name of your project
+$  cd levelup
+$  git init # Initialize git repo
+$  git add .
+$  git commit -m &quot;Initial commit&quot;
+## If you use RVM do the following:
+$  ruby -v # Check your Ruby version 
+$  rvm --ruby-version use 2.3.1@levelup --create # Substitute your Ruby version and gemset name
+$  git add .
+$  git commit -m &quot;Add RVM wrappers&quot;
+```
 
-&lt;p&gt;To embed a YouTube video like the following:&lt;/p&gt;
+ - Update Gemfile by changing `RUBY_VERSION` to `&quot;2.3.1&quot;` or whatever you are using.
+ - Add `.DS_Store`, `.ruby-gemset`, `ruby-version` to `.gitignore`.
+ - Add a `README.md` file if you want for your repo.
+ - In the `_config.yml` file, add `- README.md` to list of files under `exclude`. (This will prevent Jekyll from adding them to the distribution folder.)
+ - In the `_config.yml` file, remove `email`, `twitter_username`, and `github_username` lines since we won't be using those. Update the `title` and `description` lines, also add or update the following:
 
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://youtube.com/embed/FOfIoCi9uTI&quot; frameborder=&quot;0&quot; title=&quot;youtube video&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+```yaml
+baseline: /levelup # If you are using on GitHub pages this will be the name of your repo
+url: https://pennymac.github.io/ # If you are using on GitHub pages you will have your username as the subdomain
+lang: en
+timezone: America/Los_Angeles
+permalink: /:title # This is just one way to structure your links, 
+```
 
-&lt;p&gt;First get the video id. It will be everything after the &lt;code class=&quot;highlighter-rouge&quot;&gt;v=&lt;/code&gt;. So for &lt;code class=&quot;highlighter-rouge&quot;&gt;youtube.com/watch?v=FOfIoCi9uTI&lt;/code&gt; the id is &lt;code class=&quot;highlighter-rouge&quot;&gt;FOfIoCi9uTI&lt;/code&gt;. Then add it to a Liquid tag like:&lt;/p&gt;
 
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;youtube&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;FOfIoCi&lt;span class=&quot;mi&quot;&gt;9&lt;/span&gt;uTI&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+## To turn on live updates
+Add `gem &quot;hawkins&quot;` to the `:jekyll_plugins` of your` Gemfile`. Run:
 
-&lt;p&gt;If instead you have a Vimeo video, take the id from the URL, such as &lt;code class=&quot;highlighter-rouge&quot;&gt;vimeo.com/22439234&lt;/code&gt; and add to a Vimeo Liquid tag:&lt;/p&gt;
+```shell
+$  gem install bundler # if necessary
+$  bundle
+$  jekyll liveserve --incremental --baseurl '' # We are changing the baseurl variable because it will be different when running locally versus on your GitHub pages
+```
 
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;vimeo&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;170526921&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+You might have to visit `127.0.0.1:35729` in your browser to get the message `LiveReload: Browser connected` in your terminal to kick off the live reloading. You should at this point be able to view your site at http://localhost:4000 and have the browser automatically refresh with any updates you make. (Note: If you make a change to the `_config.yml` file, you will have to stop with `ctrl-c` and restart with the `jekyll liveserve --incremental --baseurl ''` command to see the changes.)
 
-&lt;p&gt;to get this:&lt;/p&gt;
 
-&lt;iframe width=&quot;640&quot; height=&quot;360&quot; src=&quot;https://player.vimeo.com/video/170526921&quot; frameborder=&quot;0&quot; title=&quot;vimeo video&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
 
-&lt;h3 id=&quot;preview--build&quot;&gt;Preview &amp;amp; Build&lt;/h3&gt;
+## To overwrite the default theme.
 
-&lt;p&gt;You will be able to preview your blog post by running:&lt;/p&gt;
+ - Remove `theme: minima` from `_config.yml`. Learn more about this theme and how to customize it [here](https://github.com/jekyll/minima).
+ - Remove or comment out `gem &quot;minima&quot;, &quot;~&gt; 2.0&quot;` from `Gemfile`.
+ - Run:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rake serve
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```shell
+$  bundle
+$  rm about.md
+$  mkdir _includes
+$  touch _includes/head.html
+$  touch _includes/header.html
+$  touch _includes/footer.html
+$  touch _includes/footer-script.html
+$  mkdir _layouts
+$  touch _layouts/default.html
+$  touch _layouts/post.html
+$  mkdir _sass
+$  mkdir assets
+$  mkdir assets/images
+$  mkdir assets/stylesheets
+$  mkdir assests/javascripts
+$  touch assets/stylesheets/main.scss
+$  mv index.md index.html
+```
 
-&lt;p&gt;Your post will be listed on the homepage with a link.&lt;/p&gt;
+Change layout to `default` in `index.html`. Remove all page content, but home.
 
-&lt;p&gt;Once it looks perfect, run:&lt;/p&gt;
+Add the following to your `_includes/head.html` file to add Bootstrap and custom CSS to all your `head` tags:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rake build
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git add .
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;Added new post&quot;&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git push origin post/my-awesome-post-title
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```html
+{% raw %}
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
 
-&lt;h3 id=&quot;pull-request&quot;&gt;Pull Request&lt;/h3&gt;
+&lt;title&gt;{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}&lt;/title&gt;
+&lt;meta name=&quot;description&quot; content=&quot;{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; integrity=&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot; crossorigin=&quot;anonymous&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{{ '/assets/stylesheets/main.css' | relative_url }}&quot;&gt;
+&lt;link rel=&quot;canonical&quot; href=&quot;{{ page.url | replace:'index.html','' | absolute_url }}&quot;&gt;
+&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;{{ site.title | escape }}&quot; href=&quot;{{ '/feed.xml' | relative_url }}&quot;&gt;
 
-&lt;p&gt;Then go to the &lt;a href=&quot;https://github.com/pennymac/levelup&quot;&gt;repo&lt;/a&gt; and create a merge request.&lt;/p&gt;
+&lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;
+&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;
+&lt;!--[if lt IE 9]&gt;
+  &lt;script src=&quot;https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;https://oss.maxcdn.com/respond/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+{% endraw %}
+```
 
-&lt;p&gt;Start blogging now!&lt;/p&gt;</content><category term="jekyll" /><category term="markdown" /><category term="yaml" /><summary type="html">This is a quick walk-through on how to create a post for this site.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/N7XodRrbzS0/500x300" /></entry><entry><title type="html">Create a Jekyll Blog</title><link href="https://pennymac.github.io/levelup/create-a-jekyll-blog" rel="alternate" type="text/html" title="Create a Jekyll Blog" /><published>2017-01-18T00:00:00-08:00</published><updated>2017-01-18T00:00:00-08:00</updated><id>https://pennymac.github.io/levelup/create-a-jekyll-blog</id><content type="html" xml:base="https://pennymac.github.io/levelup/create-a-jekyll-blog">&lt;h2 id=&quot;check-the-requirements&quot;&gt;Check the Requirements&lt;/h2&gt;
-&lt;p&gt;First, you’ll need the following installed on your dev environment:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/downloads/&quot;&gt;Ruby&lt;/a&gt; (including development headers, v1.9.3 or above)&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://rubygems.org/pages/download&quot;&gt;RubyGems&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Linux, Unix, or Mac OS X&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://gcc.gnu.org/install/&quot;&gt;GCC&lt;/a&gt; and &lt;a href=&quot;https://www.gnu.org/software/make/&quot;&gt;Make&lt;/a&gt; (in case your system doesn’t have them installed, which you can check by running &lt;code class=&quot;highlighter-rouge&quot;&gt;gcc -v&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;make -v&lt;/code&gt; in your system’s command line interface)&lt;/li&gt;
-&lt;/ul&gt;
 
-&lt;h2 id=&quot;getting-started&quot;&gt;Getting Started&lt;/h2&gt;
+Add something like the following to your `_includes/header.html` file to add a simple navbar to the top of all your pages:
+```html
+{% raw %}
+&lt;header class=&quot;navbar navbar-default&quot;&gt;
+  &lt;div class=&quot;container&quot;&gt;
+    &lt;nav class=&quot;navbar-header&quot;&gt;
+      &lt;a class=&quot;navbar-brand&quot; href=&quot;{{ '/' | relative_url }}&quot;&gt;
+        &lt;img alt=&quot;LevelUp&quot; src=&quot;{{ '/assets/images/levelup-logo.svg' | relative_url }}&quot; height=&quot;50&quot;&gt;
+      &lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;
+{% endraw %}
+```
 
-&lt;p&gt;Run:&lt;/p&gt;
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;gem install jekyll
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll new levelup &lt;span class=&quot;c&quot;&gt;# Substitute 'levelup' with the name of your project&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;levelup
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git init &lt;span class=&quot;c&quot;&gt;# Initialize git repo&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git add .
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;Initial commit&quot;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;## If you use RVM do the following:&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;ruby -v &lt;span class=&quot;c&quot;&gt;# Check your Ruby version &lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rvm --ruby-version use 2.3.1@levelup --create &lt;span class=&quot;c&quot;&gt;# Substitute your Ruby version and gemset name&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git add .
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git commit -m &lt;span class=&quot;s2&quot;&gt;&quot;Add RVM wrappers&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Update Gemfile by changing &lt;code class=&quot;highlighter-rouge&quot;&gt;RUBY_VERSION&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;2.3.1&quot;&lt;/code&gt; or whatever you are using.&lt;/li&gt;
-  &lt;li&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;.DS_Store&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;.ruby-gemset&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;ruby-version&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;.gitignore&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Add a &lt;code class=&quot;highlighter-rouge&quot;&gt;README.md&lt;/code&gt; file if you want for your repo.&lt;/li&gt;
-  &lt;li&gt;In the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, add &lt;code class=&quot;highlighter-rouge&quot;&gt;- README.md&lt;/code&gt; to list of files under &lt;code class=&quot;highlighter-rouge&quot;&gt;exclude&lt;/code&gt;. (This will prevent Jekyll from adding them to the distribution folder.)&lt;/li&gt;
-  &lt;li&gt;In the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, remove &lt;code class=&quot;highlighter-rouge&quot;&gt;email&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;twitter_username&lt;/code&gt;, and &lt;code class=&quot;highlighter-rouge&quot;&gt;github_username&lt;/code&gt; lines since we won’t be using those. Update the &lt;code class=&quot;highlighter-rouge&quot;&gt;title&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;description&lt;/code&gt; lines, also add or update the following:&lt;/li&gt;
-&lt;/ul&gt;
+Add the following to your `_includes/footer.html` file to create an RSS feed link at the bottom of all pages:
+```html
+{% raw %}
+&lt;footer class=&quot;container text-center&quot;&gt;
+  &lt;p&gt;Subscribe &lt;a href=&quot;{{ '/feed.xml' | relative_url }}&quot;&gt;via RSS&lt;/a&gt;&lt;/p&gt;
+&lt;/footer&gt;
+{% endraw %}
+```
 
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;s&quot;&gt;baseline&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/levelup&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# If you are using on GitHub pages this will be the name of your repo&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;https://pennymac.github.io/&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# If you are using on GitHub pages you will have your username as the subdomain&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;lang&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;en&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;timezone&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;America/Los_Angeles&lt;/span&gt;
-&lt;span class=&quot;s&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;/:title&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# This is just one way to structure your links, &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;h2 id=&quot;to-turn-on-live-updates&quot;&gt;To turn on live updates&lt;/h2&gt;
-&lt;p&gt;Add &lt;code class=&quot;highlighter-rouge&quot;&gt;gem &quot;hawkins&quot;&lt;/code&gt; to the &lt;code class=&quot;highlighter-rouge&quot;&gt;:jekyll_plugins&lt;/code&gt; of your&lt;code class=&quot;highlighter-rouge&quot;&gt; Gemfile&lt;/code&gt;. Run:&lt;/p&gt;
+Add the following to your `_includes/footer-script.html` file to add jQuery and BootstrapJS to all your pages:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;gem install bundler &lt;span class=&quot;c&quot;&gt;# if necessary&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;bundle
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll liveserve --incremental --baseurl &lt;span class=&quot;s1&quot;&gt;''&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# We are changing the baseurl variable because it will be different when running locally versus on your GitHub pages&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```html
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot; integrity=&quot;sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;
+```
 
-&lt;p&gt;You might have to visit &lt;code class=&quot;highlighter-rouge&quot;&gt;127.0.0.1:35729&lt;/code&gt; in your browser to get the message &lt;code class=&quot;highlighter-rouge&quot;&gt;LiveReload: Browser connected&lt;/code&gt; in your terminal to kick off the live reloading. You should at this point be able to view your site at http://localhost:4000 and have the browser automatically refresh with any updates you make. (Note: If you make a change to the &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt; file, you will have to stop with &lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl-c&lt;/code&gt; and restart with the &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll liveserve --incremental --baseurl ''&lt;/code&gt; command to see the changes.)&lt;/p&gt;
+Add the following to your `_layouts/default.html` file:
 
-&lt;h2 id=&quot;to-overwrite-the-default-theme&quot;&gt;To overwrite the default theme.&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Remove &lt;code class=&quot;highlighter-rouge&quot;&gt;theme: minima&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. Learn more about this theme and how to customize it &lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Remove or comment out &lt;code class=&quot;highlighter-rouge&quot;&gt;gem &quot;minima&quot;, &quot;~&amp;gt; 2.0&quot;&lt;/code&gt; from &lt;code class=&quot;highlighter-rouge&quot;&gt;Gemfile&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Run:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;bundle
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rm about.md
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir _includes
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _includes/head.html
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _includes/header.html
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _includes/footer.html
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _includes/footer-script.html
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir _layouts
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _layouts/default.html
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch _layouts/post.html
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir _sass
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir assets
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir assets/images
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir assets/stylesheets
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mkdir assests/javascripts
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;touch assets/stylesheets/main.scss
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;mv index.md index.html
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Change layout to &lt;code class=&quot;highlighter-rouge&quot;&gt;default&lt;/code&gt; in &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt;. Remove all page content, but home.&lt;/p&gt;
-
-&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/head.html&lt;/code&gt; file to add Bootstrap and custom CSS to all your &lt;code class=&quot;highlighter-rouge&quot;&gt;head&lt;/code&gt; tags:&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;charset=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;http-equiv=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;X-UA-Compatible&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;IE=edge&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;viewport&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;width=device-width, initial-scale=1&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;title&amp;gt;&lt;/span&gt;{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;meta&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;description&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;content=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;integrity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;crossorigin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;anonymous&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/assets/stylesheets/main.css' | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;canonical&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.url | replace:'index.html','' | absolute_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;link&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;rel=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;alternate&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;application/rss+xml&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ site.title | escape }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/feed.xml' | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;&amp;lt;!--[if lt IE 9]&amp;gt;
-  &amp;lt;script src=&quot;https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-  &amp;lt;script src=&quot;https://oss.maxcdn.com/respond/1.4.2/respond.min.js&quot;&amp;gt;&amp;lt;/script&amp;gt;
-&amp;lt;![endif]--&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Add something like the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/header.html&lt;/code&gt; file to add a simple navbar to the top of all your pages:&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navbar navbar-default&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;nav&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navbar-header&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;navbar-brand&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/' | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;LevelUp&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/assets/images/levelup-logo.svg' | relative_url }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;50&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/nav&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/footer.html&lt;/code&gt; file to create an RSS feed link at the bottom of all pages:&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container text-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Subscribe &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ '/feed.xml' | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;via RSS&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_includes/footer-script.html&lt;/code&gt; file to add jQuery and BootstrapJS to all your pages:&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;integrity=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;crossorigin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;anonymous&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/default.html&lt;/code&gt; file:&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
-&lt;span class=&quot;cp&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;html&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;lang=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.lang | default: site.lang | default: 'en' }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;head&amp;gt;&lt;/span&gt;
+```html
+{% raw %}
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;{{ page.lang | default: site.lang | default: 'en' }}&quot;&gt;
+  &lt;head&gt;
     {% include head.html %}
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
     {% include header.html %}
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;container&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;row&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;col-xs-12 col-sm-8 col-sm-offset-2&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-xs-12 col-sm-8 col-sm-offset-2&quot;&gt;
           {{ content }}
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
     {% include footer.html %}
     {% include footer-script.html %}
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+{% endraw %}
+```
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Add the following to your &lt;code class=&quot;highlighter-rouge&quot;&gt;_layouts/post.html&lt;/code&gt; file:&lt;/p&gt;
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Add the following to your `_layouts/post.html` file:
+```html
+{% raw %}
 ---
 layout: default
 ---
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;article&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schema.org/BlogPosting&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;article itemscope itemtype=&quot;http://schema.org/BlogPosting&quot;&gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;text-center&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name headline&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;small&amp;gt;&lt;/span&gt;{% if page.author %} by &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;author&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemscope&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemtype=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;http://schema.org/Person&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.author }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&lt;/span&gt;{% endif %}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/small&amp;gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&amp;lt;time&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;datetime=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ page.date | date_to_xmlschema }}&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;datePublished&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ page.date | date: &quot;%B %-d, %Y&quot; }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/time&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;hr&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+  &lt;header class=&quot;text-center&quot;&gt;
+    &lt;h1 itemprop=&quot;name headline&quot;&gt;{{ page.title }}&lt;small&gt;{% if page.author %} by &lt;span itemprop=&quot;author&quot; itemscope itemtype=&quot;http://schema.org/Person&quot;&gt;&lt;span itemprop=&quot;name&quot;&gt;{{ page.author }}&lt;/span&gt;&lt;/span&gt;{% endif %}&lt;/small&gt;&lt;/h1&gt;
+    &lt;p&gt;&lt;time datetime=&quot;{{ page.date | date_to_xmlschema }}&quot; itemprop=&quot;datePublished&quot;&gt;{{ page.date | date: &quot;%B %-d, %Y&quot; }}&lt;/time&gt;&lt;/p&gt;
+    &lt;hr&gt;
+  &lt;/header&gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;itemprop=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;articleBody&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+  &lt;div itemprop=&quot;articleBody&quot;&gt;
     {{ content }}
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;/div&gt;
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
+&lt;/article&gt;
+{% endraw %}
+```
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+Change the content of your `index.html` file to the following in order to show a listing of your blog posts:
 
-&lt;p&gt;Change the content of your &lt;code class=&quot;highlighter-rouge&quot;&gt;index.html&lt;/code&gt; file to the following in order to show a listing of your blog posts:&lt;/p&gt;
-
-&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+```html
+{% raw %}
 ---
 title: LevelUp
 layout: default
 ---
 
 {% for post in site.posts %}
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;small&amp;gt;&lt;/span&gt;{{ post.date | date: &quot;%B %-d, %Y&quot; }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/small&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;h4&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ post.url | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;{{ post.title }}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;small&amp;gt;&lt;/span&gt;{% if post.author %} by {{ post.author }}{% endif %}&lt;span class=&quot;nt&quot;&gt;&amp;lt;/small&amp;gt;&amp;lt;/h3&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;{{ post.excerpt }} &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;{{ post.url | relative_url }}&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Read more &lt;span class=&quot;ni&quot;&gt;&amp;amp;hellip;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+  &lt;small&gt;{{ post.date | date: &quot;%B %-d, %Y&quot; }}&lt;/small&gt;
+  &lt;h4&gt;&lt;a href=&quot;{{ post.url | relative_url }}&quot;&gt;{{ post.title }}&lt;/a&gt; &lt;small&gt;{% if post.author %} by {{ post.author }}{% endif %}&lt;/small&gt;&lt;/h3&gt;
+  &lt;p&gt;{{ post.excerpt }} &lt;a href=&quot;{{ post.url | relative_url }}&quot;&gt;Read more &amp;hellip;&lt;/a&gt;&lt;/p&gt;
   {% unless forloop.last == true %}
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;hr&amp;gt;&lt;/span&gt;
+    &lt;hr&gt;
   {% endunless %}
 {% endfor %}
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Finally, change the autogenerated post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; folder to whatever you’d like to start blogging about. The section below will help if you want to discuss code in your posts.&lt;/p&gt;
-
-&lt;h2 id=&quot;add-code-syntax-highlighting&quot;&gt;Add Code Syntax Highlighting&lt;/h2&gt;
-
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;gem install rouge
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rougify &lt;span class=&quot;nb&quot;&gt;help &lt;/span&gt;style &lt;span class=&quot;c&quot;&gt;# This will list available themes&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;rougify style monokai.sublime &amp;gt; _sass/_syntax-highlighting.scss &lt;span class=&quot;c&quot;&gt;# substitute your favorite for monokai.sublime&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Add an &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/stylesheets/main.scss&lt;/code&gt; file and add the following to it:&lt;/p&gt;
-
-&lt;div class=&quot;language-scss highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;nt&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;charset&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;@import&lt;/span&gt;
-  &lt;span class=&quot;s2&quot;&gt;&quot;syntax-highlighting&quot;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Now armed with a &lt;a href=&quot;https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers&quot;&gt;list of supported languages&lt;/a&gt; you will then be able to wrap your code blocks in Liquid tags like so:&lt;/p&gt;
-
-&lt;div class=&quot;language-liquid highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;highlight&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;ruby&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-def show
-  @widget = Widget(params[:id])
-  respond_to do |format|
-    format.html # show.html.erb
-    format.json { render json: @widget }
-  end
-end
-&lt;span class=&quot;p&quot;&gt;{%&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;endhighlight&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;%}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;or on Markdown pages you can also use fenced code blocks like so:&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;```ruby
-def show
-  @widget = Widget(params[:id])
-  respond_to do |format|
-    format.html # show.html.erb
-    format.json { render json: @widget }
-  end
-end
+{% endraw %}
 ```
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
 
-&lt;p&gt;Which will output your highlighted code block like so:&lt;/p&gt;
+Finally, change the autogenerated post in your `_posts` folder to whatever you'd like to start blogging about. The section below will help if you want to discuss code in your posts.
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;show&lt;/span&gt;
-  &lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Widget&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;params&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;respond_to&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# show.html.erb&lt;/span&gt;
-    &lt;span class=&quot;nb&quot;&gt;format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;render&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;json: &lt;/span&gt;&lt;span class=&quot;vi&quot;&gt;@widget&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+## Add Code Syntax Highlighting
 
-&lt;h2 id=&quot;hosting-on-github-pages&quot;&gt;Hosting on GitHub pages&lt;/h2&gt;
+```shell
+$  gem install rouge
+$  rougify help style # This will list available themes
+$  rougify style monokai.sublime &gt; _sass/_syntax-highlighting.scss # substitute your favorite for monokai.sublime
+```
 
-&lt;p&gt;All you have to do to host your site on GitHub pages is to run a build of your site and then push the contents of your &lt;code class=&quot;highlighter-rouge&quot;&gt;_site&lt;/code&gt; directory to your &lt;code class=&quot;highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch. Run:&lt;/p&gt;
+Add an `assets/stylesheets/main.scss` file and add the following to it:
 
-&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;jekyll build
-&lt;span class=&quot;gp&quot;&gt;$  &lt;/span&gt;git subtree push --prefix _site origin gh-pages
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+```scss
+---
+---
+@charset &quot;utf-8&quot;;
+@import
+  &quot;syntax-highlighting&quot;
+;
+```
 
-&lt;h2 id=&quot;more-info&quot;&gt;More Info&lt;/h2&gt;
+Now armed with a [list of supported languages](https://github.com/jneen/rouge/wiki/List-of-supported-languages-and-lexers) you will then be able to wrap your code blocks in Liquid tags like so:
 
-&lt;p&gt;If you would like to skip all the above and just snag the code for this website up to this point, pull the &lt;code class=&quot;highlighter-rouge&quot;&gt;phase1&lt;/code&gt; branch of this repo.&lt;/p&gt;
+```liquid
+{% raw %}{% highlight ruby %}
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+{% endhighlight %}{% endraw %}
+```
 
-&lt;p&gt;Visit &lt;a href=&quot;http://jekyllrb.com/docs&quot;&gt;Jekyll docs&lt;/a&gt; for more info.&lt;/p&gt;</content><category term="jekyll" /><category term="liquid" /><category term="markdown" /><category term="yaml" /><summary type="html">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/lRssALOk1fU/500x300" /></entry></feed>
+or on Markdown pages you can also use fenced code blocks like so:
+
+
+    ```ruby
+    def show
+      @widget = Widget(params[:id])
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @widget }
+      end
+    end
+    ```
+
+Which will output your highlighted code block like so:
+
+```ruby
+def show
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html # show.html.erb
+    format.json { render json: @widget }
+  end
+end
+``` 
+
+## Hosting on GitHub pages
+
+All you have to do to host your site on GitHub pages is to run a build of your site and then push the contents of your `_site` directory to your `gh-pages` branch. Run:
+
+```shell
+$  jekyll build
+$  git subtree push --prefix _site origin gh-pages
+```
+
+## More Info
+
+If you would like to skip all the above and just snag the code for this website up to this point, pull the `phase1` branch of this repo.
+
+Visit [Jekyll docs](http://jekyllrb.com/docs) for more info.</content><category term="jekyll" /><category term="liquid" /><category term="markdown" /><category term="yaml" /><summary type="html">This post will help you set up a very basic Jekyll blog website and host it on GitHub Pages.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://source.unsplash.com/lRssALOk1fU/500x300" /></entry></feed>
