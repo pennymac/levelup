@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Sample SAML open token to access token Test Application</title>
+  </head>
+  <body>
+    <script>
+      var your_application="https://pennymac.github.io/levelup/saml-client/";
+      $(document).ready(function() {
+        var openToken=getParameterByName('code');
+        // change URL to help your setup test
+        var url = 'https://idp.elliemae.com/authorize?client_id=sshrp8o&response_type=token&scope=ccbp%20cc&redirect_uri='+your_application+'&code='+openToken;
+        document.location = url;
+      });
+
+      function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+      }
+    </script>
+  </body>
+</html>
