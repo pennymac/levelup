@@ -1,17 +1,4 @@
-<md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_10987fbf-66f1-4823-8e4d-44cf57dd0e09" entityID="http://localhost:3002">
-<script/>
-<script/>
-<md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
-<md:NameIDFormat>
-urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
-</md:NameIDFormat>
-<md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="http://localhost:3002/users/auth/saml/callback" index="0" isDefault="true"/>
-<md:AttributeConsumingService index="1" isDefault="true">
-<md:ServiceName xml:lang="en">Required attributes</md:ServiceName>
-<md:RequestedAttribute FriendlyName="Email address" Name="email" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false"/>
-<md:RequestedAttribute FriendlyName="Full name" Name="name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false"/>
-<md:RequestedAttribute FriendlyName="Given name" Name="first_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false"/>
-<md:RequestedAttribute FriendlyName="Family name" Name="last_name" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:basic" isRequired="false"/>
-</md:AttributeConsumingService>
-</md:SPSSODescriptor>
+<md:EntityDescriptor ID="N85szekmRUwYpNe72ZZMI7boKFB"  entityID="https://concept.idp.elliemae.com" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+<md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:AssertionConsumerService index="0" Location="https://concept.idp.elliemae.com/sp/ACS.saml2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" isDefault="true"/><md:AttributeConsumingService index="0"><md:ServiceName xml:lang="en">AttributeContract</md:ServiceName><md:RequestedAttribute Name="last_name"/><md:RequestedAttribute Name="email_address"/><md:RequestedAttribute Name="first_name"/><md:RequestedAttribute Name="user_name"/></md:AttributeConsumingService></md:SPSSODescriptor>
+<md:ContactPerson contactType="administrative"><md:Company>Ellie Mae</md:Company></md:ContactPerson>
 </md:EntityDescriptor>
