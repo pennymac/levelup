@@ -1,6 +1,19 @@
 ---
 ---
-<md:EntityDescriptor ID="N85szekmRUwYpNe72ZZMI7boKFB"  entityID="https://idp.elliemae.com" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
-<md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><md:AssertionConsumerService index="0" Location="https://idp.elliemae.com/sp/ACS.saml2" Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" isDefault="true"/><md:AttributeConsumingService index="0"><md:ServiceName xml:lang="en">AttributeContract</md:ServiceName><md:RequestedAttribute Name="last_name"/><md:RequestedAttribute Name="email_address"/><md:RequestedAttribute Name="first_name"/><md:RequestedAttribute Name="user_name"/></md:AttributeConsumingService></md:SPSSODescriptor>
-<md:ContactPerson contactType="administrative"><md:Company>Ellie Mae</md:Company></md:ContactPerson>
+<?xml version="1.0"?>
+<md:EntityDescriptor ID="N85szekmRUwYpNe72ZZMI7boKFB" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.elliemae.com">
+  <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.elliemae.com/sp/ACS.saml2" index="1" />
+    <md:AttributeConsumingService index="0">
+      <md:ServiceName xml:lang="en">AttributeContract</md:ServiceName>
+      <md:RequestedAttribute Name="last_name"/>
+      <md:RequestedAttribute Name="email_address"/>
+      <md:RequestedAttribute Name="first_name"/>
+      <md:RequestedAttribute Name="user_name"/>
+    </md:AttributeConsumingService>
+  </md:SPSSODescriptor>
+  <md:ContactPerson contactType="administrative">
+    <md:Company>Ellie Mae</md:Company>
+  </md:ContactPerson>
 </md:EntityDescriptor>
