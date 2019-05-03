@@ -1,10 +1,10 @@
 ---
 ---
 <?xml version="1.0"?>
-<md:EntityDescriptor ID="N85szekmRUwYpNe72ZZMI7boKFB" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://idp.elliemae.com">
+<md:EntityDescriptor ID="N85szekmRUwYpNe72ZZMI7boKFB" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://stg.idp.elliemae.com">
   <md:SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
     <md:NameIDFormat>urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</md:NameIDFormat>
-    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://idp.elliemae.com/sp/ACS.saml2" index="1" />
+    <md:AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://stg.idp.elliemae.com/sp/ACS.saml2" index="1" />
     <md:AttributeConsumingService index="0">
       <md:ServiceName xml:lang="en">AttributeContract</md:ServiceName>
       <md:RequestedAttribute Name="last_name"/>
